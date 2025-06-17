@@ -1,0 +1,19 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd my-app && npm start",
+    "build": "cd my-app && npm run build",
+    "test": "cd my-app && npm test",
+    "eject": "cd my-app && npm run eject"
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "personal-website"
+  ],
+  "author": "",
+  "license": "ISC"
+} 
