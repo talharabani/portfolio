@@ -15,5 +15,10 @@
     "personal-website"
   ],
   "author": "",
-  "license": "ISC"
-} 
+  "license": "ISC",
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "emailjs-com": "^3.2.0",
+    "react-hot-toast": "^2.5.2"
+  }
+}
