@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.e82c085c.css",
+    "main.js": "/portfolio/static/js/main.0d550f59.js",
+    "static/js/845.92ed48f4.chunk.js": "/portfolio/static/js/845.92ed48f4.chunk.js",
+    "static/media/talha1.png": "/portfolio/static/media/talha1.33f123dbd73c479c8337.png",
+    "index.html": "/portfolio/index.html",
+    "main.e82c085c.css.map": "/portfolio/static/css/main.e82c085c.css.map",
+    "main.0d550f59.js.map": "/portfolio/static/js/main.0d550f59.js.map",
+    "845.92ed48f4.chunk.js.map": "/portfolio/static/js/845.92ed48f4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e82c085c.css",
+    "static/js/main.0d550f59.js"
+  ]
+}
