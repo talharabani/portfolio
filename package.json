@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "cd my-app && npm start",
-    "build": "cd my-app && npm run build",
+    "build": "react-scripts build",
     "test": "cd my-app && npm test",
-    "eject": "cd my-app && npm run eject"
+    "eject": "cd my-app && npm run eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [
     "portfolio",
@@ -19,6 +21,16 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "emailjs-com": "^3.2.0",
-    "react-hot-toast": "^2.5.2"
+    "react-hot-toast": "^2.5.2",
+    "react-tsparticles": "^2.12.2",
+    "tsparticles": "^3.8.1",
+    "tsparticles-slim": "^2.12.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
+  "homepage": "https://talharabani.github.io/portfolio",
+  "netlify": {
+    "baseDirectory": "my-app"
   }
 }
