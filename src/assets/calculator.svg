@@ -1,0 +1,14 @@
+<svg width="100%" height="100%" viewBox="0 0 400 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="192" rx="24" fill="#A7F3D0"/>
+  <g>
+    <rect x="140" y="40" width="120" height="112" rx="16" fill="#059669"/>
+    <rect x="160" y="60" width="80" height="24" rx="6" fill="#D1FAE5"/>
+    <rect x="160" y="100" width="24" height="24" rx="4" fill="#D1FAE5"/>
+    <rect x="196" y="100" width="24" height="24" rx="4" fill="#D1FAE5"/>
+    <rect x="232" y="100" width="24" height="24" rx="4" fill="#D1FAE5"/>
+    <rect x="160" y="136" width="24" height="24" rx="4" fill="#D1FAE5"/>
+    <rect x="196" y="136" width="24" height="24" rx="4" fill="#D1FAE5"/>
+    <rect x="232" y="136" width="24" height="24" rx="4" fill="#D1FAE5"/>
+  </g>
+  <text x="200" y="170" font-size="20" fill="#065F46" font-family="sans-serif" text-anchor="middle">Calculator</text>
+</svg> 

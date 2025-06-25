@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom font for Google Fonts (Poppins/Inter) will be set in index.html and Tailwind config */
