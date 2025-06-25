@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import profileImg from "../assets/talha1.png";
 import { FaReact, FaJs, FaHtml5, FaCss3Alt, FaGitAlt } from "react-icons/fa";

@@ -29,7 +29,7 @@ const logos: Record<LogoKey, LogoDef> = {
 };
 
 function App() {
-  const [logo, setLogo] = React.useState<LogoKey>('react');
+  const [logo] = React.useState<LogoKey>('react');
   const LogoIcon = logos[logo].icon;
   return (
     <div className="bg-white dark:bg-gray-950 min-h-screen flex flex-col relative">

@@ -1,4 +1,3 @@
-import React from "react";
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGitAlt } from "react-icons/fa";
 
 const skills = [

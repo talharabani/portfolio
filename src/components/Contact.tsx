@@ -29,7 +29,7 @@ export default function Contact() {
           setSent(true);
           setLoading(false);
         },
-        (err) => {
+        () => {
           setError("Failed to send message. Try again later.");
           setLoading(false);
         }
@@ -45,7 +45,13 @@ export default function Contact() {
             <div className="text-green-700 text-xl font-semibold text-center">Thank you! Your message has been sent.</div>
             <button
               type="button"
-              onClick={resetForm}
+              onClick={() => {
+                setSent(false);
+                setError("");
+                if (form.current) {
+                  form.current.reset();
+                }
+              }}
               className="w-full py-3 bg-primary text-white rounded-lg shadow hover:bg-opacity-80 hover:scale-105 transition-all duration-300 font-semibold"
             >
               Send Another
