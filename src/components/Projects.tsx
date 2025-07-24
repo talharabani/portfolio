@@ -9,8 +9,18 @@ import groceryImg from "../assets/grocery.jpg";
 import carImg from "../assets/car.jpg";
 import cricketImg from "../assets/cricket.jpg";
 import puzzleImg from "../assets/puzzle.jpg";
+import deliciousBitesImg from "../assets/DeliciousBites.jpg";
 
 const projects = [
+  {
+    title: "DeliciousBites Restaurant Website",
+    description:
+      "A modern and responsive restaurant website for DeliciousBites with menu, booking, and gallery.",
+    image: deliciousBitesImg,
+    tech: ["React", "Vite", "Tailwind CSS", "TypeScript"],
+    github: "https://github.com/talharabani/DeliciousBites",
+    live: "https://thunderous-bonbon-a4564a.netlify.app/",
+  },
   {
     title: "Notava Music Streaming App",
     description:
