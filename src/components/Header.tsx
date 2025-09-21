@@ -6,6 +6,7 @@ const navLinks = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -20,15 +21,15 @@ export default function Header() {
   }, [darkMode]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur shadow-md">
+    <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/10 dark:bg-black/20 border-b border-white/20 shadow-2xl">
       <nav className="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
-        <a href="#hero" className="text-2xl font-bold tracking-tight">Rabani</a>
+        <a href="#hero" className="text-2xl font-bold tracking-tight bg-gradient-to-r from-white via-cyan-200 to-purple-200 bg-clip-text text-transparent drop-shadow-lg">TALHA ISHAQ</a>
         <div className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-lg font-medium hover:text-blue-400 hover:underline transition-colors duration-200 rounded-md px-2 py-1"
+              className="text-lg font-medium text-white/90 hover:text-cyan-300 hover:underline transition-colors duration-200 rounded-md px-2 py-1 drop-shadow-md"
             >
               {link.name}
             </a>

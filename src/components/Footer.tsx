@@ -2,14 +2,14 @@ import { FaGithub, FaLinkedin, FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="py-8 bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 mt-12">
+    <footer className="relative py-8 backdrop-blur-xl bg-white/10 dark:bg-black/20 border-t border-white/20 mt-12">
       <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex gap-4 text-2xl">
           <a
             href="https://github.com/talharabani"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-400 hover:scale-110 transition-all duration-300 rounded-md"
+            className="text-white/80 hover:text-cyan-300 hover:scale-110 transition-all duration-300 rounded-md drop-shadow-md"
             aria-label="GitHub"
           >
             <FaGithub />
@@ -18,7 +18,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/talha-ishaq-rabani-23b94122b/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-400 hover:scale-110 transition-all duration-300 rounded-md"
+            className="text-white/80 hover:text-cyan-300 hover:scale-110 transition-all duration-300 rounded-md drop-shadow-md"
             aria-label="LinkedIn"
           >
             <FaLinkedin />
@@ -27,7 +27,7 @@ export default function Footer() {
             href="https://www.facebook.com/talha.ishaqrabani/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-400 hover:scale-110 transition-all duration-300 rounded-md"
+            className="text-white/80 hover:text-cyan-300 hover:scale-110 transition-all duration-300 rounded-md drop-shadow-md"
             aria-label="Facebook"
           >
             <FaFacebook />
@@ -45,9 +45,9 @@ export default function Footer() {
             <span className="font-semibold text-base">Chat on WhatsApp: 0300 9490631</span>
           </a>
         </div>
-        <div className="text-sm text-gray-500 dark:text-gray-400 text-center md:text-right">
-          &copy; {new Date().getFullYear()} Rabani. All rights reserved.
-        </div>
+          <div className="text-sm text-white/70 text-center md:text-right drop-shadow-md">
+            &copy; {new Date().getFullYear()} TALHA ISHAQ. All rights reserved.
+          </div>
       </div>
     </footer>
   );

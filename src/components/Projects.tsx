@@ -10,8 +10,18 @@ import carImg from "../assets/car.jpg";
 import cricketImg from "../assets/cricket.jpg";
 import puzzleImg from "../assets/puzzle.jpg";
 import deliciousBitesImg from "../assets/DeliciousBites.jpg";
+import namazImg from "../assets/DeliciousBites.jpg";
 
 const projects = [
+  {
+    title: "3D Namaz Viewer - Islamic Prayer Learning Platform",
+    description:
+      "A comprehensive Islamic prayer learning website with detailed instructions, Arabic text, transliterations, and visual guides. Features step-by-step learning, audio recitations, video tutorials, interactive galleries, and a quiz system. Built with modern React and Vite for optimal performance and user experience.",
+    image: namazImg,
+    tech: ["React", "Vite", "Tailwind CSS", "JavaScript", "PWA"],
+    github: "https://github.com/talharabani/3D-Namaz-Viewer/",
+    live: "https://namaz-p10k.onrender.com/",
+  },
   {
     title: "DeliciousBites Restaurant Website",
     description:
@@ -97,7 +107,15 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-16 overflow-hidden">
+    <section id="projects" className="relative py-20 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }}></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-y-12"></div>
+        <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-l from-transparent via-blue-500/10 to-transparent transform skew-y-12"></div>
+      </div>
       {/* Floating Tech Icons */}
       <motion.div
         className="absolute left-10 top-10 opacity-20 rounded-full text-sky-400 z-0"
@@ -149,37 +167,110 @@ export default function Projects() {
         <FaGitAlt size={32} />
       </motion.div>
       {/* Project Cards Grid */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <div className="backdrop-blur-md bg-white/10 dark:bg-black/20 rounded-3xl p-8 border border-white/20 shadow-2xl">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent drop-shadow-lg">
+              Featured Projects
+            </h2>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
+              Here are some of my recent projects that showcase my skills and passion for creating amazing digital experiences.
+            </p>
+          </div>
+        </motion.div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
             <motion.div
               key={project.title}
-              className="group bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-2 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-950 dark:hover:border-blue-400"
+              className="group backdrop-blur-lg bg-white/10 dark:bg-black/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col transition-all duration-500 hover:scale-105 hover:shadow-3xl border border-white/20 hover:bg-white/20 dark:hover:bg-black/30"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.2 }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              whileHover={{ 
+                y: -15,
+                rotateY: 5,
+                rotateX: 5,
+                transition: { duration: 0.3 }
+              }}
             >
-              <img src={project.image} alt={project.title} className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div className="relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex gap-2">
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors duration-300"
+                    >
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                    </a>
+                    <a 
+                      href={project.live} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors duration-300"
+                    >
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-2xl font-semibold mb-2 transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">{project.title}</h3>
-                <p className="mb-4 flex-1 transition-transform duration-300 group-hover:scale-105 group-hover:text-blue-500 dark:group-hover:text-blue-400">
+                <h3 className="text-xl font-bold mb-3 transition-colors duration-300 text-white drop-shadow-lg group-hover:text-cyan-300">
+                  {project.title}
+                </h3>
+                <p className="mb-4 flex-1 text-white/90 text-sm leading-relaxed drop-shadow-md">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((t) => (
-                    <span key={t} className="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-medium transition-colors duration-300 group-hover:bg-blue-100 group-hover:text-blue-600 dark:group-hover:bg-blue-900 dark:group-hover:text-blue-300">
+                    <span 
+                      key={t} 
+                      className="px-3 py-1 backdrop-blur-sm bg-white/20 text-white/90 rounded-full text-xs font-medium transition-all duration-300 border border-white/30 group-hover:bg-white/30"
+                    >
                       {t}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4 mt-auto">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline hover:scale-105 hover:bg-opacity-80 transition-all duration-300 px-3 py-1 rounded-md group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                <div className="flex gap-3 mt-auto">
+                  <a 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 backdrop-blur-md bg-white/20 text-white rounded-xl hover:bg-white/30 border border-white/30 transition-all duration-300 font-medium"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
                     GitHub
                   </a>
-                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline hover:scale-105 hover:bg-opacity-80 transition-all duration-300 px-3 py-1 rounded-md group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                    Live
+                  <a 
+                    href={project.live} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 backdrop-blur-md bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-white rounded-xl hover:from-cyan-500/30 hover:to-purple-500/30 border border-cyan-400/30 transition-all duration-300 font-medium"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Live Demo
                   </a>
                 </div>
               </div>
