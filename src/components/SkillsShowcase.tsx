@@ -4,8 +4,8 @@ import {
   FaCloud, FaRocket, FaLaptopCode, FaServer, FaPalette 
 } from "react-icons/fa";
 import { 
-  SiTypescript, SiTailwindcss, SiMongodb, SiExpress, 
-  SiFirebase, SiVercel, SiNetlify, SiFigma, SiAdobexd 
+  SiTailwindcss, SiMongodb, 
+  SiFirebase, SiVercel, SiNetlify, SiFigma, SiAdobexd, SiReact, SiN8N 
 } from "react-icons/si";
 
 const skillCategories = [
@@ -13,23 +13,23 @@ const skillCategories = [
     title: "Frontend Development",
     icon: <FaReact className="text-4xl text-blue-500" />,
     skills: [
-      { name: "React", level: 95, icon: <FaReact className="text-2xl text-blue-500" /> },
-      { name: "TypeScript", level: 90, icon: <SiTypescript className="text-2xl text-blue-600" /> },
-      { name: "JavaScript", level: 95, icon: <FaJs className="text-2xl text-yellow-500" /> },
-      { name: "HTML5", level: 98, icon: <FaHtml5 className="text-2xl text-orange-500" /> },
-      { name: "CSS3", level: 95, icon: <FaCss3Alt className="text-2xl text-blue-400" /> },
-      { name: "Tailwind CSS", level: 90, icon: <SiTailwindcss className="text-2xl text-cyan-500" /> },
+      { name: "React", level: 60, icon: <FaReact className="text-2xl text-blue-500" /> },
+      { name: "React Native", level: 55, icon: <SiReact className="text-2xl text-cyan-400" /> },
+      { name: "JavaScript", level: 55, icon: <FaJs className="text-2xl text-yellow-500" /> },
+      { name: "HTML5", level: 60, icon: <FaHtml5 className="text-2xl text-orange-500" /> },
+      { name: "CSS3", level: 60, icon: <FaCss3Alt className="text-2xl text-blue-400" /> },
+      { name: "Tailwind CSS", level: 55, icon: <SiTailwindcss className="text-2xl text-cyan-500" /> },
     ]
   },
   {
     title: "Backend Development",
     icon: <FaServer className="text-4xl text-green-500" />,
     skills: [
-      { name: "Node.js", level: 85, icon: <FaNodeJs className="text-2xl text-green-600" /> },
-      { name: "Express.js", level: 85, icon: <SiExpress className="text-2xl text-gray-600" /> },
-      { name: "MongoDB", level: 80, icon: <SiMongodb className="text-2xl text-green-500" /> },
-      { name: "Python", level: 75, icon: <FaCode className="text-2xl text-yellow-600" /> },
-      { name: "Firebase", level: 70, icon: <SiFirebase className="text-2xl text-orange-500" /> },
+      { name: "Node.js", level: 55, icon: <FaNodeJs className="text-2xl text-green-600" /> },
+      { name: "MongoDB", level: 50, icon: <SiMongodb className="text-2xl text-green-500" /> },
+      { name: "Python", level: 80, icon: <FaCode className="text-2xl text-yellow-600" /> },
+      { name: "Firebase", level: 50, icon: <SiFirebase className="text-2xl text-orange-500" /> },
+      { name: "n8n Automation", level: 50, icon: <SiN8N className="text-2xl text-orange-400" /> },
     ]
   },
   {

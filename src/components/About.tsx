@@ -1,20 +1,19 @@
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaCode, FaMobile } from "react-icons/fa";
-import { SiTypescript, SiTailwindcss, SiMongodb, SiExpress } from "react-icons/si";
+import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaCode } from "react-icons/fa";
+import { SiTailwindcss, SiMongodb, SiReact, SiN8N } from "react-icons/si";
 
 const skills = [
-  { icon: <FaReact className="text-sky-400" />, name: "React", level: 95 },
-  { icon: <SiTypescript className="text-blue-500" />, name: "TypeScript", level: 90 },
-  { icon: <FaJs className="text-yellow-400" />, name: "JavaScript", level: 95 },
-  { icon: <FaNodeJs className="text-green-600" />, name: "Node.js", level: 85 },
-  { icon: <SiMongodb className="text-green-500" />, name: "MongoDB", level: 80 },
-  { icon: <SiExpress className="text-gray-600" />, name: "Express.js", level: 85 },
-  { icon: <FaHtml5 className="text-orange-500" />, name: "HTML5", level: 98 },
-  { icon: <FaCss3Alt className="text-blue-500" />, name: "CSS3", level: 95 },
-  { icon: <SiTailwindcss className="text-cyan-400" />, name: "Tailwind CSS", level: 90 },
-  { icon: <FaGitAlt className="text-red-500" />, name: "Git", level: 85 },
-  { icon: <FaCode className="text-purple-500" />, name: "Python", level: 75 },
-  { icon: <FaMobile className="text-indigo-500" />, name: "Mobile Dev", level: 70 },
+  { icon: <FaReact className="text-sky-400" />, name: "React", level: 60 },
+  { icon: <FaJs className="text-yellow-400" />, name: "JavaScript", level: 55 },
+  { icon: <SiReact className="text-cyan-400" />, name: "React Native", level: 55 },
+  { icon: <FaNodeJs className="text-green-600" />, name: "Node.js", level: 55 },
+  { icon: <SiMongodb className="text-green-500" />, name: "MongoDB", level: 50 },
+  { icon: <FaHtml5 className="text-orange-500" />, name: "HTML5", level: 60 },
+  { icon: <FaCss3Alt className="text-blue-500" />, name: "CSS3", level: 60 },
+  { icon: <SiTailwindcss className="text-cyan-400" />, name: "Tailwind CSS", level: 55 },
+  { icon: <FaGitAlt className="text-red-500" />, name: "Git", level: 55 },
+  { icon: <FaCode className="text-purple-500" />, name: "Python", level: 80 },
+  { icon: <SiN8N className="text-orange-400" />, name: "n8n Automation", level: 50 },
 ];
 
 export default function About() {
