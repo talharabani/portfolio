@@ -111,8 +111,8 @@ export default function Hero() {
               <FaArrowDown className="animate-bounce" />
             </motion.a>
             <motion.a
-              href="/resume.pdf"
-              download
+              href="/TALHA ESUME UPDATED.pdf"
+              download="TALHA_RESUME_UPDATED.pdf"
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 backdrop-blur-md bg-gradient-to-r from-green-500/20 to-teal-500/20 text-gray-900 dark:text-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 font-semibold border border-green-400/30 hover:bg-green-500/30"
               whileHover={{ 
                 scale: 1.05,
