@@ -11,8 +11,18 @@ import cricketImg from "../assets/cricket.jpg";
 import puzzleImg from "../assets/puzzle.jpg";
 import deliciousBitesImg from "../assets/DeliciousBites.jpg";
 import namazImg from "../assets/DeliciousBites.jpg";
+import attackDetectionImg from "../assets/attack detetction system.png";
 
 const projects = [
+  {
+    title: "Attack Detection System for CPS - IDS/IPS",
+    description:
+      "A cross-platform Intrusion Detection & Prevention System (IDS/IPS) built in Python that continuously monitors network traffic, system logs, processes, and ICS/CPS protocols to detect cyber attacks in real-time. Features include desktop & Discord notifications, attacker profiling, comprehensive dashboard with attack analytics, Shodan API integration for threat intelligence, and a downloadable extension for personal use. Supports Windows, Linux, and macOS with 17+ Python libraries, 8+ network protocols, and multiple export formats (JSON, CSV, PDF, ElasticSearch, Grafana). Works like a 24/7 security guard for your computer or network.",
+    image: attackDetectionImg,
+    tech: ["Python", "Shodan API", "Discord API", "Network Security", "IDS/IPS", "Threat Intelligence"],
+    github: "https://github.com/talharabani/Attack-detection-system-for-CPS",
+    live: "#", // Desktop application
+  },
   {
     title: "3D Namaz Viewer - Islamic Prayer Learning Platform",
     description:
@@ -107,7 +117,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-20 overflow-hidden">
+    <section id="projects" className="relative py-16 md:py-20 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
         <div className="absolute inset-0 opacity-20" style={{
@@ -176,15 +186,15 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <div className="backdrop-blur-md bg-white/10 dark:bg-black/20 rounded-3xl p-8 border border-white/20 shadow-2xl">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent drop-shadow-lg">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent drop-shadow-lg">
               Featured Projects
             </h2>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-white/90 max-w-3xl mx-auto drop-shadow-md">
               Here are some of my recent projects that showcase my skills and passion for creating amazing digital experiences.
             </p>
           </div>
         </motion.div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, idx) => (
             <motion.div
               key={project.title}
@@ -213,9 +223,9 @@ export default function Projects() {
                       href={project.github} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors duration-300"
+                      className="p-2 bg-white/20 dark:bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/40 dark:hover:bg-white/30 transition-colors duration-300"
                     >
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-gray-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                       </svg>
                     </a>
@@ -223,9 +233,9 @@ export default function Projects() {
                       href={project.live} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors duration-300"
+                      className="p-2 bg-white/20 dark:bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/40 dark:hover:bg-white/30 transition-colors duration-300"
                     >
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-gray-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
@@ -233,17 +243,17 @@ export default function Projects() {
                 </div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold mb-3 transition-colors duration-300 text-white drop-shadow-lg group-hover:text-cyan-300">
+                <h3 className="text-lg md:text-xl font-bold mb-3 transition-colors duration-300 text-gray-900 dark:text-white drop-shadow-lg group-hover:text-cyan-600 dark:group-hover:text-cyan-300">
                   {project.title}
                 </h3>
-                <p className="mb-4 flex-1 text-white/90 text-sm leading-relaxed drop-shadow-md">
+                <p className="mb-4 flex-1 text-gray-700 dark:text-white/90 text-sm leading-relaxed drop-shadow-md">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((t) => (
                     <span 
                       key={t} 
-                      className="px-3 py-1 backdrop-blur-sm bg-white/20 text-white/90 rounded-full text-xs font-medium transition-all duration-300 border border-white/30 group-hover:bg-white/30"
+                      className="px-3 py-1 backdrop-blur-sm bg-white/20 dark:bg-white/20 text-gray-900 dark:text-white/90 rounded-full text-xs font-medium transition-all duration-300 border border-gray-300 dark:border-white/30 group-hover:bg-white/40 dark:group-hover:bg-white/30"
                     >
                       {t}
                     </span>
@@ -254,7 +264,7 @@ export default function Projects() {
                     href={project.github} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 backdrop-blur-md bg-white/20 text-white rounded-xl hover:bg-white/30 border border-white/30 transition-all duration-300 font-medium"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 backdrop-blur-md bg-white/20 dark:bg-white/20 text-gray-900 dark:text-white rounded-xl hover:bg-white/40 dark:hover:bg-white/30 border border-gray-300 dark:border-white/30 transition-all duration-300 font-medium"
                   >
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -265,7 +275,7 @@ export default function Projects() {
                     href={project.live} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 backdrop-blur-md bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-white rounded-xl hover:from-cyan-500/30 hover:to-purple-500/30 border border-cyan-400/30 transition-all duration-300 font-medium"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 backdrop-blur-md bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-gray-900 dark:text-white rounded-xl hover:from-cyan-500/30 hover:to-purple-500/30 border border-cyan-400/30 transition-all duration-300 font-medium"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

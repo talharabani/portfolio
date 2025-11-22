@@ -98,10 +98,10 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <div className="backdrop-blur-md bg-white/10 dark:bg-black/20 rounded-3xl p-8 border border-white/20 shadow-2xl">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent drop-shadow-lg">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent drop-shadow-lg">
               Get In Touch
             </h2>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-white/90 max-w-3xl mx-auto drop-shadow-md">
               Have a project in mind or want to collaborate? I'd love to hear from you. Let's create something amazing together!
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function Contact() {
           </motion.div>
         )}
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Contact Info */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -151,7 +151,7 @@ export default function Contact() {
           className="space-y-8"
         >
           <motion.div 
-            className="backdrop-blur-lg bg-white/10 dark:bg-black/20 rounded-3xl p-8 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:rotate-1 hover:bg-white/20 dark:hover:bg-black/30"
+            className="backdrop-blur-lg bg-white/10 dark:bg-black/20 rounded-3xl p-6 md:p-8 border border-white/20 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:rotate-1 hover:bg-white/20 dark:hover:bg-black/30"
             whileHover={{ 
               y: -10,
               rotateY: 5,
@@ -159,33 +159,33 @@ export default function Contact() {
               transition: { duration: 0.3 }
             }}
           >
-            <h3 className="text-2xl font-bold mb-6 text-center text-white drop-shadow-lg">Contact Information</h3>
-              <div className="space-y-6">
+            <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center text-gray-900 dark:text-white drop-shadow-lg">Contact Information</h3>
+              <div className="space-y-4 md:space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 backdrop-blur-sm bg-white/20 rounded-full flex items-center justify-center border border-white/30">
-                    <FaEnvelope className="text-cyan-400" />
+                  <div className="w-12 h-12 backdrop-blur-sm bg-white/20 dark:bg-white/20 rounded-full flex items-center justify-center border border-gray-300 dark:border-white/30 flex-shrink-0">
+                    <FaEnvelope className="text-cyan-600 dark:text-cyan-400" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white drop-shadow-md">Email</p>
-                    <p className="text-white/80 drop-shadow-md">talhaishaqrabani@gmail.com</p>
+                    <p className="font-semibold text-gray-900 dark:text-white drop-shadow-md">Email</p>
+                    <p className="text-gray-700 dark:text-white/80 drop-shadow-md">talhaishaqrabani@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 backdrop-blur-sm bg-white/20 rounded-full flex items-center justify-center border border-white/30">
-                    <FaWhatsapp className="text-green-400" />
+                  <div className="w-12 h-12 backdrop-blur-sm bg-white/20 dark:bg-white/20 rounded-full flex items-center justify-center border border-gray-300 dark:border-white/30 flex-shrink-0">
+                    <FaWhatsapp className="text-green-500 dark:text-green-400" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white drop-shadow-md">WhatsApp</p>
-                    <p className="text-white/80 drop-shadow-md">+92 300 9490631</p>
+                    <p className="font-semibold text-gray-900 dark:text-white drop-shadow-md">WhatsApp</p>
+                    <p className="text-gray-700 dark:text-white/80 drop-shadow-md">+92 300 9490631</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 backdrop-blur-sm bg-white/20 rounded-full flex items-center justify-center border border-white/30">
-                    <FaPhone className="text-purple-400" />
+                  <div className="w-12 h-12 backdrop-blur-sm bg-white/20 dark:bg-white/20 rounded-full flex items-center justify-center border border-gray-300 dark:border-white/30 flex-shrink-0">
+                    <FaPhone className="text-purple-500 dark:text-purple-400" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white drop-shadow-md">Phone</p>
-                    <p className="text-white/80 drop-shadow-md">+92 300 9490631</p>
+                    <p className="font-semibold text-gray-900 dark:text-white drop-shadow-md">Phone</p>
+                    <p className="text-gray-700 dark:text-white/80 drop-shadow-md">+92 300 9490631</p>
                   </div>
                 </div>
               </div>
@@ -198,7 +198,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="backdrop-blur-lg bg-white/10 dark:bg-black/20 rounded-3xl p-8 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:rotate-1 hover:bg-white/20 dark:hover:bg-black/30"
+            className="backdrop-blur-lg bg-white/10 dark:bg-black/20 rounded-3xl p-6 md:p-8 border border-white/20 dark:border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:rotate-1 hover:bg-white/20 dark:hover:bg-black/30"
             whileHover={{ 
               y: -10,
               rotateY: 5,
@@ -239,7 +239,7 @@ export default function Contact() {
                           value={formData.user_name}
                           onChange={handleInputChange}
               required
-                          className="w-full pl-10 pr-4 py-3 rounded-xl backdrop-blur-sm bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300"
+                          className="w-full pl-10 pr-4 py-3 rounded-xl backdrop-blur-sm bg-white/20 dark:bg-white/20 border border-gray-300 dark:border-white/30 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300"
             />
                   </div>
                   
@@ -288,7 +288,7 @@ export default function Contact() {
               value={formData.message}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 rounded-xl backdrop-blur-sm bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300 resize-none"
+              className="w-full px-4 py-3 rounded-xl backdrop-blur-sm bg-white/20 dark:bg-white/20 border border-gray-300 dark:border-white/30 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300 resize-none"
             />
                   </div>
                 </div>
@@ -305,7 +305,7 @@ export default function Contact() {
                 
                     <button
                       type="submit"
-                      className="w-full py-4 backdrop-blur-md bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-white rounded-xl shadow-xl hover:from-cyan-500/30 hover:to-purple-500/30 hover:scale-105 transition-all duration-300 font-semibold disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 border border-cyan-400/30 hover:border-cyan-400/50"
+                      className="w-full py-4 backdrop-blur-md bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-gray-900 dark:text-white rounded-xl shadow-xl hover:from-cyan-500/30 hover:to-purple-500/30 hover:scale-105 transition-all duration-300 font-semibold disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 border border-cyan-400/30 hover:border-cyan-400/50"
                       disabled={loading}
                     >
                   {loading ? (
