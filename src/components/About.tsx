@@ -13,7 +13,7 @@ const skills = [
   { icon: <SiTailwindcss className="text-cyan-400" />, name: "Tailwind CSS", level: 55 },
   { icon: <FaGitAlt className="text-red-500" />, name: "Git", level: 55 },
   { icon: <FaCode className="text-purple-500" />, name: "Python", level: 80 },
-  { icon: <SiN8N className="text-orange-400" />, name: "n8n Automation", level: 50 },
+  { icon: <SiN8N className="text-orange-400" />, name: "n8n Automation", level: 90 },
 ];
 
 export default function About() {

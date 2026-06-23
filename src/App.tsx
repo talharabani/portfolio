@@ -3,15 +3,16 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import N8nAutomation from "./components/N8nAutomation";
 import SkillsShowcase from "./components/SkillsShowcase";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import { FaReact, FaJs, FaHtml5, FaCss3Alt, FaGitAlt } from "react-icons/fa";
 import { SiTypescript, SiTailwindcss } from "react-icons/si";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 
-type LogoKey = 'react' | 'js' | 'html' | 'css' | 'ts' | 'tailwind' | 'git';
+type LogoKey = "react" | "js" | "html" | "css" | "ts" | "tailwind" | "git";
 
 type LogoDef = {
   icon: React.ComponentType<{ size: number; className?: string }>;
@@ -20,20 +21,43 @@ type LogoDef = {
 };
 
 const logos: Record<LogoKey, LogoDef> = {
-  react: { icon: FaReact, colorClass: 'text-sky-400', label: 'React' },
-  js: { icon: FaJs, colorClass: 'text-yellow-400', label: 'JavaScript' },
-  html: { icon: FaHtml5, colorClass: 'text-orange-500', label: 'HTML5' },
-  css: { icon: FaCss3Alt, colorClass: 'text-blue-400', label: 'CSS3' },
-  ts: { icon: SiTypescript, colorClass: 'text-blue-500', label: 'TypeScript' },
-  tailwind: { icon: SiTailwindcss, colorClass: 'text-cyan-400', label: 'Tailwind' },
-  git: { icon: FaGitAlt, colorClass: 'text-red-500', label: 'Git' },
+  react:   { icon: FaReact,        colorClass: "text-sky-400",    label: "React"      },
+  js:      { icon: FaJs,           colorClass: "text-yellow-400", label: "JavaScript" },
+  html:    { icon: FaHtml5,        colorClass: "text-orange-500", label: "HTML5"      },
+  css:     { icon: FaCss3Alt,      colorClass: "text-blue-400",   label: "CSS3"       },
+  ts:      { icon: SiTypescript,   colorClass: "text-blue-500",   label: "TypeScript" },
+  tailwind:{ icon: SiTailwindcss,  colorClass: "text-cyan-400",   label: "Tailwind"   },
+  git:     { icon: FaGitAlt,       colorClass: "text-red-500",    label: "Git"        },
 };
 
+function ScrollProgressBar() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
+  return (
+    <motion.div
+      style={{
+        scaleX,
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 3,
+        background: "linear-gradient(90deg, #f97316, #a855f7, #06b6d4)",
+        transformOrigin: "0%",
+        zIndex: 9999,
+      }}
+    />
+  );
+}
+
 function App() {
-  const [logo] = React.useState<LogoKey>('react');
+  const [logo] = React.useState<LogoKey>("react");
   const LogoIcon = logos[logo].icon;
+
   return (
     <div className="bg-white dark:bg-gray-950 min-h-screen flex flex-col relative">
+      <ScrollProgressBar />
+
       {/* Animated Background Logo */}
       <motion.div
         className="hidden md:block fixed inset-0 z-[-1] flex items-center justify-center pointer-events-none"
@@ -45,20 +69,18 @@ function App() {
           x: [-100, 100, -100],
           y: [100, -100, 100],
         }}
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
         aria-hidden="true"
       >
         <LogoIcon size={520} className={`${logos[logo].colorClass} opacity-90 blur-sm rounded-full`} />
       </motion.div>
+
       <Header />
       <main className="flex-1">
         <Hero />
         <About />
         <Projects />
+        <N8nAutomation />
         <SkillsShowcase />
         <Contact />
       </main>

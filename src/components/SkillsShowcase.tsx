@@ -29,7 +29,7 @@ const skillCategories = [
       { name: "MongoDB", level: 55, icon: <SiMongodb className="text-2xl text-green-500" /> },
       { name: "Python", level: 45, icon: <FaCode className="text-2xl text-yellow-600" /> },
       { name: "Firebase", level: 55, icon: <SiFirebase className="text-2xl text-orange-500" /> },
-      { name: "n8n Automation", level: 70, icon: <SiN8N className="text-2xl text-orange-400" /> },
+      { name: "n8n Automation", level: 90, icon: <SiN8N className="text-2xl text-orange-400" /> },
     ]
   },
   {
