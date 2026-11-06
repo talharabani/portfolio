@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -6,16 +7,27 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Poppins", "Inter", "ui-sans-serif", "system-ui"],
+        bebas: ["'Bebas Neue'", "sans-serif"],
+        script: ["'Caveat'", "cursive"],
+        sans: ["'Plus Jakarta Sans'", "'Inter'", "sans-serif"],
       },
       colors: {
-        primary: {
-          DEFAULT: '#6366f1', // indigo-500
-          dark: '#4f46e5',   // indigo-600
+        crimson: {
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#dc2626',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
+          950: '#450a0a',
         },
       },
     },
   },
   plugins: [],
   darkMode: 'class',
-}; 
+};

@@ -1,0 +1,97 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="750" fill="#090a0f" />
+  
+  <defs>
+    <radialGradient id="namazGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#090a0f" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#namazGlow)" />
+
+  <!-- App Window Container -->
+  <rect x="80" y="50" width="1040" height="650" rx="20" fill="#0e1018" stroke="#1f2438" stroke-width="2" />
+  
+  <!-- Header Bar -->
+  <rect x="80" y="50" width="1040" height="60" rx="20" fill="#131722" />
+  <circle cx="116" cy="80" r="6" fill="#ef4444" />
+  <circle cx="136" cy="80" r="6" fill="#eab308" />
+  <circle cx="156" cy="80" r="6" fill="#22c55e" />
+  <text x="185" y="85" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">3D NAMAZ VIEWER</text>
+  <text x="350" y="85" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">• Interactive Islamic Prayer Learning Platform</text>
+  <rect x="940" y="68" width="150" height="26" rx="13" fill="#1e293b" stroke="#38bdf8" stroke-width="1" />
+  <text x="965" y="85" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="bold">PWA &amp; 3D READY</text>
+
+  <!-- Left Side: Prayer Steps Navigation -->
+  <rect x="110" y="135" width="280" height="535" rx="14" fill="#0a0c13" stroke="#1e2333" />
+  <text x="135" y="170" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold">PRAYER SEQUENCE</text>
+  
+  <!-- Step 1 (Active) -->
+  <rect x="125" y="190" width="250" height="65" rx="10" fill="#1e2538" stroke="#dc2626" stroke-width="1.5" />
+  <circle cx="150" cy="222" r="14" fill="#dc2626" />
+  <text x="146" y="227" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">1</text>
+  <text x="175" y="215" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">Takbeer-e-Tehrima</text>
+  <text x="175" y="235" fill="#94a3b8" font-family="sans-serif" font-size="11">Standing posture &amp; Niyyah</text>
+
+  <!-- Step 2 -->
+  <rect x="125" y="265" width="250" height="55" rx="10" fill="#111420" stroke="#1c202e" />
+  <circle cx="150" cy="292" r="14" fill="#202538" />
+  <text x="146" y="297" fill="#94a3b8" font-family="sans-serif" font-size="12">2</text>
+  <text x="175" y="287" fill="#cbd5e1" font-family="sans-serif" font-size="13">Qiyam &amp; Recitation</text>
+  <text x="175" y="305" fill="#64748b" font-family="sans-serif" font-size="11">Surah Al-Fatiha + Ayah</text>
+
+  <!-- Step 3 -->
+  <rect x="125" y="330" width="250" height="55" rx="10" fill="#111420" stroke="#1c202e" />
+  <circle cx="150" cy="357" r="14" fill="#202538" />
+  <text x="146" y="362" fill="#94a3b8" font-family="sans-serif" font-size="12">3</text>
+  <text x="175" y="352" fill="#cbd5e1" font-family="sans-serif" font-size="13">Ruku (Bowing)</text>
+  <text x="175" y="370" fill="#64748b" font-family="sans-serif" font-size="11">Subhana Rabbiyal Azeem</text>
+
+  <!-- Step 4 -->
+  <rect x="125" y="395" width="250" height="55" rx="10" fill="#111420" stroke="#1c202e" />
+  <circle cx="150" cy="422" r="14" fill="#202538" />
+  <text x="146" y="427" fill="#94a3b8" font-family="sans-serif" font-size="12">4</text>
+  <text x="175" y="417" fill="#cbd5e1" font-family="sans-serif" font-size="13">Sujud (Prostration)</text>
+  <text x="175" y="435" fill="#64748b" font-family="sans-serif" font-size="11">Subhana Rabbiyal A'la</text>
+
+  <!-- Step 5 -->
+  <rect x="125" y="460" width="250" height="55" rx="10" fill="#111420" stroke="#1c202e" />
+  <circle cx="150" cy="487" r="14" fill="#202538" />
+  <text x="146" y="492" fill="#94a3b8" font-family="sans-serif" font-size="12">5</text>
+  <text x="175" y="482" fill="#cbd5e1" font-family="sans-serif" font-size="13">Tashahhud &amp; Salam</text>
+  <text x="175" y="500" fill="#64748b" font-family="sans-serif" font-size="11">Final Sitting &amp; Salutation</text>
+
+  <!-- Right Side: 3D Visualizer & Details -->
+  <rect x="410" y="135" width="680" height="360" rx="16" fill="#07090e" stroke="#1e2438" />
+  
+  <!-- Visualizer Center Graphic -->
+  <circle cx="750" cy="290" r="130" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6 6" />
+  <circle cx="750" cy="290" r="95" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.4" />
+  <circle cx="750" cy="290" r="60" fill="#131726" />
+  <text x="750" y="285" fill="#ffffff" font-family="sans-serif" font-size="36" text-anchor="middle">🕋</text>
+  <text x="750" y="315" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">QIBLA DIRECTION</text>
+  
+  <text x="750" y="440" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" text-anchor="middle">Interactive 3D Posture Model &amp; Audio Recitation</text>
+  <text x="750" y="465" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" text-anchor="middle">Arabic Transliteration • English Translation • Multi-Angle Views</text>
+
+  <!-- Bottom Player & Info Controls -->
+  <rect x="410" y="515" width="680" height="155" rx="14" fill="#0f131f" stroke="#1f2538" />
+  <text x="440" y="550" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="bold">Takbeer Recitation (Audio Player)</text>
+  <rect x="440" y="570" width="620" height="8" rx="4" fill="#1e2538" />
+  <rect x="440" y="570" width="280" height="8" rx="4" fill="#dc2626" />
+  
+  <rect x="440" y="600" width="100" height="36" rx="8" fill="#dc2626" />
+  <text x="466" y="623" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">▶ PLAY</text>
+
+  <rect x="555" y="600" width="120" height="36" rx="8" fill="#1e2538" stroke="#334155" stroke-width="1" />
+  <text x="575" y="623" fill="#e2e8f0" font-family="sans-serif" font-size="12">Quiz Mode</text>
+
+  <rect x="690" y="600" width="130" height="36" rx="8" fill="#1e2538" stroke="#334155" stroke-width="1" />
+  <text x="705" y="623" fill="#e2e8f0" font-family="sans-serif" font-size="12">Transliteration</text>
+</svg>
+

@@ -1,103 +1,118 @@
-import React, { useState } from "react";
-import { Switch } from "@headlessui/react";
-import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { motion } from "framer-motion";
-
-const navLinks = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Automation", href: "#automation" },
-  { name: "Skills", href: "#skills" },
-  { name: "Contact", href: "#contact" },
-];
+import { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaFileAlt, FaWhatsapp } from "react-icons/fa";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(() =>
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
-
-  React.useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/10 dark:bg-black/20 border-b border-white/20 shadow-2xl">
-      <nav className="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
-        <a href="#hero" className="text-xl sm:text-2xl font-bold tracking-tight bg-gradient-to-r from-gray-900 via-cyan-600 to-purple-600 dark:from-white dark:via-cyan-200 dark:to-purple-200 bg-clip-text text-transparent drop-shadow-lg">TALHA ISHAQ</a>
-        <div className="hidden md:flex gap-8 items-center">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-lg font-medium text-gray-900 dark:text-white/90 hover:text-cyan-600 dark:hover:text-cyan-300 hover:underline transition-colors duration-200 rounded-md px-2 py-1 drop-shadow-md"
-            >
-              {link.name}
-            </a>
-          ))}
-          <Switch
-            checked={darkMode}
-            onChange={setDarkMode}
-            className={`${
-              darkMode ? "bg-gray-700" : "bg-gray-300"
-            } relative inline-flex h-6 w-11 items-center rounded-full transition-colors`}
+    <header className="sticky top-0 z-50 w-full border-b border-zinc-900/80 bg-[#0a0a0a]/95 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between text-xs uppercase tracking-widest text-zinc-400 font-semibold">
+        {/* Left Sub-header info */}
+        <a href="#" className="flex flex-col group">
+          <span className="text-white font-bold text-sm tracking-tight font-sans group-hover:text-crimson-400 transition-colors">
+            TALHA ISHAQ
+          </span>
+          <span className="text-[10px] text-zinc-500 tracking-wider">
+            FULL STACK &amp; n8n AUTOMATION
+          </span>
+        </a>
+
+        {/* Center Navigation (Desktop) */}
+        <nav className="hidden md:flex items-center gap-7 lg:gap-8">
+          <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+          <a href="#process" className="hover:text-white transition-colors">Process &amp; Skills</a>
+          <a href="#automation" className="hover:text-white transition-colors">n8n Automation</a>
+          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+        </nav>
+
+        {/* Right Status (Desktop) */}
+        <div className="hidden sm:flex items-center gap-2">
+          <span className="text-crimson-500 text-sm">✦</span>
+          <a
+            href="#contact"
+            className="text-[11px] text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5"
           >
-            <span className="sr-only">Toggle dark mode</span>
-            <span className={`inline-block w-4 h-4 transform bg-white rounded-full shadow transition-transform ${
-              darkMode ? "translate-x-6" : "translate-x-1"
-            }`} />
-            {darkMode ? (
-              <MoonIcon className="w-5 h-5 text-yellow-400 absolute right-1" />
-            ) : (
-              <SunIcon className="w-5 h-5 text-yellow-500 absolute left-1" />
-            )}
-          </Switch>
+            AVAILABLE FOR FREELANCE
+          </a>
         </div>
-        <div className="flex items-center gap-4 md:hidden">
-          <Switch
-            checked={darkMode}
-            onChange={setDarkMode}
-            className={`${
-              darkMode ? "bg-gray-700" : "bg-gray-300"
-            } relative inline-flex h-6 w-11 items-center rounded-full transition-colors`}
-          >
-            <span className="sr-only">Toggle dark mode</span>
-            <span className={`inline-block w-4 h-4 transform bg-white rounded-full shadow transition-transform ${
-              darkMode ? "translate-x-6" : "translate-x-1"
-            }`} />
-          </Switch>
-          <button
-            className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <XMarkIcon className="w-6 h-6 text-gray-900 dark:text-white" /> : <Bars3Icon className="w-6 h-6 text-gray-900 dark:text-white" />}
-          </button>
-        </div>
-      </nav>
-      {/* Mobile menu */}
-      {menuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden backdrop-blur-xl bg-white/95 dark:bg-gray-950/95 px-4 pb-4 shadow-2xl border-t border-gray-200 dark:border-white/20"
+
+        {/* Mobile menu toggle */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden p-2 -mr-1 text-zinc-400 hover:text-white focus:outline-none"
+          aria-label="Toggle Menu"
         >
-          <div className="flex flex-col gap-4 pt-4">
-            {navLinks.map((link) => (
+          {menuOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Drawer with smooth animation */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden bg-[#0d0e14] border-b border-zinc-800 px-5 py-4 flex flex-col gap-3 text-xs font-semibold uppercase tracking-wider overflow-hidden shadow-2xl"
+          >
+            <a
+              href="#projects"
+              onClick={() => setMenuOpen(false)}
+              className="text-zinc-300 hover:text-white py-2 border-b border-zinc-900 transition-colors"
+            >
+              Selected Projects
+            </a>
+            <a
+              href="#process"
+              onClick={() => setMenuOpen(false)}
+              className="text-zinc-300 hover:text-white py-2 border-b border-zinc-900 transition-colors"
+            >
+              Work Process &amp; Skills
+            </a>
+            <a
+              href="#automation"
+              onClick={() => setMenuOpen(false)}
+              className="text-zinc-300 hover:text-white py-2 border-b border-zinc-900 transition-colors"
+            >
+              n8n Workflow Automation
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="text-zinc-300 hover:text-white py-2 border-b border-zinc-900 transition-colors"
+            >
+              Contact &amp; Inquiries
+            </a>
+
+            {/* Quick Actions in Mobile Menu */}
+            <div className="pt-2 flex items-center gap-2">
               <a
-                key={link.name}
-                href={link.href}
-                className="text-lg font-medium text-gray-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                href="/Talha_Ishaq_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 text-[11px] font-bold rounded-lg transition"
               >
-                {link.name}
+                <FaFileAlt className="text-crimson-400 text-xs" />
+                <span>Resume PDF</span>
               </a>
-            ))}
-          </div>
-        </motion.div>
-      )}
+              <a
+                href="https://wa.me/923009490631"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-bold rounded-lg transition shadow-md"
+              >
+                <FaWhatsapp className="text-sm" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
-} 
+}

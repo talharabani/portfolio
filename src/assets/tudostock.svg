@@ -1,0 +1,118 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark Window Background -->
+  <rect width="1200" height="750" fill="#090a0f" />
+  
+  <defs>
+    <radialGradient id="tsGlow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.15" />
+      <stop offset="50%" stop-color="#dc2626" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#090a0f" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="tsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#tsGlow)" />
+
+  <!-- App Window Container Frame -->
+  <rect x="50" y="40" width="1100" height="670" rx="18" fill="#0d0e14" stroke="#1f2333" stroke-width="1.5" />
+
+  <!-- Top Announcement Bar -->
+  <rect x="50" y="40" width="1100" height="38" rx="18" fill="#131622" />
+  <text x="80" y="64" fill="#93c5fd" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">🇵🇹 Multi-Warehouse B2B in Portugal &amp; Euro Zone</text>
+  <text x="450" y="64" fill="#94a3b8" font-family="sans-serif" font-size="11">Fast Delivery across Portugal • 24/7 Dedicated Support</text>
+  <text x="1040" y="64" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold">EUR (€) • EN/PT</text>
+
+  <!-- Navigation Header (Y: 78 to 140) -->
+  <rect x="50" y="78" width="1100" height="65" fill="#0f111a" stroke="#1e2230" stroke-width="1" />
+  
+  <!-- Logo -->
+  <circle cx="85" cy="110" r="16" fill="#2563eb" />
+  <text x="79" y="116" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="800">T</text>
+  <text x="110" y="117" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="900" letter-spacing="-0.5">TUDOSTOCK</text>
+  <text x="250" y="117" fill="#60a5fa" font-family="sans-serif" font-size="10" font-weight="700">PORTUGAL</text>
+
+  <!-- Search Bar -->
+  <rect x="370" y="93" width="360" height="36" rx="8" fill="#181b28" stroke="#282d42" />
+  <text x="390" y="115" fill="#64748b" font-family="sans-serif" font-size="12">Search iPhone, Samsung, repair parts, tools...</text>
+  <rect x="690" y="93" width="40" height="36" rx="8" fill="#2563eb" />
+  <text x="704" y="115" fill="#ffffff" font-family="sans-serif" font-size="13">🔍</text>
+
+  <!-- Nav links -->
+  <text x="760" y="115" fill="#cbd5e1" font-family="sans-serif" font-size="12" font-weight="600">Shopify Sync</text>
+  <text x="860" y="115" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="700">Wholesale B2B</text>
+  <rect x="970" y="93" width="150" height="36" rx="8" fill="#dc2626" />
+  <text x="990" y="115" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">🛒 POS Terminal</text>
+
+  <!-- Hero Banner Section -->
+  <rect x="80" y="165" width="1040" height="260" rx="16" fill="#0b1120" stroke="#1d283d" stroke-width="1.5" />
+  <rect x="80" y="165" width="1040" height="260" rx="16" fill="radial-gradient(circle at 80% 50%, rgba(37, 99, 235, 0.25), transparent 70%)" />
+  
+  <rect x="110" y="195" width="145" height="24" rx="6" fill="#1e3a8a" />
+  <text x="120" y="211" fill="#93c5fd" font-family="sans-serif" font-size="10" font-weight="bold">B2B PARTNER PROGRAM</text>
+
+  <text x="110" y="260" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="32" font-weight="900" letter-spacing="-0.5">Scale Your Repair Business</text>
+  <text x="110" y="295" fill="#60a5fa" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="800">with TUDOSTOCK Wholesale &amp; POS</text>
+
+  <text x="110" y="335" fill="#94a3b8" font-family="sans-serif" font-size="13">Unlock exclusive tiered pricing, automated POS checkout, and live Shopify product sync.</text>
+
+  <rect x="110" y="360" width="180" height="42" rx="8" fill="#2563eb" />
+  <text x="135" y="386" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700">Apply for Wholesale →</text>
+
+  <rect x="305" y="360" width="160" height="42" rx="8" fill="#181e2e" stroke="#2f3b54" />
+  <text x="330" y="386" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600">Open In-Store POS</text>
+
+  <!-- 3D Hardware Parts Visual Mockup on the right -->
+  <rect x="730" y="190" width="360" height="210" rx="14" fill="#080c14" stroke="#1d2638" />
+  <circle cx="850" cy="270" r="45" fill="#111827" stroke="#2563eb" stroke-dasharray="3 3" />
+  <text x="850" y="278" fill="#60a5fa" font-family="sans-serif" font-size="28" text-anchor="middle">📱</text>
+  <text x="850" y="335" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">OLED Screens</text>
+
+  <circle cx="970" cy="270" r="45" fill="#111827" stroke="#dc2626" stroke-dasharray="3 3" />
+  <text x="970" y="278" fill="#f87171" font-family="sans-serif" font-size="28" text-anchor="middle">🔋</text>
+  <text x="970" y="335" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Tested Batteries</text>
+
+  <text x="910" y="375" fill="#94a3b8" font-family="sans-serif" font-size="11" text-anchor="middle">10,000+ Verified Spare Parts Ready for Dispatch</text>
+
+  <!-- Bottom 3 Feature Pillar Cards -->
+  <!-- Pillar 1: Custom Shopify Storefront -->
+  <rect x="80" y="445" width="330" height="240" rx="14" fill="#11131c" stroke="#202433" />
+  <rect x="105" y="470" width="36" height="36" rx="8" fill="#1e3a8a" />
+  <text x="116" y="493" fill="#60a5fa" font-family="sans-serif" font-size="16">🛍</text>
+  <text x="155" y="485" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700">Custom Shopify Store</text>
+  <text x="155" y="503" fill="#64748b" font-family="sans-serif" font-size="11">Bespoke Theme &amp; Product Sync</text>
+  <p />
+  <text x="105" y="540" fill="#94a3b8" font-family="sans-serif" font-size="12">Clients can easily add, update, and manage</text>
+  <text x="105" y="560" fill="#94a3b8" font-family="sans-serif" font-size="12">thousands of repair parts with automatic</text>
+  <text x="105" y="580" fill="#94a3b8" font-family="sans-serif" font-size="12">inventory stock alerts and Portuguese VAT.</text>
+  <rect x="105" y="620" width="120" height="26" rx="6" fill="#172033" />
+  <text x="115" y="637" fill="#60a5fa" font-family="sans-serif" font-size="10" font-weight="bold">Shopify Hydrogen / API</text>
+
+  <!-- Pillar 2: Integrated POS System -->
+  <rect x="435" y="445" width="330" height="240" rx="14" fill="#11131c" stroke="#dc2626" stroke-width="1.5" />
+  <rect x="460" y="470" width="36" height="36" rx="8" fill="#381014" />
+  <text x="471" y="493" fill="#f87171" font-family="sans-serif" font-size="16">🧾</text>
+  <text x="510" y="485" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700">Integrated POS Terminal</text>
+  <text x="510" y="503" fill="#f87171" font-family="sans-serif" font-size="11">In-Store &amp; Counter Checkout</text>
+
+  <text x="460" y="540" fill="#94a3b8" font-family="sans-serif" font-size="12">Full point of sale integrated directly with the</text>
+  <text x="460" y="560" fill="#94a3b8" font-family="sans-serif" font-size="12">online inventory. Generates instant invoices,</text>
+  <text x="460" y="580" fill="#94a3b8" font-family="sans-serif" font-size="12">receipts, and tracks wholesale accounts.</text>
+  <rect x="460" y="620" width="140" height="26" rx="6" fill="#2d1216" />
+  <text x="470" y="637" fill="#f87171" font-family="sans-serif" font-size="10" font-weight="bold">Live In-Store &amp; Online POS</text>
+
+  <!-- Pillar 3: B2B Wholesale Tiered Pricing -->
+  <rect x="790" y="445" width="330" height="240" rx="14" fill="#11131c" stroke="#202433" />
+  <rect x="815" y="470" width="36" height="36" rx="8" fill="#14532d" />
+  <text x="826" y="493" fill="#4ade80" font-family="sans-serif" font-size="16">📊</text>
+  <text x="865" y="485" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700">Tiered B2B Wholesale</text>
+  <text x="865" y="503" fill="#64748b" font-family="sans-serif" font-size="11">Verified Repair Shop Pricing</text>
+
+  <text x="815" y="540" fill="#94a3b8" font-family="sans-serif" font-size="12">Automated business verification with Portuguese</text>
+  <text x="815" y="560" fill="#94a3b8" font-family="sans-serif" font-size="12">NIF / VAT numbers. Unlocks volume discounts,</text>
+  <text x="815" y="580" fill="#94a3b8" font-family="sans-serif" font-size="12">bulk ordering, and credit terms.</text>
+  <rect x="815" y="620" width="130" height="26" rx="6" fill="#142b1e" />
+  <text x="825" y="637" fill="#4ade80" font-family="sans-serif" font-size="10" font-weight="bold">Automated NIF / VAT</text>
+</svg>
+

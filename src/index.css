@@ -2,4 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom font for Google Fonts (Poppins/Inter) will be set in index.html and Tailwind config */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #0a0a0a;
+    color: #f4f4f5;
+  }
+  ::selection {
+    background-color: #dc2626;
+    color: #ffffff;
+  }
+}
+
+/* Subtle sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}

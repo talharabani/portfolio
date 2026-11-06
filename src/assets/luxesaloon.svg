@@ -1,0 +1,134 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#090a0f" />
+  
+  <defs>
+    <radialGradient id="lxGlow" cx="50%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.16" />
+      <stop offset="60%" stop-color="#dc2626" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#090a0f" stop-opacity="1" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#lxGlow)" />
+
+  <!-- Frame -->
+  <rect x="50" y="40" width="1100" height="670" rx="18" fill="#0d0e14" stroke="#1f2333" stroke-width="1.5" />
+
+  <!-- Left Sidebar (Width: 220) -->
+  <rect x="50" y="40" width="220" height="670" rx="18" fill="#11121b" stroke="#1e202e" stroke-width="1" />
+  <text x="75" y="85" fill="#a78bfa" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="900">✂ Luxe.</text>
+  
+  <rect x="65" y="125" width="188" height="40" rx="10" fill="#7c3aed" />
+  <text x="80" y="150" fill="#ffffff" font-family="sans-serif" font-size="14">📊</text>
+  <text x="105" y="150" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="bold">Dashboard</text>
+
+  <rect x="65" y="180" width="188" height="38" rx="8" fill="#181926" />
+  <text x="80" y="204" fill="#a78bfa" font-family="sans-serif" font-size="14">💳</text>
+  <text x="105" y="204" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600">POS Billing</text>
+
+  <text x="105" y="255" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">Products &amp; Stock</text>
+  <text x="105" y="300" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">Sales Records</text>
+  <text x="105" y="345" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">Staff &amp; Stylists</text>
+  <text x="105" y="390" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">Appointment Book</text>
+
+  <!-- Bottom Admin in Sidebar -->
+  <rect x="65" y="635" width="188" height="55" rx="12" fill="#181926" stroke="#25273b" />
+  <circle cx="90" cy="662" r="14" fill="#8b5cf6" />
+  <text x="83" y="666" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold">AU</text>
+  <text x="115" y="658" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">Admin User</text>
+  <text x="115" y="673" fill="#64748b" font-family="sans-serif" font-size="10">Saloon Manager</text>
+
+  <!-- Right Content Area (Starts at X: 270) -->
+  <!-- Top Bar -->
+  <rect x="270" y="40" width="880" height="65" fill="#0f111a" stroke="#1d202e" stroke-width="1" />
+  <text x="300" y="78" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800">Smart Billing &amp; Service Management</text>
+  <text x="640" y="78" fill="#a78bfa" font-family="sans-serif" font-size="11" font-weight="700">• SALOON POS &amp; APPOINTMENTS</text>
+
+  <rect x="940" y="55" width="180" height="36" rx="8" fill="#7c3aed" />
+  <text x="965" y="77" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">+ New Appointment</text>
+
+  <!-- Top 4 Metrics -->
+  <rect x="300" y="130" width="195" height="110" rx="14" fill="#141522" stroke="#282a3f" />
+  <circle cx="330" cy="160" r="14" fill="#202238" />
+  <text x="323" y="165" fill="#a78bfa" font-family="sans-serif" font-size="14">💵</text>
+  <text x="355" y="165" fill="#cbd5e1" font-family="sans-serif" font-size="12" font-weight="600">Total Sales</text>
+  <text x="325" y="210" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="800">Rs. 48,200</text>
+
+  <rect x="510" y="130" width="195" height="110" rx="14" fill="#141522" stroke="#7c3aed" stroke-width="1.5" />
+  <circle cx="540" cy="160" r="14" fill="#291e3f" />
+  <text x="533" y="165" fill="#a78bfa" font-family="sans-serif" font-size="14">📈</text>
+  <text x="565" y="165" fill="#cbd5e1" font-family="sans-serif" font-size="12" font-weight="600">Today's Sales</text>
+  <text x="535" y="210" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="800">Rs. 18,750</text>
+
+  <rect x="720" y="130" width="195" height="110" rx="14" fill="#141522" stroke="#282a3f" />
+  <circle cx="750" cy="160" r="14" fill="#202238" />
+  <text x="743" y="165" fill="#f59e0b" font-family="sans-serif" font-size="14">🛍</text>
+  <text x="775" y="165" fill="#cbd5e1" font-family="sans-serif" font-size="12" font-weight="600">Products Sold</text>
+  <text x="745" y="210" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="800">14 Items</text>
+
+  <rect x="930" y="130" width="195" height="110" rx="14" fill="#141522" stroke="#282a3f" />
+  <circle cx="960" cy="160" r="14" fill="#202238" />
+  <text x="953" y="165" fill="#ec4899" font-family="sans-serif" font-size="14">💳</text>
+  <text x="985" y="165" fill="#cbd5e1" font-family="sans-serif" font-size="12" font-weight="600">Cash Payments</text>
+  <text x="955" y="210" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="800">Rs. 14,300</text>
+
+  <!-- Bottom: Service Catalog Grid & Active Bill Summary -->
+  <rect x="300" y="260" width="530" height="425" rx="16" fill="#12131d" stroke="#212336" />
+  <text x="325" y="295" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700">Saloon Service Catalog &amp; Fast Billing</text>
+  <text x="325" y="315" fill="#64748b" font-family="sans-serif" font-size="11">1-click item addition to active customer cart</text>
+
+  <rect x="325" y="335" width="235" height="90" rx="10" fill="#171928" stroke="#2a2e47" />
+  <text x="340" y="365" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">Classic Haircut &amp; Fade</text>
+  <text x="340" y="385" fill="#94a3b8" font-family="sans-serif" font-size="11">Stylist 30 min • Wash incl.</text>
+  <text x="340" y="410" fill="#a78bfa" font-family="sans-serif" font-size="13" font-weight="bold">Rs. 1,500</text>
+
+  <rect x="575" y="335" width="235" height="90" rx="10" fill="#171928" stroke="#2a2e47" />
+  <text x="590" y="365" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">Beard Grooming &amp; Oil</text>
+  <text x="590" y="385" fill="#94a3b8" font-family="sans-serif" font-size="11">Hot towel treatment • 20 min</text>
+  <text x="590" y="410" fill="#a78bfa" font-family="sans-serif" font-size="13" font-weight="bold">Rs. 800</text>
+
+  <rect x="325" y="440" width="235" height="90" rx="10" fill="#171928" stroke="#2a2e47" />
+  <text x="340" y="470" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">Charcoal Detox Facial</text>
+  <text x="340" y="490" fill="#94a3b8" font-family="sans-serif" font-size="11">Deep cleansing steam &amp; mask</text>
+  <text x="340" y="515" fill="#a78bfa" font-family="sans-serif" font-size="13" font-weight="bold">Rs. 3,500</text>
+
+  <rect x="575" y="440" width="235" height="90" rx="10" fill="#171928" stroke="#2a2e47" />
+  <text x="590" y="470" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">Keratin Hair Therapy</text>
+  <text x="590" y="490" fill="#94a3b8" font-family="sans-serif" font-size="11">Smooth shine treatment</text>
+  <text x="590" y="515" fill="#a78bfa" font-family="sans-serif" font-size="13" font-weight="bold">Rs. 6,000</text>
+
+  <rect x="325" y="545" width="485" height="120" rx="12" fill="#10111a" stroke="#24263b" />
+  <text x="345" y="575" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">Recent Customer Ledger</text>
+  <text x="345" y="605" fill="#94a3b8" font-family="monospace" font-size="11">BILL-1049 • Ali Raza • Haircut + Beard • Rs. 2,300 (Paid - Cash)</text>
+  <text x="345" y="630" fill="#94a3b8" font-family="monospace" font-size="11">BILL-1050 • Usman Tariq • Facial Deluxe • Rs. 3,500 (Paid - Online)</text>
+  <text x="345" y="655" fill="#a78bfa" font-family="monospace" font-size="11">BILL-1051 • Hamza Malik • Hair Spa • Rs. 4,200 (Completed)</text>
+
+  <!-- Right: Live POS Cart Bill (Width: 280) -->
+  <rect x="850" y="260" width="275" height="425" rx="16" fill="#141522" stroke="#7c3aed" stroke-width="1.5" />
+  <text x="875" y="295" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Active Customer Bill</text>
+  <text x="875" y="315" fill="#a78bfa" font-family="sans-serif" font-size="11">Customer #CUS-940</text>
+
+  <rect x="870" y="335" width="235" height="230" rx="10" fill="#0d0e14" stroke="#212338" />
+  <text x="885" y="365" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">1x Classic Haircut &amp; Fade</text>
+  <text x="1080" y="365" fill="#ffffff" font-family="sans-serif" font-size="12" text-anchor="end">1,500</text>
+
+  <text x="885" y="395" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">1x Hot Towel Shave</text>
+  <text x="1080" y="395" fill="#ffffff" font-family="sans-serif" font-size="12" text-anchor="end">800</text>
+
+  <text x="885" y="425" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">1x Argan Beard Oil (Bottle)</text>
+  <text x="1080" y="425" fill="#ffffff" font-family="sans-serif" font-size="12" text-anchor="end">1,800</text>
+
+  <line x1="885" y1="455" x2="1085" y2="455" stroke="#2d314d" stroke-dasharray="3 3" />
+
+  <text x="885" y="485" fill="#94a3b8" font-family="sans-serif" font-size="12">Subtotal:</text>
+  <text x="1080" y="485" fill="#ffffff" font-family="sans-serif" font-size="12" text-anchor="end">4,100</text>
+
+  <text x="885" y="515" fill="#a78bfa" font-family="sans-serif" font-size="14" font-weight="bold">NET PAYABLE:</text>
+  <text x="1080" y="515" fill="#a78bfa" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="end">Rs. 4,100</text>
+
+  <rect x="870" y="585" width="235" height="40" rx="8" fill="#7c3aed" />
+  <text x="987" y="610" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">✓ Settle &amp; Print Bill</text>
+
+  <rect x="870" y="635" width="235" height="36" rx="8" fill="#1d1e2e" stroke="#333652" />
+  <text x="987" y="658" fill="#cbd5e1" font-family="sans-serif" font-size="11" text-anchor="middle">Save As Customer Credit</text>
+</svg>
+

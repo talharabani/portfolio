@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0e12"/>
+      <stop offset="100%" stop-color="#181a24"/>
+    </linearGradient>
+    <linearGradient id="mgold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d4d4d8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#mbg)"/>
+  <rect x="30" y="30" width="740" height="440" rx="16" fill="#111319" stroke="#27272a" stroke-width="1.5"/>
+  <!-- Window Controls -->
+  <circle cx="55" cy="55" r="5" fill="#ef4444"/>
+  <circle cx="72" cy="55" r="5" fill="#f59e0b"/>
+  <circle cx="89" cy="55" r="5" fill="#10b981"/>
+  <text x="400" y="60" fill="#a1a1aa" font-size="12" font-family="monospace" text-anchor="middle">3d-property-website.vercel.app — 3D Architectural Villa Walkthrough</text>
+
+  <!-- Luxury Villa Architecture Wireframe -->
+  <rect x="160" y="190" width="480" height="160" rx="6" fill="#1a1c26" stroke="#383b4d" stroke-width="1.5"/>
+  <line x1="160" y1="270" x2="640" y2="270" stroke="#383b4d" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="320" y1="190" x2="320" y2="350" stroke="#383b4d" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="480" y1="190" x2="480" y2="350" stroke="#383b4d" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Headline -->
+  <text x="400" y="110" fill="#dc2626" font-size="11" font-weight="bold" font-family="monospace" letter-spacing="4" text-anchor="middle">CHAPTER 01 — THE APPROACH</text>
+  <text x="400" y="150" fill="url(#mgold)" font-size="24" font-family="serif" font-style="italic" text-anchor="middle">Nine hundred metres of private road, and then nothing.</text>
+
+  <!-- Interactive Pillars -->
+  <rect x="180" y="210" width="120" height="40" rx="4" fill="#222533"/>
+  <text x="240" y="235" fill="#ffffff" font-size="11" font-family="sans-serif" text-anchor="middle">Glass Pavilion</text>
+
+  <rect x="340" y="210" width="120" height="40" rx="4" fill="#222533"/>
+  <text x="400" y="235" fill="#ffffff" font-size="11" font-family="sans-serif" text-anchor="middle">Infinity Pool 3D</text>
+
+  <rect x="500" y="210" width="120" height="40" rx="4" fill="#222533"/>
+  <text x="560" y="235" fill="#ffffff" font-size="11" font-family="sans-serif" text-anchor="middle">Master Suite</text>
+
+  <!-- Bottom CTA -->
+  <rect x="330" y="385" width="140" height="36" rx="8" fill="#dc2626"/>
+  <text x="400" y="408" fill="#ffffff" font-size="11" font-weight="bold" font-family="sans-serif" text-anchor="middle">SCROLL TO WALK IN</text>
+
+  <!-- Badges -->
+  <rect x="60" y="85" width="100" height="22" rx="4" fill="#1e202c" stroke="#2f3244"/>
+  <text x="110" y="100" fill="#38bdf8" font-size="9" font-family="monospace" text-anchor="middle">3D SPATIAL</text>
+  <rect x="640" y="85" width="100" height="22" rx="4" fill="#1e202c" stroke="#2f3244"/>
+  <text x="690" y="100" fill="#34d399" font-size="9" font-family="monospace" text-anchor="middle">ARCHITECTURAL</text>
+</svg>
+
