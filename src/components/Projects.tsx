@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaGithub, FaExternalLinkAlt, FaTimes, 
   FaCheckCircle, FaBolt, FaLayerGroup, FaImage, FaLock, FaDesktop, FaPlay,
-  FaChevronLeft, FaChevronRight, FaThLarge, FaStar, FaClone
+  FaChevronLeft, FaChevronRight, FaThLarge, FaClone
 } from "react-icons/fa";
 
 import agentLinkImg from "../assets/agentlink.svg";
@@ -616,10 +616,10 @@ export default function Projects() {
                   ? "bg-zinc-800 text-white shadow-sm"
                   : "text-zinc-400 hover:text-white"
               }`}
-              title="3D Fanned Deck Showcase"
+              title="Smooth Expanding Accordion Showcase"
             >
               <FaClone className="text-[11px] text-crimson-400" />
-              <span>Deck</span>
+              <span>Slider</span>
             </button>
             <button
               onClick={() => setViewMode("grid")}
@@ -637,223 +637,223 @@ export default function Projects() {
         </div>
 
         {/* ======================================================== */}
-        {/* VIEW 1: INTERACTIVE RADIAL WHEEL DECK SHOWCASE (Reference) */}
+        {/* VIEW 1: SMOOTH EXPANDING ACCORDION SHOWCASE (Fey / Linear) */}
         {/* ======================================================== */}
         {viewMode === "deck" && (
           <div className="relative w-full">
-            {/* The Radial Wheel Carousel Stage with Drag & Wheel Kinetics */}
+            {/* Quick Step Bar */}
+            <div className="flex items-center justify-between mb-3 px-1">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] sm:text-[11px] font-mono text-zinc-400 uppercase tracking-widest">
+                  CLICK OR HOVER TO EXPAND • {filteredProjects.length} PROJECTS
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={handlePrev}
+                  aria-label="Previous project"
+                  className="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white flex items-center justify-center transition cursor-pointer shadow-md"
+                >
+                  <FaChevronLeft className="text-xs" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  aria-label="Next project"
+                  className="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white flex items-center justify-center transition cursor-pointer shadow-md"
+                >
+                  <FaChevronRight className="text-xs" />
+                </button>
+              </div>
+            </div>
+
+            {/* Horizontal Expanding Accordion Track */}
             <div 
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
-              onWheel={(e) => {
-                // Smooth mouse-wheel scrolling through cards
-                if (Math.abs(e.deltaX) > 25 || Math.abs(e.deltaY) > 40) {
-                  if (e.deltaX > 0 || e.deltaY > 0) handleNext();
-                  else handlePrev();
-                }
-              }}
-              className="relative h-[510px] sm:h-[620px] md:h-[660px] flex items-center justify-center overflow-hidden sm:overflow-visible select-none py-4 sm:py-6"
+              className="relative w-full overflow-x-auto no-scrollbar py-2 px-1 flex gap-2 sm:gap-3 items-stretch h-[510px] sm:h-[550px] md:h-[580px]"
             >
-              
-              {/* Left Navigation Arrow */}
-              <button
-                onClick={handlePrev}
-                aria-label="Previous project"
-                className="absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-50 w-9 h-9 sm:w-13 sm:h-13 rounded-full bg-zinc-950/90 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white flex items-center justify-center shadow-2xl transition-all cursor-pointer hover:scale-110 active:scale-95 group backdrop-blur-md"
-              >
-                <FaChevronLeft className="text-xs sm:text-sm group-hover:-translate-x-0.5 transition-transform" />
-              </button>
+              {filteredProjects.map((p, idx) => {
+                const isExpanded = activeCardIndex === idx;
 
-              {/* Right Navigation Arrow */}
-              <button
-                onClick={handleNext}
-                aria-label="Next project"
-                className="absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 w-9 h-9 sm:w-13 sm:h-13 rounded-full bg-zinc-950/90 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white flex items-center justify-center shadow-2xl transition-all cursor-pointer hover:scale-110 active:scale-95 group backdrop-blur-md"
-              >
-                <FaChevronRight className="text-xs sm:text-sm group-hover:translate-x-0.5 transition-transform" />
-              </button>
-
-
-
-              {/* Radial Fanned Cards Deck with Interactive Drag Physics */}
-              <motion.div 
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.18}
-                onDragEnd={(_, info) => {
-                  if (info.offset.x < -45 || info.velocity.x < -250) {
-                    handleNext();
-                  } else if (info.offset.x > 45 || info.velocity.x > 250) {
-                    handlePrev();
-                  }
-                }}
-                className="relative w-full max-w-4xl h-full flex items-center justify-center cursor-grab active:cursor-grabbing"
-              >
-                {filteredProjects.map((p, idx) => {
-                  const len = filteredProjects.length;
-                  let diff = (idx - activeCardIndex) % len;
-                  if (diff > len / 2) diff -= len;
-                  if (diff < -len / 2) diff += len;
-
-                  // Render only cards within visible radial arc
-                  const isVisible = isMobile ? Math.abs(diff) <= 2 : Math.abs(diff) <= 3;
-                  if (!isVisible) return null;
-
-                  const isCenter = diff === 0;
-
-                  // Circular Radial Geometry
-                  const angleStep = isMobile ? 13 : 15.5; // degrees per card
-                  const angle = diff * angleStep;
-                  const angleRad = (angle * Math.PI) / 180;
-                  const radius = isMobile ? 400 : 560; // Wheel radius
-
-                  // Curved arc coordinates
-                  const xOffset = radius * Math.sin(angleRad);
-                  const yOffset = (1 - Math.cos(angleRad)) * radius * 0.72 + (isCenter ? (isMobile ? -16 : -28) : 0);
-                  const rot = angle; // card rotates tangentially to wheel
-                  const scale = isCenter ? (isMobile ? 1.03 : 1.08) : Math.max(0.72, 0.94 - Math.abs(diff) * 0.08);
-                  const zIndex = 40 - Math.abs(diff) * 6;
-                  const opacity = isCenter ? 1 : Math.max(0.24, 0.88 - Math.abs(diff) * 0.22);
-
-                  return (
-                    <motion.div
-                      key={p.num}
-                      animate={{
-                        x: xOffset,
-                        y: yOffset,
-                        rotate: rot,
-                        scale,
-                        opacity,
-                      }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 260,
-                        damping: 24,
-                      }}
-                      style={{
-                        zIndex,
-                        transformOrigin: "bottom center",
-                      }}
-                      onClick={() => {
-                        if (!isCenter) {
-                          setActiveCardIndex(idx);
-                        } else {
-                          setSelectedProject(p);
-                        }
-                      }}
-                      className={`absolute w-[220px] xs:w-[245px] sm:w-[285px] md:w-[315px] aspect-[10/14] rounded-2xl overflow-hidden cursor-pointer transition-shadow duration-300 ${
-                        isCenter
-                          ? "border-2 border-crimson-500/90 shadow-[0_25px_60px_-10px_rgba(220,38,38,0.55)] ring-2 ring-crimson-500/30"
-                          : "border border-zinc-800 shadow-2xl hover:border-zinc-700"
-                      }`}
-                    >
-                      {/* Card Inner Container */}
-                      <div className="relative w-full h-full bg-[#0d0e14] flex flex-col justify-between overflow-hidden">
-                        
-                        {/* Background Artwork */}
-                        <div className="absolute inset-0 overflow-hidden">
+                return (
+                  <motion.div
+                    key={p.num}
+                    layout
+                    transition={{
+                      type: "spring",
+                      stiffness: 350,
+                      damping: 30,
+                      mass: 0.75
+                    }}
+                    onClick={() => setActiveCardIndex(idx)}
+                    className={`relative rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-300 flex flex-col justify-between ${
+                      isExpanded
+                        ? `${isMobile ? "min-w-[290px] w-full" : "min-w-[440px] md:min-w-[560px] flex-1 max-w-[700px]"} bg-[#0c0d14] border-2 border-crimson-500/80 shadow-[0_20px_50px_-10px_rgba(220,38,38,0.38)] ring-1 ring-crimson-500/20`
+                        : `${isMobile ? "w-[52px]" : "w-[68px] md:w-[74px]"} shrink-0 bg-[#0e0f16]/90 hover:bg-[#151722] border border-zinc-800/80 hover:border-zinc-700`
+                    }`}
+                  >
+                    {isExpanded ? (
+                      /* EXPANDED PROJECT CARD (Right Card in Reference) */
+                      <div className="relative w-full h-full p-4 sm:p-6 flex flex-col justify-between overflow-hidden">
+                        {/* Background Artwork Ambient Vignette */}
+                        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-25">
                           <img
                             src={p.secondaryImage || p.image}
-                            alt={p.title}
-                            className={`w-full h-full object-cover object-top transition-all duration-500 ${
-                              isCenter
-                                ? "scale-105 filter brightness-105"
-                                : "filter grayscale brightness-75 hover:brightness-90"
-                            }`}
+                            alt=""
+                            className="w-full h-full object-cover blur-2xl scale-125"
                           />
-                          {/* Gradient Vignette */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d14] via-[#0c0d14]/85 to-transparent" />
                         </div>
 
-                        {/* Top Badges (Reference Image Style) */}
-                        <div className="relative z-10 p-3 sm:p-3.5 flex items-center justify-between">
-                          {/* Star Rating Badge */}
-                          <div className="flex items-center gap-1 bg-[#1a1708]/90 border border-amber-500/40 text-amber-300 text-[9px] sm:text-[10px] font-black px-2 py-0.5 rounded-md shadow-md backdrop-blur-md">
-                            <FaStar className="text-[8px] sm:text-[9px] text-amber-400" />
-                            <span>{p.num}</span>
+                        {/* Top Meta Bar */}
+                        <div className="relative z-10 flex items-center justify-between gap-2 border-b border-zinc-800/80 pb-3">
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono text-[10px] sm:text-xs font-black text-crimson-400 bg-crimson-950/60 border border-crimson-900/40 px-2.5 py-0.5 rounded-md">
+                              {p.num}
+                            </span>
+                            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-300">
+                              {p.badge} • {p.year}
+                            </span>
                           </div>
 
-                          {/* Category Tag */}
-                          <div className="bg-black/70 backdrop-blur-md border border-white/20 text-white text-[9px] sm:text-[10px] font-mono px-2 py-0.5 rounded-md shadow-md">
-                            {p.badge}
+                          <div className="flex items-center gap-1.5 text-[9px] sm:text-[10px] font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-800/30 px-2 py-0.5 rounded-md">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            <span>{p.status}</span>
                           </div>
                         </div>
 
-                        {/* Bottom Information (Active vs Inactive) */}
-                        <div className="relative z-10 p-3.5 sm:p-4 bg-gradient-to-t from-black via-black/90 to-transparent pt-6 sm:pt-8">
-                          <div className="text-[9px] sm:text-[10px] font-mono text-zinc-400 uppercase tracking-widest mb-0.5 sm:mb-1">
-                            {p.year} • {p.status}
+                        {/* Middle Content: Title + Image Preview Box + Summary */}
+                        <div className="relative z-10 my-auto py-2 sm:py-3 flex flex-col gap-3">
+                          <div>
+                            <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-0.5 sm:mb-1">
+                              {p.title}
+                            </h3>
+                            <p className="text-xs sm:text-sm text-zinc-300 font-medium">
+                              {p.tagline}
+                            </p>
                           </div>
 
-                          <h3 className="text-sm sm:text-lg font-black uppercase tracking-tight text-white line-clamp-1 mb-1">
-                            {p.title}
-                          </h3>
+                          {/* Image Mockup Window */}
+                          <div 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedProject(p);
+                            }}
+                            className="group relative aspect-[16/9] sm:aspect-[16/8] w-full rounded-xl overflow-hidden border border-zinc-800 bg-[#07080d] cursor-pointer shadow-2xl"
+                          >
+                            <img
+                              src={p.secondaryImage || p.image}
+                              alt={p.title}
+                              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+                            <div className="absolute bottom-2.5 left-3 text-[10px] sm:text-[11px] font-mono text-zinc-300 bg-black/70 px-2 py-1 rounded border border-white/10 backdrop-blur-md">
+                              Click image for case study ↗
+                            </div>
+                          </div>
 
-                          <p className="text-[10px] sm:text-[11px] text-zinc-400 line-clamp-2 leading-relaxed mb-2.5 sm:mb-3">
-                            {p.tagline}
+                          {/* Description */}
+                          <p className="text-xs sm:text-[13px] text-zinc-400 leading-relaxed line-clamp-2">
+                            {p.desc}
                           </p>
 
-                          {/* Interactive Action Buttons on Center Card */}
-                          {isCenter && (
-                            <motion.div
-                              initial={{ opacity: 0, y: 8 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              className="flex items-center gap-1.5 sm:gap-2 pt-1"
-                            >
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setSelectedProject(p);
-                                }}
-                                className="flex-1 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-[10px] sm:text-[11px] uppercase tracking-wider py-1.5 sm:py-2 px-2.5 sm:px-3 rounded-lg shadow-lg shadow-crimson-950/80 transition flex items-center justify-center gap-1.5 cursor-pointer"
+                          {/* Tech Stack Tags */}
+                          <div className="flex flex-wrap gap-1.5">
+                            {p.tech.slice(0, 5).map((t) => (
+                              <span
+                                key={t}
+                                className="text-[10px] font-mono text-zinc-300 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded"
                               >
-                                <span>Details</span>
-                                <FaExternalLinkAlt className="text-[8px] sm:text-[9px]" />
-                              </button>
-
-                              {p.live && p.live !== "#" && (
-                                <a
-                                  href={p.live}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  onClick={(e) => e.stopPropagation()}
-                                  className="bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider py-1.5 sm:py-2 px-2.5 sm:px-3 rounded-lg transition flex items-center justify-center"
-                                  title="Open Live App"
-                                >
-                                  {p.live.includes("drive.google.com") ? (
-                                    <FaPlay className="text-[8px] sm:text-[9px]" />
-                                  ) : (
-                                    <span>Live ↗</span>
-                                  )}
-                                </a>
-                              )}
-                            </motion.div>
-                          )}
+                                {t}
+                              </span>
+                            ))}
+                            {p.tech.length > 5 && (
+                              <span className="text-[10px] font-mono text-zinc-500 px-1 py-0.5">
+                                +{p.tech.length - 5} more
+                              </span>
+                            )}
+                          </div>
                         </div>
 
+                        {/* Bottom Action Footer */}
+                        <div className="relative z-10 flex items-center gap-2 pt-3 border-t border-zinc-800/80">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedProject(p);
+                            }}
+                            className="flex-1 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs uppercase tracking-wider py-2 sm:py-2.5 px-3 rounded-xl shadow-lg shadow-crimson-950/80 transition flex items-center justify-center gap-1.5 cursor-pointer"
+                          >
+                            <span>View Full Case Study</span>
+                            <FaExternalLinkAlt className="text-[10px]" />
+                          </button>
+
+                          {p.live && p.live !== "#" && (
+                            <a
+                              href={p.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-500 text-zinc-200 text-xs font-bold uppercase tracking-wider py-2 sm:py-2.5 px-3.5 rounded-xl transition flex items-center justify-center gap-1.5"
+                            >
+                              <span>Live Preview</span>
+                              <FaPlay className="text-[9px]" />
+                            </a>
+                          )}
+                        </div>
                       </div>
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
+                    ) : (
+                      /* COLLAPSED VERTICAL STRIP (Reference Style) */
+                      <div className="relative w-full h-full py-4 sm:py-6 px-1 flex flex-col justify-between items-center group overflow-hidden">
+                        {/* Top Number Badge */}
+                        <div className="w-7 h-7 rounded-lg bg-zinc-900/80 border border-zinc-800 flex items-center justify-center text-[10px] font-mono font-bold text-zinc-400 group-hover:text-crimson-400 group-hover:border-crimson-800/50 transition-colors">
+                          {p.num}
+                        </div>
+
+                        {/* Middle Vertical Text Label (Rotated 180 degrees like Fey reference) */}
+                        <div className="flex-1 flex items-center justify-center py-4 overflow-hidden">
+                          <span className="[writing-mode:vertical-rl] rotate-180 text-xs sm:text-sm font-bold tracking-wider text-zinc-400 group-hover:text-white uppercase whitespace-nowrap transition-colors select-none truncate">
+                            {p.title}
+                          </span>
+                        </div>
+
+                        {/* Bottom Sleek Dot / Glyph */}
+                        <div className="w-7 h-7 rounded-lg bg-zinc-900/60 border border-zinc-800/80 flex items-center justify-center text-zinc-500 group-hover:text-white transition-colors">
+                          <FaCheckCircle className="text-[10px]" />
+                        </div>
+
+                        {/* Soft Gradient Bottom Glow */}
+                        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-zinc-800/20 via-transparent to-transparent pointer-events-none" />
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
 
-            {/* Bottom Deck Navigation Bar */}
-            <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-2xl bg-zinc-950/80 border border-zinc-900">
-              {/* Project Index Indicator */}
-              <div className="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
-                <span className="font-mono text-xs sm:text-sm font-black text-crimson-500 bg-crimson-950/60 border border-crimson-900/40 px-2 sm:px-2.5 py-1 rounded-md shrink-0">
+            {/* Bottom Metallic / Chrome Liquid Wave Accent (Reference Inspired) */}
+            <div className="relative w-full h-12 sm:h-16 mt-3 overflow-hidden pointer-events-none select-none opacity-60">
+              <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black via-zinc-950/60 to-transparent" />
+              <svg
+                viewBox="0 0 1200 120"
+                preserveAspectRatio="none"
+                className="w-full h-full text-zinc-900 fill-current opacity-40"
+              >
+                <path d="M0,20 C180,90 320,-20 540,60 C760,140 920,-20 1200,30 L1200,120 L0,120 Z" />
+              </svg>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-10 bg-crimson-600/20 blur-2xl rounded-full" />
+            </div>
+
+            {/* Bottom Progress Bar & Selector Dots */}
+            <div className="mt-3 flex flex-col sm:flex-row items-center justify-between gap-3 p-3.5 sm:p-4 rounded-2xl bg-zinc-950/80 border border-zinc-900">
+              <div className="flex items-center gap-2.5">
+                <span className="font-mono text-xs font-bold text-crimson-500 bg-crimson-950/60 border border-crimson-900/40 px-2 py-0.5 rounded">
                   {activeProject?.num} / {filteredProjects.length < 10 ? `0${filteredProjects.length}` : filteredProjects.length}
                 </span>
-                <div className="truncate">
-                  <h4 className="text-xs sm:text-sm font-black uppercase tracking-wide text-white truncate">
-                    {activeProject?.title}
-                  </h4>
-                  <p className="text-[10px] sm:text-[11px] text-zinc-400 font-mono truncate">
-                    {activeProject?.tagline}
-                  </p>
-                </div>
+                <span className="text-xs font-bold uppercase text-white truncate max-w-[200px] sm:max-w-[300px]">
+                  {activeProject?.title}
+                </span>
               </div>
 
               {/* Progress Dots */}
@@ -872,13 +872,11 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Quick Case Study Button */}
               <button
                 onClick={() => setSelectedProject(activeProject)}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider px-4 py-2 bg-zinc-900 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white rounded-xl transition shadow-lg cursor-pointer"
+                className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-crimson-400 hover:text-white transition cursor-pointer"
               >
-                <span>View Full Case Study</span>
-                <FaExternalLinkAlt className="text-[9px] sm:text-[10px]" />
+                <span>Full Details ↗</span>
               </button>
             </div>
           </div>
