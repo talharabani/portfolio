@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaGithub, FaExternalLinkAlt, FaTimes, 
   FaCheckCircle, FaBolt, FaLayerGroup, FaImage, FaLock, FaDesktop, FaPlay,
-  FaChevronLeft, FaChevronRight, FaThLarge, FaStar, FaClone
+  FaChevronLeft, FaChevronRight, FaThLarge, FaStar, FaClone, FaEye
 } from "react-icons/fa";
 
 import agentLinkImg from "../assets/agentlink.svg";
@@ -572,19 +572,57 @@ export default function Projects() {
 
       <div className="max-w-7xl mx-auto px-3.5 sm:px-8 relative z-10">
         
-        {/* Section Header (Centered like the reference design) */}
-        <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-crimson-500 bg-crimson-950/40 border border-crimson-800/40 px-3 sm:px-3.5 py-1.5 rounded-full mb-3 shadow-inner">
-            <span className="w-2 h-2 rounded-full bg-crimson-500 animate-pulse" />
-            <span>PORTFOLIO SHOWCASE • CRAFTED WITH PRECISION</span>
+        {/* Editorial Kinetic Typography Header (Reference Design Inspired) */}
+        <div className="relative mb-6 sm:mb-10 w-full max-w-5xl mx-auto px-2">
+          {/* Grid Registration Crosshairs (+) */}
+          <div className="absolute -top-3 left-0 font-mono text-[11px] text-zinc-600 select-none">+</div>
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 font-mono text-[11px] text-zinc-600 select-none">+</div>
+          <div className="absolute -top-3 right-0 font-mono text-[11px] text-zinc-600 select-none">+</div>
+          <div className="absolute top-1/2 -left-3 font-mono text-[11px] text-zinc-600 select-none hidden sm:block">‹</div>
+          <div className="absolute top-1/2 -right-3 font-mono text-[11px] text-zinc-600 select-none hidden sm:block">›</div>
+
+          {/* Top Line: Welcome to my + Eye Badge */}
+          <div className="flex items-center justify-between mb-1 sm:mb-2">
+            <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-zinc-300">
+              WELCOME TO MY
+            </span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-zinc-700 bg-zinc-900/80 flex items-center justify-center text-zinc-300 shadow-lg">
+              <FaEye className="text-[10px] sm:text-xs text-crimson-400" />
+            </div>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white mb-2 sm:mb-3">
-            DISCOVER FEATURED PROJECTS
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl px-2">
-            Explore 13 production-grade full-stack systems, 3D WebGL experiences, and autonomous n8n workflows.
-          </p>
+          {/* Multi-Layered Overlapping Slanted PORTFOLIO Typography with Red Block Accent */}
+          <div className="relative flex flex-col items-center justify-center py-2 sm:py-5 overflow-hidden select-none">
+            {/* Center Vertical Red Banner Accent */}
+            <div className="absolute w-20 sm:w-28 md:w-36 h-full bg-crimson-600 rounded-sm top-0 z-0 opacity-90 shadow-2xl" />
+
+            {/* Upper Slanted Outlined Typography */}
+            <h3 
+              style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.7)" }}
+              className="relative z-10 font-black italic tracking-tighter text-transparent text-4xl sm:text-7xl md:text-8xl leading-none uppercase -mb-3 sm:-mb-6 transform -skew-x-12 select-none"
+            >
+              PORTFOLIO
+            </h3>
+
+            {/* Center Solid White Typography */}
+            <h2 className="relative z-20 font-black italic tracking-tighter text-white text-5xl sm:text-8xl md:text-9xl leading-none uppercase drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)] transform -skew-x-12 select-none">
+              PORTFOLIO
+            </h2>
+
+            {/* Lower Slanted Outlined Typography */}
+            <h3 
+              style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.35)" }}
+              className="relative z-10 font-black italic tracking-tighter text-transparent text-4xl sm:text-7xl md:text-8xl leading-none uppercase -mt-3 sm:-mt-6 transform -skew-x-12 select-none"
+            >
+              PORTFOLIO
+            </h3>
+          </div>
+
+          {/* Lower Meta Bar */}
+          <div className="flex items-center justify-between mt-2 pt-2 border-t border-zinc-900 text-[10px] sm:text-[11px] font-mono tracking-widest text-zinc-400 uppercase">
+            <span>TALHA ISHAQ</span>
+            <span>FULL STACK &amp; AI ENGINEER</span>
+          </div>
         </div>
 
         {/* Filter Pills & View Switcher Bar (Responsive Horizontal Scroll on Mobile) */}
@@ -637,23 +675,30 @@ export default function Projects() {
         </div>
 
         {/* ======================================================== */}
-        {/* VIEW 1: INTERACTIVE 3D FANNED DECK SHOWCASE (Reference) */}
+        {/* VIEW 1: INTERACTIVE RADIAL WHEEL DECK SHOWCASE (Reference) */}
         {/* ======================================================== */}
         {viewMode === "deck" && (
           <div className="relative w-full">
-            {/* The Arc Carousel Stage with Touch Swipe on Mobile */}
+            {/* The Radial Wheel Carousel Stage with Drag & Wheel Kinetics */}
             <div 
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
-              className="relative h-[490px] sm:h-[590px] md:h-[630px] flex items-center justify-center overflow-hidden sm:overflow-visible select-none py-4 sm:py-6"
+              onWheel={(e) => {
+                // Smooth mouse-wheel scrolling through cards
+                if (Math.abs(e.deltaX) > 25 || Math.abs(e.deltaY) > 40) {
+                  if (e.deltaX > 0 || e.deltaY > 0) handleNext();
+                  else handlePrev();
+                }
+              }}
+              className="relative h-[510px] sm:h-[620px] md:h-[660px] flex items-center justify-center overflow-hidden sm:overflow-visible select-none py-4 sm:py-6"
             >
               
               {/* Left Navigation Arrow */}
               <button
                 onClick={handlePrev}
                 aria-label="Previous project"
-                className="absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-13 sm:h-13 rounded-full bg-zinc-950/90 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white flex items-center justify-center shadow-2xl transition-all cursor-pointer hover:scale-110 active:scale-95 group backdrop-blur-md"
+                className="absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-50 w-9 h-9 sm:w-13 sm:h-13 rounded-full bg-zinc-950/90 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white flex items-center justify-center shadow-2xl transition-all cursor-pointer hover:scale-110 active:scale-95 group backdrop-blur-md"
               >
                 <FaChevronLeft className="text-xs sm:text-sm group-hover:-translate-x-0.5 transition-transform" />
               </button>
@@ -662,32 +707,98 @@ export default function Projects() {
               <button
                 onClick={handleNext}
                 aria-label="Next project"
-                className="absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-13 sm:h-13 rounded-full bg-zinc-950/90 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white flex items-center justify-center shadow-2xl transition-all cursor-pointer hover:scale-110 active:scale-95 group backdrop-blur-md"
+                className="absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 w-9 h-9 sm:w-13 sm:h-13 rounded-full bg-zinc-950/90 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white flex items-center justify-center shadow-2xl transition-all cursor-pointer hover:scale-110 active:scale-95 group backdrop-blur-md"
               >
                 <FaChevronRight className="text-xs sm:text-sm group-hover:translate-x-0.5 transition-transform" />
               </button>
 
-              {/* Fanned Cards Deck */}
-              <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
+              {/* Rotating Compass Wheel Dial at the Bottom Base */}
+              <div className="absolute -bottom-24 sm:-bottom-28 md:-bottom-32 left-1/2 -translate-x-1/2 w-[360px] sm:w-[480px] md:w-[560px] aspect-square pointer-events-none z-0">
+                <motion.div
+                  animate={{ rotate: -activeCardIndex * (360 / Math.max(filteredProjects.length, 1)) }}
+                  transition={{ type: "spring", stiffness: 220, damping: 26 }}
+                  className="w-full h-full relative"
+                >
+                  <svg viewBox="0 0 400 400" className="w-full h-full opacity-60">
+                    {/* Concentric Compass Dashed Rings */}
+                    <circle cx="200" cy="200" r="185" fill="none" stroke="#27272a" strokeWidth="1.5" strokeDasharray="4 6" />
+                    <circle cx="200" cy="200" r="150" fill="none" stroke="#3f3f46" strokeWidth="1" strokeDasharray="2 4" />
+                    <circle cx="200" cy="200" r="110" fill="#0c0d12" stroke="#dc2626" strokeWidth="1.5" opacity="0.9" />
+                    
+                    {/* Circular Text Path */}
+                    <defs>
+                      <path id="dialCirclePath" d="M 200, 200 m -155, 0 a 155,155 0 1,1 310,0 a 155,155 0 1,1 -310,0" />
+                    </defs>
+                    <text fill="#a1a1aa" fontSize="9.5" fontWeight="900" letterSpacing="3.5" className="uppercase font-mono">
+                      <textPath href="#dialCirclePath" startOffset="0%">
+                        • PORTFOLIO • ME • TALHA ISHAQ • FULL STACK &amp; AI • PROJECTS • CREATIVE ENGINEERING •
+                      </textPath>
+                    </text>
+
+                    {/* Compass Degree Tick Marks */}
+                    {Array.from({ length: 36 }).map((_, i) => (
+                      <line
+                        key={i}
+                        x1="200"
+                        y1="19"
+                        x2="200"
+                        y2={i % 3 === 0 ? "29" : "24"}
+                        stroke={i % 3 === 0 ? "#dc2626" : "#52525b"}
+                        strokeWidth={i % 3 === 0 ? "2" : "1"}
+                        transform={`rotate(${i * 10} 200 200)`}
+                      />
+                    ))}
+                  </svg>
+                </motion.div>
+
+                {/* Stationary Compass Needle / Indicator Pointing Up at the Center Active Card */}
+                <div className="absolute top-2 sm:top-4 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none z-10">
+                  <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[10px] border-b-crimson-500 mb-1" />
+                  <span className="text-[10px] sm:text-[11px] font-black font-mono tracking-widest text-crimson-500 bg-black/90 px-2 py-0.5 rounded border border-crimson-900/60 shadow-lg">
+                    ME
+                  </span>
+                </div>
+              </div>
+
+              {/* Radial Fanned Cards Deck with Interactive Drag Physics */}
+              <motion.div 
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.18}
+                onDragEnd={(_, info) => {
+                  if (info.offset.x < -45 || info.velocity.x < -250) {
+                    handleNext();
+                  } else if (info.offset.x > 45 || info.velocity.x > 250) {
+                    handlePrev();
+                  }
+                }}
+                className="relative w-full max-w-4xl h-full flex items-center justify-center cursor-grab active:cursor-grabbing"
+              >
                 {filteredProjects.map((p, idx) => {
                   const len = filteredProjects.length;
                   let diff = (idx - activeCardIndex) % len;
                   if (diff > len / 2) diff -= len;
                   if (diff < -len / 2) diff += len;
 
-                  // Render only cards within visible fan radius (tighter radius on mobile)
+                  // Render only cards within visible radial arc
                   const isVisible = isMobile ? Math.abs(diff) <= 2 : Math.abs(diff) <= 3;
                   if (!isVisible) return null;
 
                   const isCenter = diff === 0;
 
-                  // Mobile-adapted transform calculations
-                  const rot = isMobile ? diff * 6.5 : diff * 13;
-                  const xOffset = isMobile ? diff * 72 : diff * 175;
-                  const yOffset = isCenter ? (isMobile ? -14 : -25) : (isMobile ? Math.abs(diff) * 14 + 6 : Math.abs(diff) * 28 + 12);
-                  const scale = isCenter ? (isMobile ? 1.02 : 1.06) : Math.max(0.72, 1 - Math.abs(diff) * 0.08);
-                  const zIndex = 35 - Math.abs(diff) * 5;
-                  const opacity = isCenter ? 1 : Math.max(0.22, 0.9 - Math.abs(diff) * 0.22);
+                  // Circular Radial Geometry
+                  const angleStep = isMobile ? 13 : 15.5; // degrees per card
+                  const angle = diff * angleStep;
+                  const angleRad = (angle * Math.PI) / 180;
+                  const radius = isMobile ? 400 : 560; // Wheel radius
+
+                  // Curved arc coordinates
+                  const xOffset = radius * Math.sin(angleRad);
+                  const yOffset = (1 - Math.cos(angleRad)) * radius * 0.72 + (isCenter ? (isMobile ? -16 : -28) : 0);
+                  const rot = angle; // card rotates tangentially to wheel
+                  const scale = isCenter ? (isMobile ? 1.03 : 1.08) : Math.max(0.72, 0.94 - Math.abs(diff) * 0.08);
+                  const zIndex = 40 - Math.abs(diff) * 6;
+                  const opacity = isCenter ? 1 : Math.max(0.24, 0.88 - Math.abs(diff) * 0.22);
 
                   return (
                     <motion.div
@@ -715,9 +826,9 @@ export default function Projects() {
                           setSelectedProject(p);
                         }
                       }}
-                      className={`absolute w-[220px] xs:w-[245px] sm:w-[280px] md:w-[310px] aspect-[10/14] rounded-2xl overflow-hidden cursor-pointer transition-shadow duration-300 ${
+                      className={`absolute w-[220px] xs:w-[245px] sm:w-[285px] md:w-[315px] aspect-[10/14] rounded-2xl overflow-hidden cursor-pointer transition-shadow duration-300 ${
                         isCenter
-                          ? "border-2 border-crimson-500/90 shadow-[0_25px_60px_-15px_rgba(220,38,38,0.5)] ring-2 ring-crimson-500/30"
+                          ? "border-2 border-crimson-500/90 shadow-[0_25px_60px_-10px_rgba(220,38,38,0.55)] ring-2 ring-crimson-500/30"
                           : "border border-zinc-800 shadow-2xl hover:border-zinc-700"
                       }`}
                     >
@@ -809,7 +920,7 @@ export default function Projects() {
                     </motion.div>
                   );
                 })}
-              </div>
+              </motion.div>
             </div>
 
             {/* Bottom Deck Navigation Bar */}
