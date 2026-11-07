@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaGithub, FaExternalLinkAlt, FaTimes, 
   FaCheckCircle, FaBolt, FaLayerGroup, FaImage, FaLock, FaDesktop, FaPlay,
-  FaChevronLeft, FaChevronRight, FaThLarge, FaStar, FaClone, FaEye
+  FaChevronLeft, FaChevronRight, FaThLarge, FaStar, FaClone
 } from "react-icons/fa";
 
 import agentLinkImg from "../assets/agentlink.svg";
@@ -572,57 +572,19 @@ export default function Projects() {
 
       <div className="max-w-7xl mx-auto px-3.5 sm:px-8 relative z-10">
         
-        {/* Editorial Kinetic Typography Header (Reference Design Inspired) */}
-        <div className="relative mb-6 sm:mb-10 w-full max-w-5xl mx-auto px-2">
-          {/* Grid Registration Crosshairs (+) */}
-          <div className="absolute -top-3 left-0 font-mono text-[11px] text-zinc-600 select-none">+</div>
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 font-mono text-[11px] text-zinc-600 select-none">+</div>
-          <div className="absolute -top-3 right-0 font-mono text-[11px] text-zinc-600 select-none">+</div>
-          <div className="absolute top-1/2 -left-3 font-mono text-[11px] text-zinc-600 select-none hidden sm:block">‹</div>
-          <div className="absolute top-1/2 -right-3 font-mono text-[11px] text-zinc-600 select-none hidden sm:block">›</div>
-
-          {/* Top Line: Welcome to my + Eye Badge */}
-          <div className="flex items-center justify-between mb-1 sm:mb-2">
-            <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-zinc-300">
-              WELCOME TO MY
-            </span>
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-zinc-700 bg-zinc-900/80 flex items-center justify-center text-zinc-300 shadow-lg">
-              <FaEye className="text-[10px] sm:text-xs text-crimson-400" />
-            </div>
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-crimson-500 bg-crimson-950/40 border border-crimson-800/40 px-3 sm:px-3.5 py-1.5 rounded-full mb-3 shadow-inner">
+            <span className="w-2 h-2 rounded-full bg-crimson-500 animate-pulse" />
+            <span>PORTFOLIO SHOWCASE • CRAFTED WITH PRECISION</span>
           </div>
 
-          {/* Multi-Layered Overlapping Slanted PORTFOLIO Typography with Red Block Accent */}
-          <div className="relative flex flex-col items-center justify-center py-2 sm:py-5 overflow-hidden select-none">
-            {/* Center Vertical Red Banner Accent */}
-            <div className="absolute w-20 sm:w-28 md:w-36 h-full bg-crimson-600 rounded-sm top-0 z-0 opacity-90 shadow-2xl" />
-
-            {/* Upper Slanted Outlined Typography */}
-            <h3 
-              style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.7)" }}
-              className="relative z-10 font-black italic tracking-tighter text-transparent text-4xl sm:text-7xl md:text-8xl leading-none uppercase -mb-3 sm:-mb-6 transform -skew-x-12 select-none"
-            >
-              PORTFOLIO
-            </h3>
-
-            {/* Center Solid White Typography */}
-            <h2 className="relative z-20 font-black italic tracking-tighter text-white text-5xl sm:text-8xl md:text-9xl leading-none uppercase drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)] transform -skew-x-12 select-none">
-              PORTFOLIO
-            </h2>
-
-            {/* Lower Slanted Outlined Typography */}
-            <h3 
-              style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.35)" }}
-              className="relative z-10 font-black italic tracking-tighter text-transparent text-4xl sm:text-7xl md:text-8xl leading-none uppercase -mt-3 sm:-mt-6 transform -skew-x-12 select-none"
-            >
-              PORTFOLIO
-            </h3>
-          </div>
-
-          {/* Lower Meta Bar */}
-          <div className="flex items-center justify-between mt-2 pt-2 border-t border-zinc-900 text-[10px] sm:text-[11px] font-mono tracking-widest text-zinc-400 uppercase">
-            <span>TALHA ISHAQ</span>
-            <span>FULL STACK &amp; AI ENGINEER</span>
-          </div>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white mb-2 sm:mb-3">
+            DISCOVER FEATURED PROJECTS
+          </h2>
+          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl px-2">
+            Explore 13 production-grade full-stack systems, 3D WebGL experiences, and autonomous n8n workflows.
+          </p>
         </div>
 
         {/* Filter Pills & View Switcher Bar (Responsive Horizontal Scroll on Mobile) */}
