@@ -674,53 +674,7 @@ export default function Projects() {
                 <FaChevronRight className="text-xs sm:text-sm group-hover:translate-x-0.5 transition-transform" />
               </button>
 
-              {/* Rotating Compass Wheel Dial at the Bottom Base */}
-              <div className="absolute -bottom-24 sm:-bottom-28 md:-bottom-32 left-1/2 -translate-x-1/2 w-[360px] sm:w-[480px] md:w-[560px] aspect-square pointer-events-none z-0">
-                <motion.div
-                  animate={{ rotate: -activeCardIndex * (360 / Math.max(filteredProjects.length, 1)) }}
-                  transition={{ type: "spring", stiffness: 220, damping: 26 }}
-                  className="w-full h-full relative"
-                >
-                  <svg viewBox="0 0 400 400" className="w-full h-full opacity-60">
-                    {/* Concentric Compass Dashed Rings */}
-                    <circle cx="200" cy="200" r="185" fill="none" stroke="#27272a" strokeWidth="1.5" strokeDasharray="4 6" />
-                    <circle cx="200" cy="200" r="150" fill="none" stroke="#3f3f46" strokeWidth="1" strokeDasharray="2 4" />
-                    <circle cx="200" cy="200" r="110" fill="#0c0d12" stroke="#dc2626" strokeWidth="1.5" opacity="0.9" />
-                    
-                    {/* Circular Text Path */}
-                    <defs>
-                      <path id="dialCirclePath" d="M 200, 200 m -155, 0 a 155,155 0 1,1 310,0 a 155,155 0 1,1 -310,0" />
-                    </defs>
-                    <text fill="#a1a1aa" fontSize="9.5" fontWeight="900" letterSpacing="3.5" className="uppercase font-mono">
-                      <textPath href="#dialCirclePath" startOffset="0%">
-                        • PORTFOLIO • ME • TALHA ISHAQ • FULL STACK &amp; AI • PROJECTS • CREATIVE ENGINEERING •
-                      </textPath>
-                    </text>
 
-                    {/* Compass Degree Tick Marks */}
-                    {Array.from({ length: 36 }).map((_, i) => (
-                      <line
-                        key={i}
-                        x1="200"
-                        y1="19"
-                        x2="200"
-                        y2={i % 3 === 0 ? "29" : "24"}
-                        stroke={i % 3 === 0 ? "#dc2626" : "#52525b"}
-                        strokeWidth={i % 3 === 0 ? "2" : "1"}
-                        transform={`rotate(${i * 10} 200 200)`}
-                      />
-                    ))}
-                  </svg>
-                </motion.div>
-
-                {/* Stationary Compass Needle / Indicator Pointing Up at the Center Active Card */}
-                <div className="absolute top-2 sm:top-4 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none z-10">
-                  <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[10px] border-b-crimson-500 mb-1" />
-                  <span className="text-[10px] sm:text-[11px] font-black font-mono tracking-widest text-crimson-500 bg-black/90 px-2 py-0.5 rounded border border-crimson-900/60 shadow-lg">
-                    ME
-                  </span>
-                </div>
-              </div>
 
               {/* Radial Fanned Cards Deck with Interactive Drag Physics */}
               <motion.div 
