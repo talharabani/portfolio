@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaSearch, FaLightbulb, FaPenNib, FaCode, FaPaperPlane, FaQuoteLeft,
   FaExternalLinkAlt, FaNodeJs, FaRobot, FaGithub, FaCheckCircle,
-  FaBolt, FaShieldAlt, FaArrowRight
+  FaBolt, FaShieldAlt, FaArrowRight, FaGraduationCap, FaBriefcase, FaLaptopCode
 } from "react-icons/fa";
 import {
   SiReact,
@@ -22,16 +22,23 @@ const educationList = [
     degree: "Information Technology (BS IT)",
     institution: "Punjab University College of Information Technology (PUCIT)",
     years: "2022 — 2026",
+    icon: <FaGraduationCap className="text-crimson-400 text-xs" />,
+    badge: "Degree",
   },
   {
     degree: "Software Engineer",
     institution: "DevelopSuite (Lahore)",
     years: "2 Years",
+    icon: <FaBriefcase className="text-crimson-400 text-xs" />,
+    badge: "Full-Time",
   },
   {
     degree: "Freelance Full-Stack Developer",
     institution: "PureLogics",
     years: "2023 — Present",
+    icon: <FaLaptopCode className="text-emerald-400 text-xs" />,
+    badge: "Active",
+    isLive: true,
   },
 ];
 
@@ -258,38 +265,99 @@ export default function About() {
           
           {/* Column 1: EDUCATION & INTERACTIVE SKILLS (4 Cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.12,
+                  delayChildren: 0.1,
+                },
+              },
+            }}
             className="lg:col-span-4 flex flex-col justify-between"
           >
             <div>
-              <h2 className="text-base sm:text-lg font-black uppercase tracking-wider text-white mb-5 sm:mb-6">
-                EDUCATION &amp; SKILLS
-              </h2>
+              <div className="flex items-center gap-2 mb-5 sm:mb-6">
+                <span className="w-2 h-2 rounded-full bg-crimson-500 animate-pulse" />
+                <h2 className="text-base sm:text-lg font-black uppercase tracking-wider text-white">
+                  EDUCATION &amp; SKILLS
+                </h2>
+              </div>
 
-              {/* Education Sub-block */}
+              {/* Education Sub-block (Animated Waterfall / Curtain Drop) */}
               <div className="mb-7 sm:mb-8">
-                <span className="text-[11px] sm:text-xs font-black uppercase tracking-widest text-crimson-500 block mb-3 sm:mb-4">
-                  EDUCATION &amp; EXPERIENCE
-                </span>
+                <div className="flex items-center justify-between mb-3.5">
+                  <span className="text-[11px] sm:text-xs font-black uppercase tracking-widest text-crimson-500 flex items-center gap-1.5">
+                    <span>EDUCATION &amp; EXPERIENCE</span>
+                  </span>
+                  <span className="text-[9px] font-mono text-zinc-500">
+                    2022 — Present
+                  </span>
+                </div>
 
-                <div className="space-y-3.5 sm:space-y-4">
+                <div className="space-y-2.5">
                   {educationList.map((edu, i) => (
-                    <div key={i} className="flex flex-col sm:flex-row sm:justify-between items-start gap-1 sm:gap-4 pb-3 border-b border-zinc-900">
-                      <div>
-                        <h4 className="text-xs sm:text-sm font-bold text-zinc-100">
-                          {edu.degree}
-                        </h4>
-                        <p className="text-[11px] text-zinc-500 mt-0.5">
-                          {edu.institution}
-                        </p>
+                    <motion.div
+                      key={i}
+                      variants={{
+                        hidden: {
+                          opacity: 0,
+                          y: -25,
+                          filter: "blur(4px)",
+                        },
+                        visible: {
+                          opacity: 1,
+                          y: 0,
+                          filter: "blur(0px)",
+                          transition: {
+                            type: "spring",
+                            damping: 17,
+                            stiffness: 95,
+                            mass: 0.75,
+                          },
+                        },
+                      }}
+                      whileHover={{
+                        x: 6,
+                        transition: { type: "spring", stiffness: 350, damping: 20 },
+                      }}
+                      className="p-2.5 -mx-2.5 rounded-xl transition-all duration-300 hover:bg-zinc-900/50 border border-transparent hover:border-zinc-800/80 group cursor-default"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-start gap-2.5">
+                          {/* Mini Tech Icon Circle */}
+                          <div className="w-7 h-7 rounded-lg bg-zinc-900/90 border border-zinc-800 group-hover:border-crimson-500 group-hover:bg-crimson-950/60 group-hover:shadow-[0_0_12px_rgba(220,38,38,0.35)] flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300">
+                            {edu.icon}
+                          </div>
+
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h4 className="text-xs sm:text-sm font-bold text-zinc-100 group-hover:text-white transition-colors">
+                                {edu.degree}
+                              </h4>
+                              {edu.isLive && (
+                                <span className="inline-flex items-center gap-1 text-[8px] font-mono font-bold uppercase text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-1.5 py-0.2 rounded-full">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                                  <span>Active</span>
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-[11px] text-zinc-400 group-hover:text-zinc-300 mt-0.5 transition-colors">
+                              {edu.institution}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Year Badge */}
+                        <span className="text-[10px] sm:text-[11px] font-mono text-zinc-400 group-hover:text-crimson-400 bg-zinc-950 group-hover:bg-zinc-900 border border-zinc-900 group-hover:border-zinc-700 px-2 py-0.5 rounded whitespace-nowrap shrink-0 transition-colors">
+                          {edu.years}
+                        </span>
                       </div>
-                      <span className="text-[10px] sm:text-[11px] font-mono text-zinc-500 whitespace-nowrap shrink-0">
-                        {edu.years}
-                      </span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
