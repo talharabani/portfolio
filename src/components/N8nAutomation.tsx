@@ -1,99 +1,13 @@
 import { motion } from "framer-motion";
-import { SiN8N, SiLinkedin, SiGooglesheets } from "react-icons/si";
+import { SiN8N } from "react-icons/si";
 import {
-  FaRobot, FaMapMarkerAlt, FaDatabase,
-  FaFilter, FaShareAlt, FaChartLine, FaClock,
-  FaPlay, FaExternalLinkAlt, FaNewspaper, FaImage,
-  FaVideo, FaMicrophone
+  FaShareAlt, FaChartLine, FaClock,
+  FaPlay, FaExternalLinkAlt
 } from "react-icons/fa";
-import React from "react";
 import FlyInText from "./FlyInText";
 import n8nThumbImg from "../assets/n8n_linkedin_automation.jpg";
 import n8nGmapsThumbImg from "../assets/n8n_gmaps_leadgen.jpg";
 import n8nAutoVideoThumbImg from "../assets/n8n_autovideo_gen.jpg";
-
-interface WorkflowNode {
-  icon: React.ReactNode;
-  label: string;
-}
-
-interface WorkflowItem {
-  id: number;
-  num: string;
-  title: string;
-  description: string;
-  nodes: WorkflowNode[];
-  tags: string[];
-  stat: string;
-  statLabel: string;
-}
-
-const workflows: WorkflowItem[] = [
-  {
-    id: 1,
-    num: "01",
-    title: "Google Maps Automated Lead Generation",
-    description:
-      "Automated webhook & form-triggered pipeline that queries Google Places API, iterates through commercial leads, enriches phone numbers, detects country jurisdiction, filters qualified contacts, and appends rows to Google Sheets in real-time.",
-    nodes: [
-      { icon: <FaMapMarkerAlt />, label: "Places API" },
-      { icon: <FaFilter />, label: "Clean & Format" },
-      { icon: <FaDatabase />, label: "Country Detect" },
-      { icon: <SiGooglesheets />, label: "Append to Sheets" },
-    ],
-    tags: ["Google Places API", "Country Detection", "Google Sheets Sync", "Lead Scraping"],
-    stat: "500+",
-    statLabel: "leads per run",
-  },
-  {
-    id: 2,
-    num: "02",
-    title: "Autonomous AI Video Generation Pipeline",
-    description:
-      "Self-orchestrating video production workflow: scrapes trending topics, synthesizes dynamic video scripts via Groq/OpenAI, generates high-fidelity voiceover via ElevenLabs, sources video assets, renders captions with FFmpeg/Creatomate, and auto-publishes to video channels.",
-    nodes: [
-      { icon: <FaRobot />, label: "Script Generation" },
-      { icon: <FaMicrophone />, label: "ElevenLabs TTS" },
-      { icon: <FaVideo />, label: "AI Video Render" },
-      { icon: <FaShareAlt />, label: "Auto Publishing" },
-    ],
-    tags: ["n8n Pipeline", "ElevenLabs TTS", "Creatomate API", "FFmpeg", "Auto Rendering"],
-    stat: "< 90s",
-    statLabel: "full render time",
-  },
-  {
-    id: 3,
-    num: "03",
-    title: "Auto LinkedIn Post & AI News Generator",
-    description:
-      "Fetches trending technology news via NewsData API, synthesizes viral professional LinkedIn copy using Groq AI (LLaMA 3), generates matching visual artwork via Pollinations.ai, merges the payload, and auto-dispatches directly to LinkedIn & Discord.",
-    nodes: [
-      { icon: <FaNewspaper />, label: "News API" },
-      { icon: <FaRobot />, label: "Groq AI (Copy)" },
-      { icon: <FaImage />, label: "Pollinations.ai" },
-      { icon: <SiLinkedin />, label: "Auto LinkedIn Post" },
-    ],
-    tags: ["NewsData API", "Groq AI", "Pollinations.ai", "Discord Webhook", "LinkedIn API"],
-    stat: "100%",
-    statLabel: "Autonomous Run",
-  },
-  {
-    id: 4,
-    num: "04",
-    title: "Autonomous AI Customer Support Agent",
-    description:
-      "Smart AI agent connecting OpenAI with company knowledge base & vector store to triage inquiries, reply instantly, and escalate complex tickets to human support.",
-    nodes: [
-      { icon: <FaRobot />, label: "Telegram Trigger" },
-      { icon: <FaDatabase />, label: "Pinecone Vector DB" },
-      { icon: <FaChartLine />, label: "OpenAI Tools" },
-      { icon: <SiLinkedin />, label: "Auto Response" },
-    ],
-    tags: ["OpenAI API", "Vector Store", "Instant Response", "Telegram"],
-    stat: "< 3s",
-    statLabel: "average reply time",
-  },
-];
 
 const stats = [
   { icon: <SiN8N className="text-2xl text-crimson-500" />, value: "15+", label: "Workflows Built" },
@@ -135,7 +49,13 @@ export default function N8nAutomation() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 sm:mb-12">
           
           {/* Video Card 1: Google Maps Lead Generation */}
-          <div className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-[#0e0f16] flex flex-col justify-between group">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-[#0e0f16] flex flex-col justify-between group"
+          >
             <div className="relative aspect-[16/10] overflow-hidden bg-black">
               <img
                 src={n8nGmapsThumbImg}
@@ -191,10 +111,16 @@ export default function N8nAutomation() {
                 <span className="text-[10px] font-mono text-zinc-500">Google Drive Video</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Video Card 2: Auto Video Generation Pipeline */}
-          <div className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-[#0e0f16] flex flex-col justify-between group">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-[#0e0f16] flex flex-col justify-between group"
+          >
             <div className="relative aspect-[16/10] overflow-hidden bg-black">
               <img
                 src={n8nAutoVideoThumbImg}
@@ -250,10 +176,16 @@ export default function N8nAutomation() {
                 <span className="text-[10px] font-mono text-zinc-500">Google Drive Video</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Video Card 3: Auto LinkedIn Post Generator */}
-          <div className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-[#0e0f16] flex flex-col justify-between group">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-[#0e0f16] flex flex-col justify-between group"
+          >
             <div className="relative aspect-[16/10] overflow-hidden bg-black">
               <img
                 src={n8nThumbImg}
@@ -309,12 +241,12 @@ export default function N8nAutomation() {
                 <span className="text-[10px] font-mono text-zinc-500">Google Drive Video</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 
         {/* Stats Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {stats.map((s, idx) => (
             <div
               key={idx}
@@ -330,70 +262,6 @@ export default function N8nAutomation() {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Workflows Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {workflows.map((wf) => (
-            <motion.div
-              key={wf.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="group bg-zinc-950 border border-zinc-850 hover:border-zinc-700 rounded-2xl p-5 sm:p-7 flex flex-col justify-between transition-all duration-300"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-sans font-black text-2xl text-crimson-500">
-                    {wf.num}
-                  </span>
-                  <span className="text-[11px] font-mono text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded">
-                    {wf.stat} {wf.statLabel}
-                  </span>
-                </div>
-
-                <h3 className="text-base font-bold uppercase tracking-wide text-white group-hover:text-crimson-400 transition-colors mb-2">
-                  {wf.title}
-                </h3>
-
-                <p className="text-xs text-zinc-400 leading-relaxed mb-6 font-normal">
-                  {wf.description}
-                </p>
-
-                {/* Workflow Nodes Visual */}
-                <div className="bg-[#0e0e10] border border-zinc-900 rounded-xl p-3.5 mb-6">
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-zinc-500 block mb-2.5">
-                    Pipeline Sequence
-                  </span>
-                  <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-[10px]">
-                    {wf.nodes.map((node, i) => (
-                      <React.Fragment key={i}>
-                        <div className="flex items-center gap-1 bg-zinc-900 text-zinc-300 px-2 py-1 rounded border border-zinc-800 whitespace-nowrap">
-                          <span className="text-crimson-400">{node.icon}</span>
-                          <span>{node.label}</span>
-                        </div>
-                        {i < wf.nodes.length - 1 && (
-                          <span className="text-zinc-600 text-xs">→</span>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-900">
-                {wf.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-[9px] uppercase tracking-wider font-semibold text-zinc-400 bg-zinc-900/60 px-2 py-1 rounded"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
           ))}
         </div>
 
