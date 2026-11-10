@@ -18,7 +18,7 @@ import developworkRealImg from "../assets/developwork.jpg";
 import newalilajpalImg from "../assets/newalilajpal.svg";
 import newalilajpalRealImg from "../assets/newalilajpal.jpg";
 import luxesaloonImg from "../assets/luxesaloon.svg";
-import luxesaloonRealImg from "../assets/luxesaloon.png";
+import luxesaloonRealImg from "../assets/luxesaloon.jpg";
 import rhabuilderImg from "../assets/rhabuilder.svg";
 import rhabuilderRealImg from "../assets/rhabuilders.jpg";
 import veloceImg from "../assets/veloce.svg";
@@ -29,6 +29,7 @@ import foodguyImg from "../assets/foodguy.svg";
 import foodguyRealImg from "../assets/foodguy.jpg";
 import attackDetectionImg from "../assets/attack detetction system.png";
 import namazImg from "../assets/namaz_viewer.svg";
+import namazRealImg from "../assets/namaz_viewer.jpg";
 import deliciousBitesImg from "../assets/DeliciousBites.jpg";
 
 export interface ProjectData {
@@ -444,6 +445,7 @@ const allProjects: ProjectData[] = [
       { component: "Cloud Deployment", tech: "Render Cloud Hosting (Live PWA)" }
     ],
     image: namazImg,
+    secondaryImage: namazRealImg,
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "PWA", "Audio API"],
     github: "https://github.com/talharabani/3D-Namaz-Viewer/",
     live: "https://namaz-p10k.onrender.com/",
@@ -473,6 +475,7 @@ const allProjects: ProjectData[] = [
       { component: "Cloud CDN", tech: "Netlify Edge Network" }
     ],
     image: deliciousBitesImg,
+    secondaryImage: deliciousBitesImg,
     tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "Netlify"],
     github: "https://github.com/talharabani/DeliciousBites",
     live: "https://thunderous-bonbon-a4564a.netlify.app/",
@@ -712,21 +715,6 @@ export default function Projects() {
                             alt={p.title}
                             className="w-full h-full object-contain sm:object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
                           />
-
-                          {/* Top Floating Glass Pills */}
-                          <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10">
-                            <span className="font-mono text-[10px] sm:text-xs font-black text-crimson-400 bg-black/80 backdrop-blur-md border border-crimson-900/60 px-2.5 py-1 rounded-md shadow-lg">
-                              {p.num}
-                            </span>
-                            <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-white bg-black/80 backdrop-blur-md border border-white/20 px-2.5 py-1 rounded-md shadow-lg">
-                              {p.title}
-                            </span>
-                          </div>
-
-                          <div className="absolute top-3 right-3 flex items-center gap-1.5 text-[9px] sm:text-[10px] font-mono text-emerald-300 bg-black/80 backdrop-blur-md border border-emerald-800/40 px-2.5 py-1 rounded-md shadow-lg z-10">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                            <span>{p.status}</span>
-                          </div>
                         </div>
 
                         {/* Bottom Action Footer with only 2 Buttons */}
