@@ -2,7 +2,8 @@ import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaSearch, FaLightbulb, FaPenNib, FaCode, FaPaperPlane, FaQuoteLeft,
-  FaExternalLinkAlt, FaNodeJs, FaRobot, FaGithub, FaCheckCircle
+  FaExternalLinkAlt, FaNodeJs, FaRobot, FaGithub, FaCheckCircle,
+  FaBolt, FaShieldAlt, FaArrowRight
 } from "react-icons/fa";
 import {
   SiReact,
@@ -13,6 +14,7 @@ import {
   SiTailwindcss,
   SiShopify,
   SiDocker,
+  SiVercel,
 } from "react-icons/si";
 
 const educationList = [
@@ -424,97 +426,222 @@ export default function About() {
                 },
               },
             }}
-            className="lg:col-span-4"
+            className="lg:col-span-4 flex flex-col justify-between"
           >
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-crimson-500 animate-pulse" />
-              <h2 className="text-base sm:text-lg font-black uppercase tracking-wider text-white">
-                WORK PROCESS
-              </h2>
-            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-2 h-2 rounded-full bg-crimson-500 animate-pulse" />
+                <h2 className="text-base sm:text-lg font-black uppercase tracking-wider text-white">
+                  WORK PROCESS
+                </h2>
+              </div>
 
-            <div className="relative pl-1 space-y-4">
-              {/* Connecting vertical line (Curtain track drawing down) */}
-              <motion.div
-                variants={{
-                  hidden: { scaleY: 0, opacity: 0 },
-                  visible: {
-                    scaleY: 1,
-                    opacity: 1,
-                    transition: {
-                      duration: 1.1,
-                      ease: [0.22, 1, 0.36, 1],
-                    },
-                  },
-                }}
-                style={{ originY: 0 }}
-                className="absolute top-4 bottom-4 left-[43px] w-[2px] bg-gradient-to-b from-crimson-500 via-crimson-600/60 to-zinc-800 -z-0"
-              />
-
-              {/* Animated Glowing Laser Pulse rolling down the curtain track */}
-              <motion.div
-                animate={{
-                  top: ["0%", "100%"],
-                  opacity: [0, 1, 1, 0],
-                }}
-                transition={{
-                  duration: 2.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  repeatDelay: 0.8,
-                }}
-                className="absolute left-[42px] w-1 h-14 bg-gradient-to-b from-transparent via-crimson-400 to-transparent blur-[1px] pointer-events-none -z-0"
-              />
-
-              {workProcessSteps.map((step) => (
+              <div className="relative pl-1 space-y-3.5">
+                {/* Connecting vertical line (Curtain track drawing down) */}
                 <motion.div
-                  key={step.num}
                   variants={{
-                    hidden: {
-                      opacity: 0,
-                      y: -35,
-                      scaleY: 0.88,
-                      filter: "blur(5px)",
-                    },
+                    hidden: { scaleY: 0, opacity: 0 },
                     visible: {
-                      opacity: 1,
-                      y: 0,
                       scaleY: 1,
-                      filter: "blur(0px)",
+                      opacity: 1,
                       transition: {
-                        type: "spring",
-                        damping: 17,
-                        stiffness: 95,
-                        mass: 0.75,
+                        duration: 1.1,
+                        ease: [0.22, 1, 0.36, 1],
                       },
                     },
                   }}
-                  whileHover={{
-                    x: 6,
-                    transition: { type: "spring", stiffness: 350, damping: 20 },
+                  style={{ originY: 0 }}
+                  className="absolute top-4 bottom-4 left-[43px] w-[2px] bg-gradient-to-b from-crimson-500 via-crimson-600/60 to-zinc-800 -z-0"
+                />
+
+                {/* Animated Glowing Laser Pulse rolling down the curtain track */}
+                <motion.div
+                  animate={{
+                    top: ["0%", "100%"],
+                    opacity: [0, 1, 1, 0],
                   }}
-                  className="relative z-10 flex items-start gap-3.5 p-2.5 -ml-2.5 rounded-xl transition-all duration-300 hover:bg-zinc-900/50 border border-transparent hover:border-zinc-800/80 group cursor-default"
-                >
-                  <div className="flex items-center gap-2.5 shrink-0 pt-0.5">
-                    <span className="font-mono text-xs font-bold text-crimson-500 group-hover:text-crimson-400 group-hover:scale-105 transition-all w-4 text-center">
-                      {step.num}
-                    </span>
-                    <div className="w-7 h-7 rounded-full bg-zinc-900/90 border border-zinc-800 group-hover:border-crimson-500 group-hover:bg-crimson-950/70 group-hover:shadow-[0_0_12px_rgba(220,38,38,0.45)] flex items-center justify-center shrink-0 transition-all duration-300">
-                      {step.icon}
+                  transition={{
+                    duration: 2.8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    repeatDelay: 0.8,
+                  }}
+                  className="absolute left-[42px] w-1 h-14 bg-gradient-to-b from-transparent via-crimson-400 to-transparent blur-[1px] pointer-events-none -z-0"
+                />
+
+                {workProcessSteps.map((step) => (
+                  <motion.div
+                    key={step.num}
+                    variants={{
+                      hidden: {
+                        opacity: 0,
+                        y: -35,
+                        scaleY: 0.88,
+                        filter: "blur(5px)",
+                      },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        scaleY: 1,
+                        filter: "blur(0px)",
+                        transition: {
+                          type: "spring",
+                          damping: 17,
+                          stiffness: 95,
+                          mass: 0.75,
+                        },
+                      },
+                    }}
+                    whileHover={{
+                      x: 6,
+                      transition: { type: "spring", stiffness: 350, damping: 20 },
+                    }}
+                    className="relative z-10 flex items-start gap-3.5 p-2.5 -ml-2.5 rounded-xl transition-all duration-300 hover:bg-zinc-900/50 border border-transparent hover:border-zinc-800/80 group cursor-default"
+                  >
+                    <div className="flex items-center gap-2.5 shrink-0 pt-0.5">
+                      <span className="font-mono text-xs font-bold text-crimson-500 group-hover:text-crimson-400 group-hover:scale-105 transition-all w-4 text-center">
+                        {step.num}
+                      </span>
+                      <div className="w-7 h-7 rounded-full bg-zinc-900/90 border border-zinc-800 group-hover:border-crimson-500 group-hover:bg-crimson-950/70 group-hover:shadow-[0_0_12px_rgba(220,38,38,0.45)] flex items-center justify-center shrink-0 transition-all duration-300">
+                        {step.icon}
+                      </div>
                     </div>
+
+                    <div className="flex-1">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-crimson-400 group-hover:text-white transition-colors duration-200">
+                        {step.title}
+                      </h4>
+                      <p className="text-xs text-zinc-400 group-hover:text-zinc-200 leading-snug mt-0.5 font-normal transition-colors duration-200">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* LIVE CONTINUOUS CI/CD & RUNTIME TELEMETRY WIDGET */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 25, scale: 0.95 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { type: "spring", damping: 18, stiffness: 90 },
+                },
+              }}
+              whileHover={{ borderColor: "rgba(220, 38, 38, 0.4)" }}
+              className="mt-6 p-4 rounded-xl bg-gradient-to-br from-zinc-950 via-[#0e0f14] to-zinc-950 border border-zinc-800/80 shadow-xl relative overflow-hidden group"
+            >
+              {/* Subtle Animated Ambient Glow */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-crimson-600/10 blur-3xl pointer-events-none rounded-full" />
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-emerald-600/5 blur-2xl pointer-events-none rounded-full" />
+
+              {/* Card Header: Live Status & Pulse */}
+              <div className="flex items-center justify-between pb-3 border-b border-zinc-900 relative z-10">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-300">
+                    CI/CD &amp; RUNTIME STATUS
+                  </span>
+                </div>
+
+                <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded-full font-bold">
+                  99.98% HEALTH
+                </span>
+              </div>
+
+              {/* Animated 4-Stage Deployment Pipeline Node Graph */}
+              <div className="pt-3 pb-3 relative z-10">
+                <div className="flex items-center justify-between text-[8px] font-mono text-zinc-500 uppercase tracking-widest mb-2 px-1">
+                  <span>DEPLOYMENT PIPELINE</span>
+                  <span className="text-crimson-400">ACTIVE FLOW</span>
+                </div>
+
+                <div className="relative flex items-center justify-between px-1 py-1">
+                  {/* Connecting Wire with Animated Pulse */}
+                  <div className="absolute left-4 right-4 top-1/2 -translate-y-1/2 h-0.5 bg-zinc-800 -z-0 overflow-hidden">
+                    <motion.div
+                      animate={{
+                        left: ["-20%", "120%"],
+                      }}
+                      transition={{
+                        duration: 2.2,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                      className="absolute top-0 w-12 h-full bg-gradient-to-r from-transparent via-crimson-400 to-transparent blur-[1px]"
+                    />
                   </div>
 
-                  <div className="flex-1">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-crimson-400 group-hover:text-white transition-colors duration-200">
-                      {step.title}
-                    </h4>
-                    <p className="text-xs text-zinc-400 group-hover:text-zinc-200 leading-snug mt-0.5 font-normal transition-colors duration-200">
-                      {step.desc}
-                    </p>
+                  {/* Node 1: Push */}
+                  <div className="relative z-10 flex flex-col items-center gap-1 group/node">
+                    <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-700/80 group-hover/node:border-crimson-500 flex items-center justify-center text-zinc-300 text-xs shadow transition">
+                      <FaGithub />
+                    </div>
+                    <span className="text-[9px] font-mono text-zinc-400">Push</span>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+
+                  {/* Node 2: Test & QA */}
+                  <div className="relative z-10 flex flex-col items-center gap-1 group/node">
+                    <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-700/80 group-hover/node:border-emerald-500 flex items-center justify-center text-emerald-400 text-xs shadow transition">
+                      <FaShieldAlt />
+                    </div>
+                    <span className="text-[9px] font-mono text-zinc-400">Test</span>
+                  </div>
+
+                  {/* Node 3: Docker Build */}
+                  <div className="relative z-10 flex flex-col items-center gap-1 group/node">
+                    <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-700/80 group-hover/node:border-sky-500 flex items-center justify-center text-sky-400 text-xs shadow transition">
+                      <SiDocker />
+                    </div>
+                    <span className="text-[9px] font-mono text-zinc-400">Build</span>
+                  </div>
+
+                  {/* Node 4: Global Edge */}
+                  <div className="relative z-10 flex flex-col items-center gap-1 group/node">
+                    <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-700/80 group-hover/node:border-crimson-500 flex items-center justify-center text-white text-xs shadow transition">
+                      <SiVercel />
+                    </div>
+                    <span className="text-[9px] font-mono text-zinc-400">Edge</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Real-time Telemetry Grid */}
+              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-zinc-900 relative z-10 text-center">
+                <div className="bg-zinc-900/60 p-2 rounded-lg border border-zinc-900">
+                  <span className="text-[8px] font-mono text-zinc-500 block uppercase">LATENCY</span>
+                  <span className="text-[11px] font-mono font-bold text-zinc-200">22ms</span>
+                </div>
+                <div className="bg-zinc-900/60 p-2 rounded-lg border border-zinc-900">
+                  <span className="text-[8px] font-mono text-zinc-500 block uppercase">TEST PASS</span>
+                  <span className="text-[11px] font-mono font-bold text-emerald-400">100%</span>
+                </div>
+                <div className="bg-zinc-900/60 p-2 rounded-lg border border-zinc-900">
+                  <span className="text-[8px] font-mono text-zinc-500 block uppercase">DEPLOY</span>
+                  <span className="text-[11px] font-mono font-bold text-crimson-400">Active</span>
+                </div>
+              </div>
+
+              {/* Bottom Quick Trigger */}
+              <div className="pt-3 relative z-10">
+                <a
+                  href="#automation"
+                  className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-crimson-950/60 border border-zinc-800 hover:border-crimson-500/70 text-zinc-300 hover:text-white text-[10px] font-bold tracking-wider uppercase transition-all duration-200 group/btn"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <FaBolt className="text-crimson-400 text-xs" />
+                    <span>Explore Autonomous Pipelines</span>
+                  </span>
+                  <FaArrowRight className="text-[9px] text-zinc-500 group-hover/btn:text-crimson-400 group-hover/btn:translate-x-1 transition-all" />
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Column 3: EDITORIAL QUOTE CARD (4 Cols) */}
