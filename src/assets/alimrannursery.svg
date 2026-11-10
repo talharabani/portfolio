@@ -1,0 +1,88 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#08140e" />
+  
+  <defs>
+    <radialGradient id="nurseryGlow" cx="50%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#059669" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#08140e" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="nurseryCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e2319" />
+      <stop offset="100%" stop-color="#091811" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#nurseryGlow)" />
+
+  <!-- Outer Dashboard Frame -->
+  <rect x="40" y="35" width="1120" height="680" rx="20" fill="#0b1c14" stroke="#164e37" stroke-width="1.5" />
+
+  <!-- Top Brand Navigation Bar -->
+  <rect x="40" y="35" width="1120" height="68" rx="20" fill="#0f261b" stroke="#19543b" stroke-width="1" />
+  
+  <!-- Logo Pill & Name -->
+  <rect x="65" y="51" width="36" height="36" rx="10" fill="#10b981" />
+  <path d="M83 58C83 58 75 66 75 73C75 77 78 81 83 81C88 81 91 77 91 73C91 66 83 58 83 58Z" fill="#064e3b" />
+  <path d="M83 65V78" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
+  <text x="112" y="74" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800">Al-Imran Nursery</text>
+  <rect x="300" y="55" width="220" height="28" rx="6" fill="#064e3b" stroke="#059669" />
+  <text x="312" y="73" fill="#6ee7b7" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">● BOTANICAL E-COMMERCE &amp; LANDSCAPE</text>
+
+  <!-- Flash Sale Status Pill -->
+  <rect x="940" y="53" width="195" height="32" rx="8" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4" />
+  <circle cx="958" cy="69" r="4" fill="#34d399" />
+  <text x="970" y="73" fill="#6ee7b7" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Flash Sale: Up to 30% Off</text>
+
+  <!-- Hero Content Strip -->
+  <text x="75" y="152" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="800">Bring Nature Indoors With Healthy, Premium Plants</text>
+  <text x="75" y="180" fill="#86efac" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14">Curated indoor &amp; outdoor botanical collections, braided ficus topiaries, flowering bougainvilleas &amp; full landscape architecture.</text>
+
+  <!-- 3 Showcase Cards -->
+  <!-- Card 1: Braided Lattice Ficus Topiary -->
+  <rect x="75" y="220" width="345" height="460" rx="16" fill="url(#nurseryCardGrad)" stroke="#164e37" stroke-width="1.3" />
+  <rect x="95" y="240" width="305" height="210" rx="12" fill="#064e3b" fill-opacity="0.4" stroke="#059669" stroke-opacity="0.3" />
+  <circle cx="247" cy="325" r="55" fill="#10b981" fill-opacity="0.2" />
+  <text x="235" y="338" font-size="45">🪴</text>
+  <rect x="105" y="250" width="75" height="22" rx="5" fill="#dc2626" />
+  <text x="114" y="265" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold">15% OFF</text>
+  <text x="95" y="480" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Braided Lattice Ficus Topiary</text>
+  <text x="95" y="504" fill="#94a3b8" font-family="sans-serif" font-size="12">Air-purifying architectural specimen for luxury living rooms.</text>
+  <text x="95" y="540" fill="#64748b" font-family="sans-serif" font-size="12" text-decoration="line-through">₨ 8,500</text>
+  <text x="155" y="542" fill="#34d399" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800">₨ 7,200</text>
+  <rect x="95" y="570" width="305" height="42" rx="10" fill="#10b981" />
+  <text x="205" y="596" fill="#064e3b" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">Shop Plant →</text>
+  <text x="135" y="645" fill="#86efac" font-family="'JetBrains Mono', monospace" font-size="11">✓ In Stock • Express Lahore Delivery</text>
+
+  <!-- Card 2: Two-Tone Bougainvillea Flowering Pillar -->
+  <rect x="445" y="220" width="345" height="460" rx="16" fill="url(#nurseryCardGrad)" stroke="#10b981" stroke-width="1.6" />
+  <rect x="465" y="240" width="305" height="210" rx="12" fill="#064e3b" fill-opacity="0.4" stroke="#059669" stroke-opacity="0.3" />
+  <circle cx="617" cy="325" r="55" fill="#ec4899" fill-opacity="0.2" />
+  <text x="605" y="338" font-size="45">🌸</text>
+  <rect x="475" y="250" width="75" height="22" rx="5" fill="#dc2626" />
+  <text x="484" y="265" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold">20% OFF</text>
+  <text x="465" y="480" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Two-Tone Bougainvillea Pillar</text>
+  <text x="465" y="504" fill="#94a3b8" font-family="sans-serif" font-size="12">Vibrant flowering terrace pillar for direct sunlight.</text>
+  <text x="465" y="540" fill="#64748b" font-family="sans-serif" font-size="12" text-decoration="line-through">₨ 6,800</text>
+  <text x="525" y="542" fill="#34d399" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800">₨ 5,450</text>
+  <rect x="465" y="570" width="305" height="42" rx="10" fill="#10b981" />
+  <text x="575" y="596" fill="#064e3b" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">Shop Plant →</text>
+  <text x="505" y="645" fill="#86efac" font-family="'JetBrains Mono', monospace" font-size="11">✓ In Stock • Guaranteed Bloom</text>
+
+  <!-- Card 3: Landscape & Garden Architecture Services -->
+  <rect x="815" y="220" width="310" height="460" rx="16" fill="url(#nurseryCardGrad)" stroke="#164e37" stroke-width="1.3" />
+  <rect x="835" y="240" width="270" height="120" rx="12" fill="#064e3b" fill-opacity="0.3" stroke="#059669" stroke-opacity="0.3" />
+  <circle cx="970" cy="295" r="32" fill="#10b981" fill-opacity="0.25" />
+  <text x="960" y="303" font-size="28">🏡</text>
+  <text x="835" y="385" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Landscape Architecture</text>
+  <text x="835" y="410" fill="#94a3b8" font-family="sans-serif" font-size="12">Transform your lawn, farmhouse or commercial villa with tailored garden design &amp; automatic irrigation.</text>
+  <rect x="835" y="450" width="270" height="42" rx="8" fill="#0a2a1e" stroke="#164e37" />
+  <text x="850" y="476" fill="#6ee7b7" font-family="'JetBrains Mono', monospace" font-size="11">🌾 Lawn Grass Turfs &amp; Stones</text>
+  <rect x="835" y="502" width="270" height="42" rx="8" fill="#0a2a1e" stroke="#164e37" />
+  <text x="850" y="528" fill="#6ee7b7" font-family="'JetBrains Mono', monospace" font-size="11">💧 Drip &amp; Sprinkler Systems</text>
+  <rect x="835" y="554" width="270" height="42" rx="8" fill="#0a2a1e" stroke="#164e37" />
+  <text x="850" y="580" fill="#6ee7b7" font-family="'JetBrains Mono', monospace" font-size="11">🪴 Farmhouse Master Planning</text>
+  <rect x="835" y="615" width="270" height="42" rx="10" fill="#2563eb" />
+  <text x="900" y="641" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">WhatsApp Inquiry →</text>
+
+</svg>

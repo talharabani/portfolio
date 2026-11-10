@@ -1,0 +1,87 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#090a0f" />
+  
+  <defs>
+    <radialGradient id="gymGlow" cx="50%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#16a34a" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#090a0f" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="gymCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#151722" />
+      <stop offset="100%" stop-color="#0e1017" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#gymGlow)" />
+
+  <!-- Outer Dashboard Frame -->
+  <rect x="40" y="35" width="1120" height="680" rx="20" fill="#0d0e14" stroke="#1f2333" stroke-width="1.5" />
+
+  <!-- Top Brand Navigation Bar -->
+  <rect x="40" y="35" width="1120" height="68" rx="20" fill="#11131c" stroke="#1f2333" stroke-width="1" />
+  
+  <!-- Logo Pill & Name -->
+  <rect x="65" y="51" width="36" height="36" rx="10" fill="#22c55e" />
+  <text x="73" y="76" fill="#090a0f" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="22" font-weight="900">G</text>
+  <text x="112" y="74" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800">GymPro Fitness</text>
+  <rect x="295" y="55" width="225" height="28" rx="6" fill="#14532d" stroke="#22c55e" stroke-opacity="0.5" />
+  <text x="307" y="73" fill="#86efac" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">● ELITE HEALTH &amp; WELLNESS</text>
+
+  <!-- Community Pill -->
+  <rect x="915" y="53" width="220" height="32" rx="8" fill="#22c55e" fill-opacity="0.12" stroke="#22c55e" stroke-opacity="0.3" />
+  <circle cx="935" cy="69" r="4" fill="#22c55e" />
+  <text x="948" y="73" fill="#86efac" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">10,000+ Worldwide Members</text>
+
+  <!-- Hero Content Strip -->
+  <text x="75" y="152" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="800">Transform Your Body, Elevate Your Mind</text>
+  <text x="75" y="180" fill="#94a3b8" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14">State-of-the-art Technogym equipment, 50+ certified coaches, HIIT bodybuilding programs, and ice-bath recovery suites.</text>
+
+  <!-- 3 Training Program Cards -->
+  <!-- Card 1: Physical Strength & Bodybuilding -->
+  <rect x="75" y="220" width="345" height="460" rx="16" fill="url(#gymCardGrad)" stroke="#1f2438" stroke-width="1.3" />
+  <rect x="95" y="240" width="305" height="200" rx="12" fill="#1a1c29" stroke="#2a2e45" />
+  <circle cx="247" cy="320" r="50" fill="#22c55e" fill-opacity="0.15" />
+  <text x="233" y="333" font-size="40">🏋️‍♂️</text>
+  <text x="95" y="475" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Strength &amp; Conditioning</text>
+  <text x="95" y="500" fill="#94a3b8" font-family="sans-serif" font-size="12">Build raw power, dense muscle mass, and explosive athleticism with custom compound lifting protocols.</text>
+  <rect x="95" y="540" width="135" height="24" rx="5" fill="#1e2235" />
+  <text x="105" y="556" fill="#86efac" font-family="'JetBrains Mono', monospace" font-size="10">Technogym Pure</text>
+  <rect x="240" y="540" width="125" height="24" rx="5" fill="#1e2235" />
+  <text x="250" y="556" fill="#86efac" font-family="'JetBrains Mono', monospace" font-size="10">Hypertrophy Lab</text>
+  <rect x="95" y="585" width="305" height="42" rx="10" fill="#22c55e" />
+  <text x="205" y="611" fill="#052e16" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">Explore Program →</text>
+  <text x="145" y="650" fill="#4ade80" font-family="'JetBrains Mono', monospace" font-size="11">● 50+ Certified Trainers</text>
+
+  <!-- Card 2: Yoga, Meditation & Functional HIIT -->
+  <rect x="445" y="220" width="345" height="460" rx="16" fill="url(#gymCardGrad)" stroke="#22c55e" stroke-width="1.6" />
+  <rect x="465" y="240" width="305" height="200" rx="12" fill="#1a1c29" stroke="#2a2e45" />
+  <circle cx="617" cy="320" r="50" fill="#a855f7" fill-opacity="0.2" />
+  <text x="603" y="333" font-size="40">🧘‍♀️</text>
+  <text x="465" y="475" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Yoga, Breathwork &amp; HIIT</text>
+  <text x="465" y="500" fill="#94a3b8" font-family="sans-serif" font-size="12">High-intensity functional conditioning balanced with guided breathwork and restorative flexibility.</text>
+  <rect x="465" y="540" width="135" height="24" rx="5" fill="#1e2235" />
+  <text x="475" y="556" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="10">Vinyasa &amp; Yin</text>
+  <rect x="610" y="540" width="125" height="24" rx="5" fill="#1e2235" />
+  <text x="620" y="556" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="10">Calorie Shred</text>
+  <rect x="465" y="585" width="305" height="42" rx="10" fill="#22c55e" />
+  <text x="575" y="611" fill="#052e16" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">Explore Program →</text>
+  <text x="515" y="650" fill="#4ade80" font-family="'JetBrains Mono', monospace" font-size="11">● 24/7 Facility Access</text>
+
+  <!-- Card 3: Membership Tiers & Recovery -->
+  <rect x="815" y="220" width="310" height="460" rx="16" fill="url(#gymCardGrad)" stroke="#1f2438" stroke-width="1.3" />
+  <rect x="835" y="240" width="270" height="110" rx="12" fill="#1a1c29" stroke="#2a2e45" />
+  <circle cx="970" cy="285" r="30" fill="#3b82f6" fill-opacity="0.2" />
+  <text x="960" y="295" font-size="28">🧊</text>
+  <text x="835" y="375" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Recovery &amp; Ice Baths</text>
+  <text x="835" y="398" fill="#94a3b8" font-family="sans-serif" font-size="12">Accelerate recovery with Finnish saunas, cold plunge ice baths, and sports massage therapy.</text>
+  <rect x="835" y="435" width="270" height="40" rx="8" fill="#141724" stroke="#232840" />
+  <text x="850" y="460" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="11">⚡ Finnish Dry Saunas</text>
+  <rect x="835" y="485" width="270" height="40" rx="8" fill="#141724" stroke="#232840" />
+  <text x="850" y="510" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="11">❄ Sub-Zero Cold Plunge</text>
+  <rect x="835" y="535" width="270" height="40" rx="8" fill="#141724" stroke="#232840" />
+  <text x="850" y="560" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="11">🥗 Custom Nutrition Plans</text>
+  <rect x="835" y="595" width="270" height="42" rx="10" fill="#22c55e" />
+  <text x="900" y="621" fill="#052e16" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">Join GymPro →</text>
+
+</svg>

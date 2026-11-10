@@ -33,6 +33,9 @@ import attackDetectionImg from "../assets/attack detetction system.png";
 import namazImg from "../assets/namaz_viewer.svg";
 import namazRealImg from "../assets/namaz_viewer.jpg";
 import deliciousBitesImg from "../assets/DeliciousBites.jpg";
+import alimrannurseryImg from "../assets/alimrannursery.svg";
+import gymproImg from "../assets/gympro.svg";
+import buildestimateproImg from "../assets/buildestimatepro.svg";
 
 export interface ProjectData {
   num: string;
@@ -426,37 +429,6 @@ const allProjects: ProjectData[] = [
   },
   {
     num: "12",
-    title: "ATTACK DETECTION SYSTEM FOR CPS",
-    tagline: "Intrusion Detection & Prevention (IDS/IPS)",
-    category: "Cybersecurity",
-    badge: "Security IDS",
-    year: "2025",
-    status: "Production Ready",
-    desc: "Cross-platform IDS/IPS system built in Python continuously monitoring network traffic, logs, processes, and ICS/CPS protocols to detect cyber attacks in real-time.",
-    fullSummary: [
-      "Problem: Cyber-Physical Systems (CPS) and industrial control networks face continuous threats, brute-force anomalies, and zero-day intrusion patterns that generic firewalls miss.",
-      "Solution: Acts as a 24/7 autonomous security guard. Sniffs network packets, inspects ICS protocols, queries live Shodan threat intelligence, profiles attacker behavior, and dispatches instant desktop and Discord alerts."
-    ],
-    features: [
-      "Real-time packet sniffing and deep protocol inspection across 8+ protocols.",
-      "Live Shodan API integration for attacker IP reputation and threat intelligence.",
-      "Instant incident escalation via Discord webhooks and desktop alerts.",
-      "Attacker profiling and anomaly detection engine powered by 17+ Python libraries.",
-      "Comprehensive forensic reporting with export to PDF, CSV, JSON, and ElasticSearch."
-    ],
-    architecture: [
-      { component: "Sniffing Engine", tech: "Python Scapy, Sockets & Threading" },
-      { component: "Threat Intel", tech: "Shodan REST API Integration" },
-      { component: "Alert Dispatch", tech: "Discord Webhook & OS Notifications" },
-      { component: "Analytics & Export", tech: "ElasticSearch, Grafana, JSON, PDF" }
-    ],
-    image: attackDetectionImg,
-    tech: ["Python", "Shodan API", "Discord API", "Network Security", "IDS/IPS"],
-    github: "https://github.com/talharabani/Attack-detection-system-for-CPS",
-    live: "#",
-  },
-  {
-    num: "13",
     title: "3D NAMAZ VIEWER LEARNING PLATFORM",
     tagline: "Interactive Islamic Prayer Learning Platform",
     category: "3D & Interactive",
@@ -488,7 +460,7 @@ const allProjects: ProjectData[] = [
     live: "https://namaz-p10k.onrender.com/",
   },
   {
-    num: "14",
+    num: "13",
     title: "DELICIOUSBITES RESTAURANT PLATFORM",
     tagline: "Modern Food Ordering & Table Reservation",
     category: "Websites & Commercial",
@@ -516,6 +488,133 @@ const allProjects: ProjectData[] = [
     tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "Netlify"],
     github: "https://github.com/talharabani/DeliciousBites",
     live: "https://thunderous-bonbon-a4564a.netlify.app/",
+  },
+  {
+    num: "14",
+    title: "AL IMRAN NURSERY & LANDSCAPE",
+    tagline: "E-Commerce Plant Nursery & Landscape Architecture Platform",
+    category: "Websites & Commercial",
+    badge: "E-Commerce",
+    year: "2026",
+    status: "Live Application",
+    desc: "A modern botanical e-commerce & landscape architecture digital storefront engineered for Al-Imran Nursery and Landscape. Features curated indoor & outdoor plants, braided ficus topiaries, flowering bougainvilleas, dynamic flash sales with discount calculations, responsive product catalog, and WhatsApp customer consultation.",
+    fullSummary: [
+      "Overview: Al-Imran Nursery and Landscape brings nature indoors with premium, healthy plants and professional landscaping solutions across Pakistan.",
+      "Digital Solution: Developed a high-converting green botanical e-commerce store with categorized plant collections (topiaries, flowering shrubs, indoor palms), dynamic pricing (original vs sale prices with up to 30% discount logic), direct cart & checkout, and integrated WhatsApp landscaping consultation."
+    ],
+    features: [
+      "Botanical E-Commerce Catalog: Filterable showcase of indoor/outdoor plants, braided ficus topiaries, and flowering bougainvillea pillars.",
+      "Dynamic Flash Sales & Promo Engine: Real-time automated discount tags (e.g. 30% Off) with comparative price cross-outs.",
+      "Landscaping Consultation Flow: Instant WhatsApp inquiry dispatch for custom lawn development and garden architecture.",
+      "Optimized Image CDN & Lazy Loading: Fast mobile browsing speeds with optimized botanical gallery assets.",
+      "Responsive Checkout & Invoicing: Seamless order workflow designed for desktop, tablet, and smartphone shoppers."
+    ],
+    architecture: [
+      { component: "Storefront Architecture", tech: "WooCommerce & Custom Headless WP" },
+      { component: "Theme & Botanical UI", tech: "Astra Engine & Responsive Botanical CSS" },
+      { component: "Cart & Flash Sales", tech: "Dynamic Discount & Checkout Engine" },
+      { component: "Cloud Infrastructure", tech: "Production Web Server & Cloudflare CDN" }
+    ],
+    image: alimrannurseryImg,
+    secondaryImage: alimrannurseryImg,
+    tech: ["WordPress", "WooCommerce", "PHP", "Tailwind CSS", "JavaScript", "E-Commerce", "WhatsApp API"],
+    github: "#",
+    live: "https://alimrannursery.store/",
+  },
+  {
+    num: "15",
+    title: "GYMPRO FITNESS",
+    tagline: "Elite Gym, Personal Training & Wellness Platform",
+    category: "Websites & Commercial",
+    badge: "Fitness Platform",
+    year: "2026",
+    status: "Live Application",
+    desc: "A high-energy, dark-themed fitness and wellness web application designed for GymPro. Features interactive training program breakdowns (physical strength, yoga, HIIT, bodybuilding), certified trainer roster, flexible membership tiers, sauna & ice-bath wellness showcases, and online registration.",
+    fullSummary: [
+      "Overview: GymPro is an elite health & wellness facility trusted by 10,000+ members worldwide, featuring cutting-edge Technogym & Rogue equipment, 50+ certified coaches, and round-the-clock facility access.",
+      "Platform Design: Developed with modern React and Tailwind CSS, featuring dark-mode luxury aesthetics, interactive membership tier comparison, dynamic class schedules, and trainer profiles."
+    ],
+    features: [
+      "Interactive Training Programs: Dedicated modules for Physical Strength, Yoga & Meditation, Bodybuilding, and Functional HIIT.",
+      "Tiered Membership Calculator: Dynamic pricing cards (Standard, Pro, VIP Elite) with group classes, locker access, and personal training breakdown.",
+      "Trainer Roster & Credentials: NASM & ACE certified professional profiles with specialty badges and booking links.",
+      "Wellness & Recovery Facilities: Showcase for sauna, ice baths, and sports massage therapy.",
+      "Smooth Motion Choreography: Fluid scroll animations, high-contrast typography, and mobile-optimized response."
+    ],
+    architecture: [
+      { component: "Frontend App", tech: "React 19 + TypeScript + Vite" },
+      { component: "Styling & Layout", tech: "Tailwind CSS (Dark Luxury & Vibrant Neon Green)" },
+      { component: "Animation Engine", tech: "Framer Motion Kinetic Transitions" },
+      { component: "Cloud Deployment", tech: "Vercel Edge Platform (Live)" }
+    ],
+    image: gymproImg,
+    secondaryImage: gymproImg,
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "Framer Motion", "Vercel"],
+    github: "#",
+    live: "https://gympro-kappa-one.vercel.app/",
+  },
+  {
+    num: "16",
+    title: "BUILDESTIMATE PRO",
+    tagline: "Commercial Construction Material Takeoff & Cost Estimating",
+    category: "Websites & Commercial",
+    badge: "Construction SaaS",
+    year: "2026",
+    status: "Live Application",
+    desc: "A comprehensive commercial construction estimating and material takeoff web platform built for BuildEstimate Pro. Designed to boost contractor bid-win ratios by providing fast, accurate cost estimation across residential, commercial, industrial, and civil construction projects.",
+    fullSummary: [
+      "Problem: General contractors and builders frequently lose profitable bids or overspend by 60% due to inaccurate preliminary material takeoffs and delayed manual spreadsheets.",
+      "Solution: BuildEstimate Pro provides certified material takeoffs and cost estimating services across all CSI trades. The platform allows builders to submit architectural blueprints, receive fast turnarounds, and cut estimating costs by up to 60%."
+    ],
+    features: [
+      "Multi-Trade Takeoff Coverage: Material estimating across concrete, masonry, lumber, MEP, drywall, structural steel, and roofing.",
+      "Bid-Win Ratio Booster: Turnaround estimating engine designed to cut contractor bidding overhead by up to 60%.",
+      "Interactive Blueprint Submission: Streamlined inquiry portal for uploading architectural plans and project specifications.",
+      "Preliminary & Detailed Cost Reports: CSI MasterFormat division estimates, labor costing, and localized zip-code pricing.",
+      "Promotional Discount Banner: Automated 30% discount lead-capture pipeline for new contractor accounts."
+    ],
+    architecture: [
+      { component: "Frontend Architecture", tech: "Modern Responsive Web Framework & TypeScript" },
+      { component: "Styling & UI", tech: "Tailwind CSS & Construction Blueprint Palette" },
+      { component: "Lead Management", tech: "Interactive Estimation Inquiry & Form Routing" },
+      { component: "Cloud Hosting", tech: "Cloudflare Pages Global Edge CDN (Live)" }
+    ],
+    image: buildestimateproImg,
+    secondaryImage: buildestimateproImg,
+    tech: ["React", "TypeScript", "Tailwind CSS", "Cloudflare Pages", "Lead Generation", "Construction Tech"],
+    github: "#",
+    live: "https://buildestimatepro.pages.dev/",
+  },
+  {
+    num: "17",
+    title: "ATTACK DETECTION SYSTEM FOR CPS",
+    tagline: "Intrusion Detection & Prevention (IDS/IPS)",
+    category: "Cybersecurity",
+    badge: "Security IDS",
+    year: "2025",
+    status: "Production Ready",
+    desc: "Cross-platform IDS/IPS system built in Python continuously monitoring network traffic, logs, processes, and ICS/CPS protocols to detect cyber attacks in real-time.",
+    fullSummary: [
+      "Problem: Cyber-Physical Systems (CPS) and industrial control networks face continuous threats, brute-force anomalies, and zero-day intrusion patterns that generic firewalls miss.",
+      "Solution: Acts as a 24/7 autonomous security guard. Sniffs network packets, inspects ICS protocols, queries live Shodan threat intelligence, profiles attacker behavior, and dispatches instant desktop and Discord alerts."
+    ],
+    features: [
+      "Real-time packet sniffing and deep protocol inspection across 8+ protocols.",
+      "Live Shodan API integration for attacker IP reputation and threat intelligence.",
+      "Instant incident escalation via Discord webhooks and desktop alerts.",
+      "Attacker profiling and anomaly detection engine powered by 17+ Python libraries.",
+      "Comprehensive forensic reporting with export to PDF, CSV, JSON, and ElasticSearch."
+    ],
+    architecture: [
+      { component: "Sniffing Engine", tech: "Python Scapy, Sockets & Threading" },
+      { component: "Threat Intel", tech: "Shodan REST API Integration" },
+      { component: "Alert Dispatch", tech: "Discord Webhook & OS Notifications" },
+      { component: "Analytics & Export", tech: "ElasticSearch, Grafana, JSON, PDF" }
+    ],
+    image: attackDetectionImg,
+    tech: ["Python", "Shodan API", "Discord API", "Network Security", "IDS/IPS"],
+    github: "https://github.com/talharabani/Attack-detection-system-for-CPS",
+    live: "#",
   },
 ];
 

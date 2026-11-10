@@ -1,0 +1,87 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#0d0f17" />
+  
+  <defs>
+    <radialGradient id="estGlow" cx="50%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#c2410c" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0d0f17" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="estCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181c28" />
+      <stop offset="100%" stop-color="#10131d" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#estGlow)" />
+
+  <!-- Outer Dashboard Frame -->
+  <rect x="40" y="35" width="1120" height="680" rx="20" fill="#111422" stroke="#2a324a" stroke-width="1.5" />
+
+  <!-- Top Brand Navigation Bar -->
+  <rect x="40" y="35" width="1120" height="68" rx="20" fill="#15192b" stroke="#252d43" stroke-width="1" />
+  
+  <!-- Logo Pill & Name -->
+  <rect x="65" y="51" width="36" height="36" rx="10" fill="#f97316" />
+  <path d="M74 74V63L83 58L92 63V74H74Z" stroke="#0d0f17" stroke-width="2.5" stroke-linejoin="round" />
+  <text x="112" y="74" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800">BuildEstimate Pro</text>
+  <rect x="310" y="55" width="245" height="28" rx="6" fill="#431407" stroke="#ea580c" />
+  <text x="322" y="73" fill="#fdba74" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">● CONSTRUCTION MATERIAL TAKEOFFS</text>
+
+  <!-- Promo Pill -->
+  <rect x="910" y="53" width="225" height="32" rx="8" fill="#f97316" fill-opacity="0.15" stroke="#f97316" stroke-opacity="0.4" />
+  <circle cx="930" cy="69" r="4" fill="#fb923c" />
+  <text x="942" y="73" fill="#fdba74" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">30% Discount for First 50</text>
+
+  <!-- Hero Content Strip -->
+  <text x="75" y="152" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="800">Professional Construction Estimating &amp; Material Takeoffs</text>
+  <text x="75" y="180" fill="#cbd5e1" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14">Boost your bid-win ratio, cut estimating overhead by up to 60%, and deliver certified blueprint takeoffs for any trade.</text>
+
+  <!-- 3 Capability Cards -->
+  <!-- Card 1: CSI Multi-Trade Material Takeoff -->
+  <rect x="75" y="220" width="345" height="460" rx="16" fill="url(#estCardGrad)" stroke="#272e44" stroke-width="1.3" />
+  <rect x="95" y="240" width="305" height="200" rx="12" fill="#1b2031" stroke="#2e3853" />
+  <circle cx="247" cy="320" r="50" fill="#f97316" fill-opacity="0.15" />
+  <text x="233" y="333" font-size="40">📐</text>
+  <text x="95" y="475" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Material Takeoff Services</text>
+  <text x="95" y="500" fill="#94a3b8" font-family="sans-serif" font-size="12">Accurate quantity calculations for concrete, masonry, lumber, structural steel, drywall, roofing &amp; MEP.</text>
+  <rect x="95" y="540" width="135" height="24" rx="5" fill="#242a40" />
+  <text x="105" y="556" fill="#fdba74" font-family="'JetBrains Mono', monospace" font-size="10">CSI MasterFormat</text>
+  <rect x="240" y="540" width="125" height="24" rx="5" fill="#242a40" />
+  <text x="250" y="556" fill="#fdba74" font-family="'JetBrains Mono', monospace" font-size="10">99.8% Accuracy</text>
+  <rect x="95" y="585" width="305" height="42" rx="10" fill="#f97316" />
+  <text x="195" y="611" fill="#0d0f17" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">Get Free Estimate →</text>
+  <text x="150" y="650" fill="#fb923c" font-family="'JetBrains Mono', monospace" font-size="11">● 24 - 48h Turnaround Time</text>
+
+  <!-- Card 2: Commercial & Residential Estimating -->
+  <rect x="445" y="220" width="345" height="460" rx="16" fill="url(#estCardGrad)" stroke="#f97316" stroke-width="1.6" />
+  <rect x="465" y="240" width="305" height="200" rx="12" fill="#1b2031" stroke="#2e3853" />
+  <circle cx="617" cy="320" r="50" fill="#3b82f6" fill-opacity="0.2" />
+  <text x="603" y="333" font-size="40">🏗</text>
+  <text x="465" y="475" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Cost Estimating Services</text>
+  <text x="465" y="500" fill="#94a3b8" font-family="sans-serif" font-size="12">Detailed labor costing, equipment rentals, material escalation &amp; profit margin analysis across all projects.</text>
+  <rect x="465" y="540" width="135" height="24" rx="5" fill="#242a40" />
+  <text x="475" y="556" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="10">Residential &amp; Comm</text>
+  <rect x="610" y="540" width="125" height="24" rx="5" fill="#242a40" />
+  <text x="620" y="556" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="10">Zip-Code Pricing</text>
+  <rect x="465" y="585" width="305" height="42" rx="10" fill="#f97316" />
+  <text x="565" y="611" fill="#0d0f17" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">Upload Blueprints →</text>
+  <text x="500" y="650" fill="#fb923c" font-family="'JetBrains Mono', monospace" font-size="11">● Cut Estimating Costs by 60%</text>
+
+  <!-- Card 3: Virtual Bid Management -->
+  <rect x="815" y="220" width="310" height="460" rx="16" fill="url(#estCardGrad)" stroke="#272e44" stroke-width="1.3" />
+  <rect x="835" y="240" width="270" height="110" rx="12" fill="#1b2031" stroke="#2e3853" />
+  <circle cx="970" cy="285" r="30" fill="#10b981" fill-opacity="0.2" />
+  <text x="960" y="295" font-size="28">📑</text>
+  <text x="835" y="375" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Virtual Bid Management</text>
+  <text x="835" y="398" fill="#94a3b8" font-family="sans-serif" font-size="12">End-to-end proposal filing, subcontractor RFQ management, and competitive bid submissions.</text>
+  <rect x="835" y="435" width="270" height="40" rx="8" fill="#1e2438" stroke="#313a58" />
+  <text x="850" y="460" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="11">⚡ PlanSwift &amp; Bluebeam PDF</text>
+  <rect x="835" y="485" width="270" height="40" rx="8" fill="#1e2438" stroke="#313a58" />
+  <text x="850" y="510" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="11">📊 RSMeans Cost Data Sync</text>
+  <rect x="835" y="535" width="270" height="40" rx="8" fill="#1e2438" stroke="#313a58" />
+  <text x="850" y="560" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="11">💼 Expert Estimating Consultant</text>
+  <rect x="835" y="595" width="270" height="42" rx="10" fill="#f97316" />
+  <text x="895" y="621" fill="#0d0f17" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">Consult Estimator →</text>
+
+</svg>
