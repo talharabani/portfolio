@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaGithub, FaExternalLinkAlt, FaTimes, 
-  FaCheckCircle, FaBolt, FaLayerGroup, FaImage, FaLock, FaDesktop, FaPlay,
+  FaCheckCircle, FaBolt, FaLayerGroup, FaPlay,
   FaChevronLeft, FaChevronRight, FaThLarge, FaClone
 } from "react-icons/fa";
 
@@ -483,8 +483,6 @@ export default function Projects() {
   const [viewMode, setViewMode] = useState<"deck" | "grid">("deck");
   const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
-  const [activeTab, setActiveTab] = useState<"overview" | "features" | "architecture" | "preview">("overview");
-  const [previewMode, setPreviewMode] = useState<"vector" | "real">("vector");
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   // Touch gesture state for mobile swiping
@@ -546,8 +544,6 @@ export default function Projects() {
     if (selectedProject) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
-      setActiveTab("overview");
-      setPreviewMode("vector");
     } else {
       document.body.style.overflow = "unset";
       window.addEventListener("keydown", handleKeyDown);
@@ -694,96 +690,43 @@ export default function Projects() {
                     }`}
                   >
                     {isExpanded ? (
-                      /* EXPANDED PROJECT CARD (Right Card in Reference) */
-                      <div className="relative w-full h-full p-4 sm:p-6 flex flex-col justify-between overflow-hidden">
-                        {/* Background Artwork Ambient Vignette */}
-                        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-25">
+                      /* EXPANDED PROJECT CARD: Full Image Showcase + 2 Actions */
+                      <div className="relative w-full h-full p-2.5 sm:p-3.5 flex flex-col justify-between overflow-hidden">
+                        {/* Full Showcase Image Container */}
+                        <div 
+                          onClick={() => setSelectedProject(p)}
+                          className="relative flex-1 w-full rounded-xl overflow-hidden border border-zinc-800 bg-[#07080d] group cursor-pointer shadow-xl flex items-center justify-center min-h-[360px]"
+                        >
                           <img
                             src={p.secondaryImage || p.image}
-                            alt=""
-                            className="w-full h-full object-cover blur-2xl scale-125"
+                            alt={p.title}
+                            className="w-full h-full object-contain sm:object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d14] via-[#0c0d14]/85 to-transparent" />
-                        </div>
 
-                        {/* Top Meta Bar */}
-                        <div className="relative z-10 flex items-center justify-between gap-2 border-b border-zinc-800/80 pb-3">
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono text-[10px] sm:text-xs font-black text-crimson-400 bg-crimson-950/60 border border-crimson-900/40 px-2.5 py-0.5 rounded-md">
+                          {/* Top Floating Glass Pills */}
+                          <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10">
+                            <span className="font-mono text-[10px] sm:text-xs font-black text-crimson-400 bg-black/80 backdrop-blur-md border border-crimson-900/60 px-2.5 py-1 rounded-md shadow-lg">
                               {p.num}
                             </span>
-                            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-300">
-                              {p.badge} • {p.year}
+                            <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-white bg-black/80 backdrop-blur-md border border-white/20 px-2.5 py-1 rounded-md shadow-lg">
+                              {p.title}
                             </span>
                           </div>
 
-                          <div className="flex items-center gap-1.5 text-[9px] sm:text-[10px] font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-800/30 px-2 py-0.5 rounded-md">
+                          <div className="absolute top-3 right-3 flex items-center gap-1.5 text-[9px] sm:text-[10px] font-mono text-emerald-300 bg-black/80 backdrop-blur-md border border-emerald-800/40 px-2.5 py-1 rounded-md shadow-lg z-10">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                             <span>{p.status}</span>
                           </div>
                         </div>
 
-                        {/* Middle Content: Title + Image Preview Box + Summary */}
-                        <div className="relative z-10 my-auto py-2 sm:py-3 flex flex-col gap-3">
-                          <div>
-                            <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-0.5 sm:mb-1">
-                              {p.title}
-                            </h3>
-                            <p className="text-xs sm:text-sm text-zinc-300 font-medium">
-                              {p.tagline}
-                            </p>
-                          </div>
-
-                          {/* Image Mockup Window */}
-                          <div 
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedProject(p);
-                            }}
-                            className="group relative aspect-[16/9] sm:aspect-[16/8] w-full rounded-xl overflow-hidden border border-zinc-800 bg-[#07080d] cursor-pointer shadow-2xl"
-                          >
-                            <img
-                              src={p.secondaryImage || p.image}
-                              alt={p.title}
-                              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
-                            <div className="absolute bottom-2.5 left-3 text-[10px] sm:text-[11px] font-mono text-zinc-300 bg-black/70 px-2 py-1 rounded border border-white/10 backdrop-blur-md">
-                              Click image for case study ↗
-                            </div>
-                          </div>
-
-                          {/* Description */}
-                          <p className="text-xs sm:text-[13px] text-zinc-400 leading-relaxed line-clamp-2">
-                            {p.desc}
-                          </p>
-
-                          {/* Tech Stack Tags */}
-                          <div className="flex flex-wrap gap-1.5">
-                            {p.tech.slice(0, 5).map((t) => (
-                              <span
-                                key={t}
-                                className="text-[10px] font-mono text-zinc-300 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded"
-                              >
-                                {t}
-                              </span>
-                            ))}
-                            {p.tech.length > 5 && (
-                              <span className="text-[10px] font-mono text-zinc-500 px-1 py-0.5">
-                                +{p.tech.length - 5} more
-                              </span>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Bottom Action Footer */}
-                        <div className="relative z-10 flex items-center gap-2 pt-3 border-t border-zinc-800/80">
+                        {/* Bottom Action Footer with only 2 Buttons */}
+                        <div className="relative z-10 flex items-center gap-2 pt-2.5 sm:pt-3">
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
                               setSelectedProject(p);
                             }}
-                            className="flex-1 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs uppercase tracking-wider py-2 sm:py-2.5 px-3 rounded-xl shadow-lg shadow-crimson-950/80 transition flex items-center justify-center gap-1.5 cursor-pointer"
+                            className="flex-1 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs uppercase tracking-wider py-2.5 sm:py-3 px-3 rounded-xl shadow-lg shadow-crimson-950/80 transition flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
                           >
                             <span>View Full Case Study</span>
                             <FaExternalLinkAlt className="text-[10px]" />
@@ -795,10 +738,14 @@ export default function Projects() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-500 text-zinc-200 text-xs font-bold uppercase tracking-wider py-2 sm:py-2.5 px-3.5 rounded-xl transition flex items-center justify-center gap-1.5"
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-500 text-zinc-200 text-xs font-bold uppercase tracking-wider py-2.5 sm:py-3 px-3.5 sm:px-4 rounded-xl transition flex items-center justify-center gap-1.5 hover:scale-[1.01] active:scale-[0.99]"
                             >
                               <span>Live Preview</span>
-                              <FaPlay className="text-[9px]" />
+                              {p.live.includes("drive.google.com") ? (
+                                <FaPlay className="text-[9px]" />
+                              ) : (
+                                <FaExternalLinkAlt className="text-[9px]" />
+                              )}
                             </a>
                           )}
                         </div>
@@ -948,344 +895,284 @@ export default function Projects() {
 
       </div>
 
-      {/* PROPER APPLICATION WINDOW MODAL */}
+      {/* FULL-WINDOW BLOG TYPE CASE STUDY OVERLAY */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-6"
-            onClick={() => setSelectedProject(null)}
+            className="fixed inset-0 z-[9999] bg-[#07080e] overflow-y-auto text-left select-text"
           >
-            <motion.div
-              initial={{ scale: 0.94, opacity: 0, y: 25 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 25 }}
-              transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#0e0f14] border border-zinc-700/80 rounded-2xl max-w-4xl w-full max-h-[92vh] sm:max-h-[90vh] flex flex-col shadow-[0_25px_70px_rgba(0,0,0,0.95)] relative text-left overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
+            {/* Top Sticky Glass Navigation Bar */}
+            <div className="sticky top-0 z-50 bg-[#0c0d14]/90 backdrop-blur-xl border-b border-zinc-800/80 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xl">
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-crimson-500/50 px-3.5 py-1.5 rounded-xl transition cursor-pointer shadow-sm group"
+                >
+                  <FaChevronLeft className="text-xs text-crimson-400 group-hover:-translate-x-0.5 transition-transform" />
+                  <span>Back to Portfolio</span>
+                </button>
+
+                <div className="hidden md:flex items-center gap-2 text-xs font-mono text-zinc-500">
+                  <span>/</span>
+                  <span className="text-zinc-400 uppercase font-bold">{selectedProject.title}</span>
+                </div>
+              </div>
+
+              {/* Action Buttons on Right */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                {selectedProject.live && selectedProject.live !== "#" && (
+                  <a
+                    href={selectedProject.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md shadow-crimson-950/60"
+                  >
+                    <span>{selectedProject.live.includes("drive.google.com") ? "Video Demo" : "Live App"}</span>
+                    {selectedProject.live.includes("drive.google.com") ? (
+                      <FaPlay className="text-[9px]" />
+                    ) : (
+                      <FaExternalLinkAlt className="text-[10px]" />
+                    )}
+                  </a>
+                )}
+
+                {selectedProject.github && selectedProject.github !== "#" && (
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 font-bold text-xs uppercase tracking-wider rounded-xl transition"
+                  >
+                    <FaGithub className="text-xs" />
+                    <span>GitHub</span>
+                  </a>
+                )}
+
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="w-8 h-8 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition cursor-pointer"
+                  aria-label="Close Case Study"
+                >
+                  <FaTimes className="text-xs" />
+                </button>
+              </div>
+            </div>
+
+            {/* Editorial Case Study Article Container */}
+            <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 pb-20">
               
-              {/* macOS Style Window Title Bar */}
-              <div className="bg-[#15161f] border-b border-zinc-800 px-3.5 sm:px-5 py-2.5 sm:py-3.5 flex items-center justify-between shrink-0 select-none">
-                {/* Traffic lights dots */}
-                <div className="flex items-center gap-2 overflow-hidden">
-                  <button
-                    onClick={() => setSelectedProject(null)}
-                    className="w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-[#ff5f56] hover:opacity-80 transition-opacity border border-[#e0443e] shrink-0"
-                    title="Close Window"
-                  />
-                  <button
-                    onClick={() => setSelectedProject(null)}
-                    className="w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-[#ffbd2e] hover:opacity-80 transition-opacity border border-[#dea123] shrink-0"
-                    title="Minimize"
-                  />
-                  <div className="w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-[#27c93f] border border-[#1aab29] shrink-0" />
-                  
-                  <span className="ml-2 sm:ml-3 font-mono text-[11px] sm:text-xs font-bold text-zinc-300 truncate max-w-[160px] xs:max-w-[220px] sm:max-w-none">
-                    {selectedProject.num} — {selectedProject.title.toLowerCase().replace(/\s+/g, '_')}.app
+              {/* Category & Status Tags */}
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="font-mono text-xs font-black text-crimson-400 bg-crimson-950/60 border border-crimson-800/40 px-3 py-1 rounded-full">
+                  PROJECT {selectedProject.num} • {selectedProject.badge}
+                </span>
+                <span className="font-mono text-xs text-zinc-400 bg-zinc-900/80 border border-zinc-800 px-3 py-1 rounded-full">
+                  {selectedProject.year}
+                </span>
+                <span className="font-mono text-xs text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-3 py-1 rounded-full flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>{selectedProject.status}</span>
+                </span>
+              </div>
+
+              {/* Article Main Headline & Subtitle */}
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white mb-4 leading-[1.08]">
+                {selectedProject.title}
+              </h1>
+
+              <p className="text-base sm:text-xl text-zinc-300 font-normal leading-relaxed mb-8 max-w-3xl">
+                {selectedProject.tagline}
+              </p>
+
+              {/* Meta Stats Bar */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 sm:p-5 rounded-2xl bg-[#0e0f17] border border-zinc-800 mb-10">
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider block mb-1">
+                    Category
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-white">
+                    {selectedProject.category}
                   </span>
                 </div>
-
-                {/* Right badges & close button */}
-                <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded-full">
-                    <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 animate-pulse" />
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider block mb-1">
+                    Timeline
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-white">
+                    {selectedProject.year} • Production
+                  </span>
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider block mb-1">
+                    Status
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-emerald-400">
                     {selectedProject.status}
                   </span>
-                  
-                  <button
-                    onClick={() => setSelectedProject(null)}
-                    className="p-1 sm:p-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors border border-zinc-800"
-                    aria-label="Close window"
-                  >
-                    <FaTimes className="text-xs" />
-                  </button>
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider block mb-1">
+                    Author
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-crimson-400">
+                    Talha Ishaq
+                  </span>
                 </div>
               </div>
 
-              {/* Action Bar: Prominent Live Demo & GitHub Buttons */}
-              <div className="bg-[#12131a] border-b border-zinc-855 px-3.5 sm:px-5 py-2.5 sm:py-3 flex flex-wrap items-center justify-between gap-2.5 shrink-0">
-                <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
-                  {selectedProject.live && selectedProject.live !== "#" ? (
-                    <a
-                      href={selectedProject.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider rounded-lg transition shadow-md shadow-crimson-950/50"
-                    >
-                      {selectedProject.live.includes("drive.google.com") ? (
-                        <>
-                          <FaPlay className="text-[9px] sm:text-[10px]" />
-                          <span>Video Demo</span>
-                        </>
-                      ) : (
-                        <>
-                          <FaExternalLinkAlt className="text-[9px] sm:text-[10px]" />
-                          <span>Live App</span>
-                        </>
-                      )}
-                    </a>
-                  ) : (
-                    <span className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-zinc-900 text-zinc-400 border border-zinc-800 text-[10px] sm:text-[11px] font-semibold rounded-md">
-                      <FaDesktop className="text-xs text-crimson-400" />
-                      <span>Desktop App</span>
-                    </span>
-                  )}
+              {/* Full-Width High-Resolution Hero Media */}
+              <div className="rounded-2xl overflow-hidden border border-zinc-800/90 bg-[#040508] shadow-[0_20px_60px_rgba(0,0,0,0.8)] mb-12 sm:mb-16">
+                <img
+                  src={selectedProject.secondaryImage || selectedProject.image}
+                  alt={selectedProject.title}
+                  className="w-full h-auto object-contain rounded-2xl"
+                />
+              </div>
 
-                  {selectedProject.github && selectedProject.github !== "#" ? (
-                    <a
-                      href={selectedProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 font-bold text-[11px] sm:text-xs uppercase tracking-wider rounded-lg transition"
-                    >
-                      <FaGithub className="text-xs sm:text-sm" />
-                      <span>GitHub</span>
-                    </a>
-                  ) : (
-                    <span className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-zinc-900 text-zinc-500 border border-zinc-800 text-[10px] sm:text-[11px] rounded-md">
-                      <FaLock className="text-xs" />
-                      <span>Proprietary</span>
-                    </span>
-                  )}
+              {/* Executive Summary & Problem / Solution */}
+              <div className="space-y-6 mb-12 sm:mb-16">
+                <div className="border-b border-zinc-900 pb-3">
+                  <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight text-white flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-crimson-500" />
+                    <span>Project Overview & Challenge</span>
+                  </h2>
                 </div>
 
-                {/* Window Navigation Tabs */}
-                <div className="w-full sm:w-auto overflow-x-auto no-scrollbar flex items-center bg-[#090a0f] p-1 rounded-lg border border-zinc-800 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider shrink-0">
-                  <button
-                    onClick={() => setActiveTab("overview")}
-                    className={`px-2.5 sm:px-3 py-1 rounded transition-colors whitespace-nowrap ${
-                      activeTab === "overview"
-                        ? "bg-crimson-600 text-white"
-                        : "text-zinc-400 hover:text-white"
-                    }`}
-                  >
-                    Overview
-                  </button>
-                  <button
-                    onClick={() => setActiveTab("features")}
-                    className={`px-2.5 sm:px-3 py-1 rounded transition-colors whitespace-nowrap ${
-                      activeTab === "features"
-                        ? "bg-crimson-600 text-white"
-                        : "text-zinc-400 hover:text-white"
-                    }`}
-                  >
-                    Features
-                  </button>
-                  {selectedProject.architecture && (
-                    <button
-                      onClick={() => setActiveTab("architecture")}
-                      className={`px-2.5 sm:px-3 py-1 rounded transition-colors whitespace-nowrap ${
-                        activeTab === "architecture"
-                          ? "bg-crimson-600 text-white"
-                          : "text-zinc-400 hover:text-white"
-                      }`}
-                    >
-                      Architecture
-                    </button>
+                <div className="space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed">
+                  {selectedProject.fullSummary && selectedProject.fullSummary.length > 0 ? (
+                    selectedProject.fullSummary.map((para, i) => (
+                      <p key={i} className="text-zinc-300 leading-relaxed font-normal">
+                        {para}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="text-zinc-300 leading-relaxed font-normal">
+                      {selectedProject.desc}
+                    </p>
                   )}
-                  <button
-                    onClick={() => setActiveTab("preview")}
-                    className={`px-2.5 sm:px-3 py-1 rounded transition-colors whitespace-nowrap ${
-                      activeTab === "preview"
-                        ? "bg-crimson-600 text-white"
-                        : "text-zinc-400 hover:text-white"
-                    }`}
-                  >
-                    Screen
-                  </button>
                 </div>
               </div>
 
-              {/* Scrollable Window Content */}
-              <div className="flex-1 overflow-y-auto p-4 sm:p-7 space-y-5 sm:space-y-6">
-                
-                {/* TAB 1: OVERVIEW */}
-                {activeTab === "overview" && (
-                  <div className="space-y-6">
-                    {/* Compact Image Banner */}
-                    <div
-                      className="relative rounded-xl overflow-hidden border border-zinc-800 bg-[#07080c] cursor-pointer group"
-                      onClick={() => setActiveTab("preview")}
-                    >
-                      <img
-                        src={selectedProject.secondaryImage || selectedProject.image}
-                        alt={selectedProject.title}
-                        className="w-full max-h-[260px] object-cover object-top transition-transform duration-300 group-hover:scale-102"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                      <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-white">
-                        <span className="font-bold tracking-wide">{selectedProject.title} Interface</span>
-                        <span className="text-[10px] uppercase font-bold text-crimson-400 group-hover:underline flex items-center gap-1">
-                          <FaImage /> Click to inspect full screen
+              {/* Key Features & System Capabilities */}
+              {selectedProject.features && selectedProject.features.length > 0 && (
+                <div className="space-y-6 mb-12 sm:mb-16">
+                  <div className="border-b border-zinc-900 pb-3">
+                    <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight text-white flex items-center gap-2">
+                      <FaBolt className="text-crimson-500 text-sm sm:text-base" />
+                      <span>Key Features & Engineering Highlights</span>
+                    </h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                    {selectedProject.features.map((feat, i) => {
+                      const [title, ...rest] = feat.split(":");
+                      return (
+                        <div
+                          key={i}
+                          className="p-4 sm:p-5 rounded-2xl bg-[#0d0e15] border border-zinc-800 hover:border-zinc-700 transition flex items-start gap-3"
+                        >
+                          <div className="w-6 h-6 rounded-lg bg-crimson-950/60 border border-crimson-900/40 text-crimson-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <FaCheckCircle className="text-xs" />
+                          </div>
+                          <div>
+                            {rest.length > 0 ? (
+                              <>
+                                <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wide mb-1">
+                                  {title}
+                                </h3>
+                                <p className="text-xs text-zinc-400 leading-relaxed">
+                                  {rest.join(":")}
+                                </p>
+                              </>
+                            ) : (
+                              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-medium">
+                                {feat}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* Technical Architecture Breakdown */}
+              {selectedProject.architecture && selectedProject.architecture.length > 0 && (
+                <div className="space-y-6 mb-12 sm:mb-16">
+                  <div className="border-b border-zinc-900 pb-3">
+                    <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight text-white flex items-center gap-2">
+                      <FaLayerGroup className="text-crimson-500 text-sm sm:text-base" />
+                      <span>Architecture & Technology Stack</span>
+                    </h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    {selectedProject.architecture.map((arch, i) => (
+                      <div
+                        key={i}
+                        className="bg-[#0e0f17] border border-zinc-800 p-4 rounded-xl flex flex-col justify-between"
+                      >
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
+                          {arch.component}
+                        </span>
+                        <span className="text-xs sm:text-sm font-bold text-white mt-1.5">
+                          {arch.tech}
                         </span>
                       </div>
-                    </div>
-
-                    {/* Problem Solved & Core Purpose */}
-                    <div className="bg-[#12131a] border border-zinc-850 rounded-xl p-5 space-y-3">
-                      <h4 className="text-xs font-black uppercase tracking-widest text-crimson-500 flex items-center gap-2">
-                        <FaBolt className="text-xs" />
-                        <span>Project Purpose & Core Problem Solved</span>
-                      </h4>
-                      {selectedProject.fullSummary.map((para, i) => (
-                        <p key={i} className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
-                          {para}
-                        </p>
-                      ))}
-                    </div>
-
-                    {/* Quick Highlights Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {selectedProject.features.slice(0, 4).map((feat, i) => (
-                        <div key={i} className="bg-[#12131a] border border-zinc-850 p-3.5 rounded-lg flex items-start gap-2.5 text-xs text-zinc-300">
-                          <span className="text-crimson-500 font-bold mt-0.5">✦</span>
-                          <span className="leading-relaxed">{feat}</span>
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
-                )}
 
-                {/* TAB 2: FEATURES */}
-                {activeTab === "features" && (
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-xs font-black uppercase tracking-widest text-white flex items-center gap-2">
-                        <FaCheckCircle className="text-crimson-500" />
-                        <span>Complete Feature Specification</span>
-                      </h4>
-                      <span className="text-[10px] font-mono text-zinc-500">
-                        {selectedProject.features.length} Core Modules
+                  {/* All Stack Tags */}
+                  <div className="pt-2 flex flex-wrap gap-2">
+                    {selectedProject.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs font-mono uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-300 px-3 py-1 rounded-lg"
+                      >
+                        {t}
                       </span>
-                    </div>
-
-                    <div className="space-y-2.5">
-                      {selectedProject.features.map((feat, i) => (
-                        <div key={i} className="bg-[#12131a] border border-zinc-850 p-4 rounded-xl flex items-start gap-3 text-xs sm:text-sm text-zinc-200">
-                          <div className="w-6 h-6 rounded-md bg-crimson-950/70 border border-crimson-800/80 flex items-center justify-center text-crimson-400 shrink-0 mt-0.5 font-mono text-xs font-bold">
-                            {i + 1}
-                          </div>
-                          <span className="leading-relaxed">{feat}</span>
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
-                )}
+                </div>
+              )}
 
-                {/* TAB 3: ARCHITECTURE */}
-                {activeTab === "architecture" && selectedProject.architecture && (
-                  <div className="space-y-5">
-                    <h4 className="text-xs font-black uppercase tracking-widest text-white flex items-center gap-2">
-                      <FaLayerGroup className="text-crimson-500" />
-                      <span>Component & Technical Architecture</span>
-                    </h4>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {selectedProject.architecture.map((arch, i) => (
-                        <div key={i} className="bg-[#12131a] border border-zinc-850 p-4 rounded-xl flex flex-col justify-between">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">
-                            {arch.component}
-                          </span>
-                          <span className="text-xs sm:text-sm font-bold text-white mt-1">
-                            {arch.tech}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* TAB 4: PREVIEW (SCREENSHOT / MOCKUP) */}
-                {activeTab === "preview" && (
-                  <div className="space-y-4">
-                    <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-zinc-400">
-                      <span className="font-bold text-white uppercase tracking-wider">
-                        High-Resolution Interface Preview
-                      </span>
-
-                      {selectedProject.secondaryImage && (
-                        <div className="flex items-center gap-1 bg-[#12131a] border border-zinc-800 p-1 rounded-lg">
-                          <button
-                            onClick={() => setPreviewMode("real")}
-                            className={`px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider transition ${
-                              previewMode === "real"
-                                ? "bg-crimson-600 text-white"
-                                : "text-zinc-400 hover:text-white"
-                            }`}
-                          >
-                            Live App Screenshot
-                          </button>
-                          <button
-                            onClick={() => setPreviewMode("vector")}
-                            className={`px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider transition ${
-                              previewMode === "vector"
-                                ? "bg-crimson-600 text-white"
-                                : "text-zinc-400 hover:text-white"
-                            }`}
-                          >
-                            Dark Themed UI
-                          </button>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="rounded-xl overflow-hidden border border-zinc-800 bg-[#07080c]">
-                      <img
-                        src={
-                          previewMode === "real" && selectedProject.secondaryImage
-                            ? selectedProject.secondaryImage
-                            : selectedProject.image
-                        }
-                        alt={selectedProject.title}
-                        className="w-full h-auto object-contain max-h-[520px]"
-                      />
-                    </div>
-                  </div>
-                )}
-
-              </div>
-
-              {/* Window Footer (Tech Stack Pills & Actions) */}
-              <div className="bg-[#12131a] border-t border-zinc-800 px-5 py-3 flex flex-wrap items-center justify-between gap-3 shrink-0">
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mr-1 hidden sm:inline">
-                    Stack:
-                  </span>
-                  {selectedProject.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-[10px] uppercase font-bold tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-300 px-2.5 py-1 rounded"
-                    >
-                      {t}
-                    </span>
-                  ))}
+              {/* Bottom Call to Action Banner */}
+              <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-crimson-950/40 via-[#10111a] to-zinc-950 border border-crimson-900/30 flex flex-col sm:flex-row items-center justify-between gap-4 mt-12 shadow-2xl">
+                <div>
+                  <h3 className="text-base sm:text-xl font-black uppercase text-white mb-1">
+                    Interested in {selectedProject.title}?
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400">
+                    Explore the live production application or inspect the codebase.
+                  </p>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
                   {selectedProject.live && selectedProject.live !== "#" && (
                     <a
                       href={selectedProject.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-bold text-crimson-400 hover:text-white uppercase tracking-wider flex items-center gap-1.5"
+                      className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-lg shadow-crimson-950/70"
                     >
-                      <span>{selectedProject.live.includes("drive.google.com") ? "Watch Video Demo" : "Open App"}</span>
-                      {selectedProject.live.includes("drive.google.com") ? <FaPlay className="text-[9px]" /> : <FaExternalLinkAlt className="text-[9px]" />}
+                      <span>Launch App</span>
+                      <FaExternalLinkAlt className="text-[10px]" />
                     </a>
                   )}
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="px-3.5 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white font-bold text-xs uppercase tracking-wider rounded-lg transition"
+                    className="flex-1 sm:flex-initial px-4 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer"
                   >
-                    Close
+                    Back to Portfolio
                   </button>
                 </div>
               </div>
 
-            </motion.div>
+            </article>
           </motion.div>
         )}
       </AnimatePresence>
