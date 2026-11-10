@@ -712,38 +712,118 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          {/* Column 3: EDITORIAL QUOTE CARD (4 Cols) */}
+          {/* Column 3: CLIENT VALUE & EDITORIAL CARD (4 Cols) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
             className="lg:col-span-4 flex"
           >
-            <div className="w-full bg-[#820f16] border border-[#a81c25] rounded-2xl p-6 sm:p-10 flex flex-col justify-between text-white shadow-2xl relative overflow-hidden group">
+            <div className="w-full bg-gradient-to-br from-[#851018] via-[#660c12] to-[#3a060a] border border-[#a81c25] rounded-2xl p-6 sm:p-7 flex flex-col justify-between text-white shadow-2xl relative overflow-hidden group">
               
-              {/* Subtle background texture */}
-              <div className="absolute -top-12 -right-12 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+              {/* Subtle animated background light glow */}
+              <div className="absolute -top-12 -right-12 w-56 h-56 bg-white/10 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-crimson-400/10 rounded-full blur-2xl pointer-events-none" />
 
-              <div>
-                <FaQuoteLeft className="text-3xl text-red-300/40 mb-6" />
+              <div className="space-y-4 relative z-10">
+                {/* Header Tag */}
+                <div className="flex items-center justify-between gap-2 pb-3 border-b border-red-500/20">
+                  <div className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-red-200">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>CLIENT VALUE GUARANTEE</span>
+                  </div>
+                  <span className="text-[9px] font-mono uppercase bg-red-950/60 border border-red-700/50 px-2 py-0.5 rounded text-red-200">
+                    DIRECT ENGAGEMENT
+                  </span>
+                </div>
 
-                <blockquote className="text-lg sm:text-xl font-bold leading-relaxed text-zinc-100 tracking-tight">
-                  "Good design and smart code are not just how it looks, but how effortlessly it scales and works."
-                </blockquote>
+                {/* The Core Philosophy / Signature Quote */}
+                <div>
+                  <FaQuoteLeft className="text-2xl text-red-300/40 mb-2.5" />
+                  <blockquote className="text-base sm:text-lg font-bold leading-snug text-white tracking-tight">
+                    "I don't just write code — I build high-converting digital products that scale effortlessly and automate your business."
+                  </blockquote>
+                  <div className="mt-2 font-script text-2xl text-red-200">
+                    Talha Ishaq
+                  </div>
+                </div>
 
-                <div className="mt-8 font-script text-3xl sm:text-4xl text-red-200">
-                  Talha Ishaq
+                {/* Attention-Grabbing Value Pillars */}
+                <div className="pt-1 space-y-2.5">
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-red-300/90 block">
+                    WHAT YOU GET WHEN WE COLLABORATE:
+                  </span>
+
+                  {/* Pillar 1 */}
+                  <div className="p-2.5 rounded-xl bg-black/30 border border-red-500/25 hover:border-red-400/40 transition">
+                    <div className="flex items-center gap-2 mb-1">
+                      <FaBolt className="text-amber-400 text-xs shrink-0" />
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+                        Conversion-First Architecture
+                      </h4>
+                    </div>
+                    <p className="text-[11px] text-red-100/80 leading-relaxed font-normal">
+                      Sub-second load times, 99+ Lighthouse scores, and UX designed to turn visitors into paying clients.
+                    </p>
+                  </div>
+
+                  {/* Pillar 2 */}
+                  <div className="p-2.5 rounded-xl bg-black/30 border border-red-500/25 hover:border-red-400/40 transition">
+                    <div className="flex items-center gap-2 mb-1">
+                      <FaRobot className="text-cyan-300 text-xs shrink-0" />
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+                        Autonomous AI Workflows
+                      </h4>
+                    </div>
+                    <p className="text-[11px] text-red-100/80 leading-relaxed font-normal">
+                      Custom n8n pipelines &amp; AI agents that eliminate 80%+ manual ops, running 24/7 on autopilot.
+                    </p>
+                  </div>
+
+                  {/* Pillar 3 */}
+                  <div className="p-2.5 rounded-xl bg-black/30 border border-red-500/25 hover:border-red-400/40 transition">
+                    <div className="flex items-center gap-2 mb-1">
+                      <FaShieldAlt className="text-emerald-300 text-xs shrink-0" />
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+                        Zero Middlemen &amp; Full Ownership
+                      </h4>
+                    </div>
+                    <p className="text-[11px] text-red-100/80 leading-relaxed font-normal">
+                      Direct engineering communication, rapid iterations, and production-tested code that never breaks.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Key Metrics Banner */}
+                <div className="grid grid-cols-3 gap-2 py-2.5 px-3 rounded-xl bg-black/40 border border-red-500/25 text-center">
+                  <div>
+                    <span className="text-sm sm:text-base font-black text-white font-mono block">15+</span>
+                    <span className="text-[8px] uppercase tracking-wider text-red-200">Global Apps</span>
+                  </div>
+                  <div>
+                    <span className="text-sm sm:text-base font-black text-white font-mono block">&lt;24h</span>
+                    <span className="text-[8px] uppercase tracking-wider text-red-200">Response</span>
+                  </div>
+                  <div>
+                    <span className="text-sm sm:text-base font-black text-white font-mono block">100%</span>
+                    <span className="text-[8px] uppercase tracking-wider text-red-200">Commitment</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="pt-8 border-t border-red-700/60 mt-8 flex items-center justify-between">
-                <span className="text-[11px] font-black uppercase tracking-widest text-red-200">
-                  LET'S CREATE SOMETHING GREAT TOGETHER
-                </span>
-                <span className="text-lg font-bold text-red-200 group-hover:rotate-45 transition-transform duration-300">
-                  +
-                </span>
+              {/* Bottom Interactive Call To Action */}
+              <div className="pt-4 border-t border-red-600/40 mt-4 relative z-10">
+                <a
+                  href="#contact"
+                  className="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-zinc-100 text-crimson-950 font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-xl flex items-center justify-between group/cta cursor-pointer"
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-crimson-600 animate-ping" />
+                    <span>LET'S BUILD YOUR PROJECT</span>
+                  </span>
+                  <FaArrowRight className="text-crimson-600 text-xs group-hover/cta:translate-x-1 transition-transform" />
+                </a>
               </div>
 
             </div>
