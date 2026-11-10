@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaSearch, FaLightbulb, FaPenNib, FaCode, FaPaperPlane, FaQuoteLeft,
   FaExternalLinkAlt, FaNodeJs, FaRobot, FaGithub, FaCheckCircle,
-  FaShieldAlt, FaArrowRight, FaGraduationCap, FaBriefcase, FaLaptopCode
+  FaArrowRight, FaGraduationCap, FaBriefcase, FaLaptopCode
 } from "react-icons/fa";
 import {
   SiReact,
@@ -14,7 +14,6 @@ import {
   SiTailwindcss,
   SiShopify,
   SiDocker,
-  SiVercel,
 } from "react-icons/si";
 import FlyInText from "./FlyInText";
 
@@ -594,126 +593,6 @@ export default function About() {
                 ))}
               </div>
             </div>
-
-            {/* LIVE CONTINUOUS CI/CD & RUNTIME TELEMETRY WIDGET */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 25, scale: 0.95 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  transition: { type: "spring", damping: 18, stiffness: 90 },
-                },
-              }}
-              whileHover={{ borderColor: "rgba(220, 38, 38, 0.4)" }}
-              className="mt-6 p-4 rounded-xl bg-gradient-to-br from-zinc-950 via-[#0e0f14] to-zinc-950 border border-zinc-800/80 shadow-xl relative overflow-hidden group"
-            >
-              {/* Subtle Animated Ambient Glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-crimson-600/10 blur-3xl pointer-events-none rounded-full" />
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-emerald-600/5 blur-2xl pointer-events-none rounded-full" />
-
-              {/* Card Header: Live Status & Pulse */}
-              <div className="flex items-center justify-between pb-3 border-b border-zinc-900 relative z-10">
-                <div className="flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                  </span>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-300">
-                    CI/CD &amp; RUNTIME STATUS
-                  </span>
-                </div>
-
-                <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded-full font-bold">
-                  99.98% HEALTH
-                </span>
-              </div>
-
-              {/* Animated 4-Stage Deployment Pipeline Node Graph */}
-              <div className="pt-3 pb-3 relative z-10">
-                <div className="flex items-center justify-between text-[8px] font-mono text-zinc-500 uppercase tracking-widest mb-2 px-1">
-                  <span>DEPLOYMENT PIPELINE</span>
-                  <span className="text-crimson-400">ACTIVE FLOW</span>
-                </div>
-
-                <div className="relative flex items-center justify-between px-1 py-1">
-                  {/* Connecting Wire with Animated Pulse */}
-                  <div className="absolute left-4 right-4 top-1/2 -translate-y-1/2 h-0.5 bg-zinc-800 -z-0 overflow-hidden">
-                    <motion.div
-                      animate={{
-                        left: ["-20%", "120%"],
-                      }}
-                      transition={{
-                        duration: 2.2,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      className="absolute top-0 w-12 h-full bg-gradient-to-r from-transparent via-crimson-400 to-transparent blur-[1px]"
-                    />
-                  </div>
-
-                  {/* Node 1: Push */}
-                  <div className="relative z-10 flex flex-col items-center gap-1 group/node">
-                    <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-700/80 group-hover/node:border-crimson-500 flex items-center justify-center text-zinc-300 text-xs shadow transition">
-                      <FaGithub />
-                    </div>
-                    <span className="text-[9px] font-mono text-zinc-400">Push</span>
-                  </div>
-
-                  {/* Node 2: Test & QA */}
-                  <div className="relative z-10 flex flex-col items-center gap-1 group/node">
-                    <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-700/80 group-hover/node:border-emerald-500 flex items-center justify-center text-emerald-400 text-xs shadow transition">
-                      <FaShieldAlt />
-                    </div>
-                    <span className="text-[9px] font-mono text-zinc-400">Test</span>
-                  </div>
-
-                  {/* Node 3: Docker Build */}
-                  <div className="relative z-10 flex flex-col items-center gap-1 group/node">
-                    <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-700/80 group-hover/node:border-sky-500 flex items-center justify-center text-sky-400 text-xs shadow transition">
-                      <SiDocker />
-                    </div>
-                    <span className="text-[9px] font-mono text-zinc-400">Build</span>
-                  </div>
-
-                  {/* Node 4: Global Edge */}
-                  <div className="relative z-10 flex flex-col items-center gap-1 group/node">
-                    <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-700/80 group-hover/node:border-crimson-500 flex items-center justify-center text-white text-xs shadow transition">
-                      <SiVercel />
-                    </div>
-                    <span className="text-[9px] font-mono text-zinc-400">Edge</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Real-time Telemetry Grid */}
-              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-zinc-900 relative z-10 text-center">
-                <div className="bg-zinc-900/60 p-2 rounded-lg border border-zinc-900">
-                  <span className="text-[8px] font-mono text-zinc-500 block uppercase">LATENCY</span>
-                  <span className="text-[11px] font-mono font-bold text-zinc-200">22ms</span>
-                </div>
-                <div className="bg-zinc-900/60 p-2 rounded-lg border border-zinc-900">
-                  <span className="text-[8px] font-mono text-zinc-500 block uppercase">TEST PASS</span>
-                  <span className="text-[11px] font-mono font-bold text-emerald-400">100%</span>
-                </div>
-                <div className="bg-zinc-900/60 p-2 rounded-lg border border-zinc-900">
-                  <span className="text-[8px] font-mono text-zinc-500 block uppercase">DEPLOY</span>
-                  <span className="text-[11px] font-mono font-bold text-crimson-400">Active</span>
-                </div>
-              </div>
-
-              {/* Bottom Quick Trigger */}
-              <div className="pt-3 relative z-10">
-                <a
-                  href="#automation"
-                  className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-crimson-950/60 border border-zinc-800 hover:border-crimson-500/70 text-zinc-300 hover:text-white text-[10px] font-bold tracking-wider uppercase transition-all duration-200 group/btn"
-                >
-                  <span>Explore Autonomous Pipelines</span>
-                  <FaArrowRight className="text-[9px] text-zinc-500 group-hover/btn:text-crimson-400 group-hover/btn:translate-x-1 transition-all" />
-                </a>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Column 3: CLIENT VALUE & EDITORIAL CARD (4 Cols) */}

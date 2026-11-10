@@ -7,8 +7,8 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-[85vh] sm:min-h-[90vh] bg-[#0a0a0a] overflow-hidden flex flex-col justify-between pt-4 sm:pt-10 pb-8 sm:pb-12">
       {/* Massive Editorial Background Title "PORTFOLIO" */}
-      <div className="absolute top-2 sm:top-6 left-0 right-0 flex justify-center pointer-events-none select-none z-0 overflow-hidden px-2">
-        <h1 className="font-bebas text-[22vw] leading-none tracking-normal text-[#8a1017] opacity-85 uppercase whitespace-nowrap text-center max-w-full">
+      <div className="absolute top-1 sm:top-4 left-0 right-0 flex justify-center pointer-events-none select-none z-0 overflow-visible px-4">
+        <h1 className="font-bebas text-[19vw] sm:text-[18vw] xl:text-[17vw] leading-[0.9] tracking-[0.02em] text-[#8a1017] opacity-80 uppercase whitespace-nowrap text-center max-w-full drop-shadow-[0_8px_30px_rgba(138,16,23,0.18)]">
           PORTFOLIO
         </h1>
       </div>
@@ -103,26 +103,18 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: Mini card quote & Stats */}
+          {/* Right Column: Stats */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="lg:col-span-3 z-20 flex flex-col justify-between h-full pt-2 sm:pt-4 lg:pt-12 pl-0 lg:pl-6"
+            className="lg:col-span-3 z-20 flex flex-col justify-center h-full pt-2 sm:pt-4 lg:pt-12 pl-0 lg:pl-6"
           >
-            {/* Top quote pill */}
-            <div className="flex items-start gap-2.5 max-w-[280px] lg:max-w-[240px] mb-4 sm:mb-6 lg:mb-16">
-              <span className="text-crimson-500 text-base leading-none mt-0.5">✦</span>
-              <p className="text-xs text-zinc-300 leading-snug font-medium">
-                Turning ideas into powerful digital experiences &amp; automated workflows.
-              </p>
-            </div>
-
             {/* Stats: Responsive Row on Mobile, Vertical Stack on Desktop */}
             <div className="grid grid-cols-3 lg:grid-cols-1 gap-4 lg:gap-6 border-t lg:border-t-0 lg:border-l border-zinc-800/80 pt-4 lg:pt-2 pl-0 lg:pl-6 text-center lg:text-left">
               <div>
                 <div className="font-sans font-black text-3xl sm:text-4xl xl:text-5xl text-crimson-500 leading-none">
-                  3<span className="text-xl sm:text-2xl font-bold">+</span>
+                  5<span className="text-xl sm:text-2xl font-bold">+</span>
                 </div>
                 <div className="text-[9px] sm:text-[11px] font-bold tracking-wider sm:tracking-widest uppercase text-zinc-400 mt-1">
                   YEARS EXP
@@ -131,7 +123,7 @@ export default function Hero() {
 
               <div>
                 <div className="font-sans font-black text-3xl sm:text-4xl xl:text-5xl text-crimson-500 leading-none">
-                  15<span className="text-xl sm:text-2xl font-bold">+</span>
+                  20<span className="text-xl sm:text-2xl font-bold">+</span>
                 </div>
                 <div className="text-[9px] sm:text-[11px] font-bold tracking-wider sm:tracking-widest uppercase text-zinc-400 mt-1">
                   PROJECTS

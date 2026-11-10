@@ -108,4 +108,4 @@ npm run build
 - **LinkedIn:** [talha-ishaq-rabani9490](https://www.linkedin.com/in/talha-ishaq-rabani9490/)
 - **GitHub:** [talharabani](https://github.com/talharabani)
 - **WhatsApp:** [+92 300 9490631](https://wa.me/923009490631)
-- **Email:** talha.ishaq.rabani@gmail.com
+- **Email:** talhaishaqrabani@gmail.com

@@ -105,7 +105,7 @@ export default function Contact() {
               <div className="space-y-4 pt-4 border-t border-zinc-900">
                 
                 <a
-                  href="mailto:talha.ishaq.rabani@gmail.com"
+                  href="mailto:talhaishaqrabani@gmail.com"
                   className="group flex items-center gap-4 text-zinc-300 hover:text-white transition-colors"
                 >
                   <div className="w-10 h-10 rounded-full bg-zinc-950 border border-zinc-800 flex items-center justify-center text-crimson-500 group-hover:border-crimson-500 transition-colors">
@@ -113,7 +113,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 block">Email Address</span>
-                    <span className="text-xs sm:text-sm font-semibold">talha.ishaq.rabani@gmail.com</span>
+                    <span className="text-xs sm:text-sm font-semibold">talhaishaqrabani@gmail.com</span>
                   </div>
                 </a>
 

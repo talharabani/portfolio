@@ -16,7 +16,7 @@ export default function Footer() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("talha.ishaq.rabani@gmail.com");
+    navigator.clipboard.writeText("talhaishaqrabani@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -101,7 +101,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="mailto:talha.ishaq.rabani@gmail.com"
+                href="mailto:talhaishaqrabani@gmail.com"
                 className="w-9 h-9 rounded-lg bg-zinc-900/80 hover:bg-crimson-950/60 border border-zinc-800 hover:border-crimson-600/60 text-zinc-400 hover:text-crimson-400 flex items-center justify-center transition"
                 aria-label="Email Direct"
               >
@@ -157,10 +157,10 @@ export default function Footer() {
                 </span>
                 <div className="flex items-center gap-2">
                   <a
-                    href="mailto:talha.ishaq.rabani@gmail.com"
+                    href="mailto:talhaishaqrabani@gmail.com"
                     className="text-zinc-200 hover:text-crimson-400 font-semibold break-all transition"
                   >
-                    talha.ishaq.rabani@gmail.com
+                    talhaishaqrabani@gmail.com
                   </a>
                   <button
                     onClick={handleCopyEmail}

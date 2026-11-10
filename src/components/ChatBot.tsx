@@ -36,9 +36,9 @@ When responding in voice mode, keep answers concise, punchy, and conversational 
 - Location: Lahore, Pakistan (Available worldwide for freelance, remote contracts & full-time roles)
 - Education: Information Technology, Punjab University College of Information Technology (PUCIT, 2022-2026)
 - Experience: Software Engineer at DevelopSuite (Lahore, 2 years) & Freelance Full-Stack Developer at PureLogics
-- Experience & Track Record: 3+ Years in Full Stack Development, Enterprise SaaS, AI Agents & Workflow Automation. 40+ completed projects, 20+ satisfied global clients.
+- Experience & Track Record: 5+ Years in Full Stack Development, Enterprise SaaS, AI Agents & Workflow Automation. 20+ completed featured projects, 20+ satisfied global clients.
 - Contact:
-  * Email: talha.ishaq.rabani@gmail.com
+  * Email: talhaishaqrabani@gmail.com
   * WhatsApp / Phone: +92 300 9490631 (Direct WhatsApp available)
   * LinkedIn: https://www.linkedin.com/in/talha-ishaq-rabani9490/
   * GitHub: https://github.com/talharabani
@@ -385,6 +385,40 @@ function VoiceWaveform({
   );
 }
 
+function generateLocalFallbackResponse(query: string): string {
+  const q = query.toLowerCase();
+
+  if (q.includes("hi") || q.includes("hello") || q.includes("hey") || q.includes("salam") || q.includes("who are you") || q.includes("about")) {
+    return "Hello! I'm Talha AI, Talha Ishaq Rabani's official portfolio assistant. Talha is a Senior Full-Stack Developer & n8n Automation Specialist with 5+ years of experience and 20+ delivered production systems. How can I assist you today?";
+  }
+
+  if (q.includes("contact") || q.includes("hire") || q.includes("email") || q.includes("phone") || q.includes("whatsapp") || q.includes("reach") || q.includes("call")) {
+    return "You can connect with Talha directly:\n• WhatsApp: +92 300 9490631 (Fastest response)\n• Email: talhaishaqrabani@gmail.com\n• LinkedIn: linkedin.com/in/talha-ishaq-rabani9490/\n• GitHub: github.com/talharabani\nHe is available worldwide for remote contracts, freelance projects, and full-time engineering roles.";
+  }
+
+  if (q.includes("experi") || q.includes("year") || q.includes("background") || q.includes("education") || q.includes("pucit") || q.includes("degree")) {
+    return "Talha has 5+ years of engineering experience across full-stack web applications, enterprise SaaS, POS/ERP platforms, and autonomous n8n workflows. He graduated in Information Technology from PUCIT (Punjab University) and has delivered solutions for 20+ global clients.";
+  }
+
+  if (q.includes("project") || q.includes("work") || q.includes("portfolio") || q.includes("case study") || q.includes("app")) {
+    return "Talha has engineered 20+ production-grade systems including:\n1. AgentLink — Remote AI coding agent controller\n2. Vaypar — Multi-business POS & Retail ERP platform\n3. ChatWithoutTalk — 24/7 WhatsApp AI sales employee\n4. DevYork — Full-stack agency & marketing growth platform\n5. GymPro & BuildEstimate Pro — Commercial SaaS platforms\n6. Tudostock Portugal — Custom Shopify B2B store & POS\n7. 3D WebGL interactive configurators (Veloce, Meridia)\nYou can explore full interactive demos and architecture breakdowns right in the Projects section above!";
+  }
+
+  if (q.includes("skill") || q.includes("stack") || q.includes("tech") || q.includes("language") || q.includes("framework")) {
+    return "Talha's core technology stack includes:\n• Frontend: React 19, Next.js 15, TypeScript, Tailwind CSS, Three.js / WebGL\n• Backend & Cloud: Node.js, Python, PostgreSQL (Neon), Docker, Vercel Edge\n• AI & Workflows: n8n pipelines, Meta Cloud API, WhatsApp AI agents, Whisper, Groq/OpenAI LLMs.";
+  }
+
+  if (q.includes("n8n") || q.includes("automat") || q.includes("pipeline") || q.includes("bot") || q.includes("lead")) {
+    return "Talha is an n8n Automation Specialist who develops autonomous multi-step pipelines: Google Maps automated lead scraping, automated AI video generation workflows, automated LinkedIn article synthesis with Groq AI, and live CRM synchronization.";
+  }
+
+  if (q.includes("rate") || q.includes("price") || q.includes("cost") || q.includes("quote") || q.includes("budget")) {
+    return "Talha offers transparent, value-driven pricing tailored to your requirements (fixed project pricing or milestone-based contracts). Connect directly on WhatsApp at +92 300 9490631 or email talhaishaqrabani@gmail.com for a quick consultation and free project estimate.";
+  }
+
+  return "I'm Talha AI. Talha Ishaq Rabani is a Senior Full-Stack Developer & n8n Specialist with 5+ years of experience across 20+ projects (AgentLink, Vaypar, ChatWithoutTalk, DevYork, etc.). Feel free to ask about his projects, skills, or contact him directly on WhatsApp (+92 300 9490631) or email (talhaishaqrabani@gmail.com)!";
+}
+
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState<"text" | "voice">("text"); // Mode switcher: Text Chat vs Voice Assistant
@@ -605,47 +639,52 @@ export default function ChatBot() {
         { role: "user", content: query },
       ];
 
-      const modelsToTry = ["qwen/qwen3.8-27b", "openai/gpt-oss-120b", "openai/gpt-oss-20b"];
+      const modelsToTry = [
+        "llama-3.3-70b-versatile",
+        "llama-3.1-8b-instant",
+        "mixtral-8x7b-32768",
+      ];
       let assistantReply = "";
 
-      for (const model of modelsToTry) {
-        try {
-          const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${GROQ_API_KEY}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              model,
-              messages: historyForApi,
-              temperature: 0.5,
-              max_tokens: 500,
-            }),
-          });
+      if (GROQ_API_KEY && !GROQ_API_KEY.includes("your_groq")) {
+        for (const model of modelsToTry) {
+          try {
+            const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${GROQ_API_KEY}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                model,
+                messages: historyForApi,
+                temperature: 0.5,
+                max_tokens: 500,
+              }),
+            });
 
-          if (!res.ok) continue;
+            if (!res.ok) continue;
 
-          const data = await res.json();
-          const choice = data.choices?.[0];
-          const content = choice?.message?.content?.trim();
-          const reasoning = choice?.message?.reasoning?.trim();
+            const data = await res.json();
+            const choice = data.choices?.[0];
+            const content = choice?.message?.content?.trim();
+            const reasoning = choice?.message?.reasoning?.trim();
 
-          if (content) {
-            assistantReply = content;
-            break;
-          } else if (reasoning && !content) {
-            assistantReply = reasoning;
-            break;
+            if (content) {
+              assistantReply = content;
+              break;
+            } else if (reasoning && !content) {
+              assistantReply = reasoning;
+              break;
+            }
+          } catch {
+            // try next model fallback
           }
-        } catch {
-          // try next model fallback
         }
       }
 
       if (!assistantReply) {
-        assistantReply =
-          "I'm temporarily unable to reach the Groq inference engine. You can also contact Talha directly on WhatsApp (+92 300 9490631) or email (talha.ishaq.rabani@gmail.com).";
+        assistantReply = generateLocalFallbackResponse(query);
       }
 
       const botMessage: Message = {

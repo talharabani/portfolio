@@ -775,11 +775,6 @@ export default function Projects() {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-crimson-500 bg-crimson-950/40 border border-crimson-800/40 px-3 sm:px-3.5 py-1.5 rounded-full mb-3 shadow-inner">
-            <span className="w-2 h-2 rounded-full bg-crimson-500 animate-pulse" />
-            <span>PORTFOLIO SHOWCASE • CRAFTED WITH PRECISION</span>
-          </div>
-
           <FlyInText
             as="h2"
             text="DISCOVER FEATURED PROJECTS"
@@ -788,7 +783,7 @@ export default function Projects() {
           />
           <FlyInText
             as="p"
-            text="Explore 13 production-grade full-stack systems, 3D WebGL experiences, and autonomous n8n workflows."
+            text="Explore 18+ production-grade full-stack systems, 3D WebGL experiences, and autonomous n8n workflows."
             className="text-xs sm:text-sm text-zinc-400 max-w-xl px-2"
             delay={0.15}
             stagger={0.03}
