@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import FlyInText from "./FlyInText";
 
+import chatwithouttalkImg from "../assets/chatwithouttalk.svg";
 import agentLinkImg from "../assets/agentlink.svg";
 import agentLinkRealImg from "../assets/agentlink.jpg";
 import vayparImg from "../assets/vaypar.svg";
@@ -54,6 +55,41 @@ export interface ProjectData {
 const allProjects: ProjectData[] = [
   {
     num: "01",
+    title: "CHATWITHOUTTALK",
+    tagline: "24/7 WhatsApp AI Employee for Sales & Customer Support",
+    category: "AI & Automation",
+    badge: "WhatsApp AI",
+    year: "2026",
+    status: "Live Application",
+    desc: "An autonomous 24/7 WhatsApp AI sales & customer support employee built with the official Meta Cloud API. Automatically qualifies inbound leads, transcribes audio voice notes with Whisper AI, reads PDF catalogs & menus, resolves customer queries across 100+ languages, and captures orders directly into CRM.",
+    fullSummary: [
+      "Problem: Manual replies, delayed responses, and endless repetitive questions cause businesses to lose high-paying leads every single day. Human support teams can't remain online 24/7, and leads bounce to competitors within minutes when inquiries go unanswered.",
+      "Solution: ChatWithoutTalk transforms WhatsApp into an intelligent, always-on AI employee. Using the official Meta Cloud API and advanced LLMs, it instantly answers questions in the customer's native language, scores lead intent, parses audio voice notes & documents, books meetings, and drives automated sales around the clock."
+    ],
+    features: [
+      "Official Meta Cloud API & QR Mode: Production-grade webhook messaging with Meta compliance, plus optional linked-device QR connection.",
+      "Multilingual AI in 100+ Languages: Auto-detects customer languages instantly and replies natively in Urdu, Arabic, Spanish, English, etc., while preserving brand voice.",
+      "Voice Note & Document Intelligence: Listens to and transcribes WhatsApp audio notes via Whisper AI; reads attached PDF price sheets, brochures, and candidate CVs.",
+      "Real-Time AI Lead Qualification: Calculates intent scores (0-100) from 50+ live signals to prioritize high-value prospects and notify sales reps instantly.",
+      "Automated Orders & Appointment Booking: Answers menu/product queries, calculates live quotes, captures customer orders, and books consultation slots.",
+      "CRM & Webhook Auto-Sync: Automatically synchronizes qualified leads, customer profiles, and conversation logs into existing CRM databases in real-time."
+    ],
+    architecture: [
+      { component: "WhatsApp Messaging Pipeline", tech: "Official Meta Cloud API & Webhooks" },
+      { component: "AI & NLP Engine", tech: "OpenAI GPT-4o / Groq LLMs & Multilingual NLU" },
+      { component: "Audio & Document Intelligence", tech: "Whisper Voice Engine & PDF Vector RAG" },
+      { component: "Frontend & Management Console", tech: "Next.js 15, TypeScript, Tailwind CSS" },
+      { component: "CRM & Dispatch Integration", tech: "REST Webhooks & Automated Booking" },
+      { component: "Cloud Infrastructure", tech: "Vercel Edge Cloud / Production Server" }
+    ],
+    image: chatwithouttalkImg,
+    secondaryImage: chatwithouttalkImg,
+    tech: ["Next.js", "TypeScript", "Meta Cloud API", "WhatsApp AI", "LLM Agents", "Whisper", "RAG", "Tailwind CSS", "Vercel"],
+    github: "#",
+    live: "https://chatwithouttalk.com/",
+  },
+  {
+    num: "02",
     title: "AGENTLINK",
     tagline: "AI Agent Remote Control Platform",
     category: "AI & Automation",
@@ -89,7 +125,7 @@ const allProjects: ProjectData[] = [
     live: "https://agentlink-mu.vercel.app/",
   },
   {
-    num: "02",
+    num: "03",
     title: "VAYPAR",
     tagline: "Multi-Business POS & Retail ERP Platform",
     category: "POS & ERP",
@@ -125,7 +161,7 @@ const allProjects: ProjectData[] = [
     live: "https://vaypar-nine.vercel.app/",
   },
   {
-    num: "03",
+    num: "04",
     title: "TUDOSTOCK PORTUGAL",
     tagline: "Custom Shopify B2B Storefront & Integrated POS",
     category: "POS & ERP",
@@ -159,7 +195,7 @@ const allProjects: ProjectData[] = [
     live: "https://tudostockportugal.vercel.app/en/wholesale",
   },
   {
-    num: "04",
+    num: "05",
     title: "DEVELOPWORK",
     tagline: "Autonomous Company Operations & Skill-Based Task Allocation ERP",
     category: "AI & Automation",
@@ -191,7 +227,7 @@ const allProjects: ProjectData[] = [
     live: "https://www.thedevelopwork.com/",
   },
   {
-    num: "05",
+    num: "06",
     title: "NEW ALI LAJPAL RENT A CAR",
     tagline: "Online Fleet Booking & Inter-City Car Rental Platform",
     category: "Websites & Commercial",
@@ -223,7 +259,7 @@ const allProjects: ProjectData[] = [
     live: "https://newalilajpal.com/",
   },
   {
-    num: "06",
+    num: "07",
     title: "LUXE SALOON",
     tagline: "Saloon Management & Smart POS Billing System",
     category: "POS & ERP",
@@ -255,7 +291,7 @@ const allProjects: ProjectData[] = [
     live: "https://saloon-portfolio.vercel.app/",
   },
   {
-    num: "07",
+    num: "08",
     title: "THE RHA BUILDERS",
     tagline: "Commercial Construction & Real Estate Development",
     category: "Websites & Commercial",
@@ -286,7 +322,7 @@ const allProjects: ProjectData[] = [
     live: "https://www.therhabuilders.com/",
   },
   {
-    num: "08",
+    num: "09",
     title: "VELOCE",
     tagline: "3D Interactive Car Experience & WebGL Configurator",
     category: "3D & Interactive",
@@ -320,7 +356,7 @@ const allProjects: ProjectData[] = [
     live: "https://veloce-lime-five.vercel.app/",
   },
   {
-    num: "09",
+    num: "10",
     title: "MERIDIA",
     tagline: "3D Luxury Architectural Property & Walkthrough",
     category: "3D & Interactive",
@@ -354,7 +390,7 @@ const allProjects: ProjectData[] = [
     live: "https://3d-property-website.vercel.app/",
   },
   {
-    num: "10",
+    num: "11",
     title: "FOOD GUY",
     tagline: "Modern Fast-Food Ordering & Delivery Platform",
     category: "Websites & Commercial",
@@ -388,7 +424,7 @@ const allProjects: ProjectData[] = [
     live: "https://food-guy.vercel.app/",
   },
   {
-    num: "11",
+    num: "12",
     title: "ATTACK DETECTION SYSTEM FOR CPS",
     tagline: "Intrusion Detection & Prevention (IDS/IPS)",
     category: "Cybersecurity",
@@ -419,7 +455,7 @@ const allProjects: ProjectData[] = [
     live: "#",
   },
   {
-    num: "12",
+    num: "13",
     title: "3D NAMAZ VIEWER LEARNING PLATFORM",
     tagline: "Interactive Islamic Prayer Learning Platform",
     category: "3D & Interactive",
@@ -451,7 +487,7 @@ const allProjects: ProjectData[] = [
     live: "https://namaz-p10k.onrender.com/",
   },
   {
-    num: "13",
+    num: "14",
     title: "DELICIOUSBITES RESTAURANT PLATFORM",
     tagline: "Modern Food Ordering & Table Reservation",
     category: "Websites & Commercial",
@@ -696,6 +732,7 @@ export default function Projects() {
                       mass: 0.75
                     }}
                     onClick={() => setActiveCardIndex(idx)}
+                    onMouseEnter={() => setActiveCardIndex(idx)}
                     className={`relative rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-300 flex flex-col justify-between ${
                       isExpanded
                         ? `${isMobile ? "min-w-[290px] w-full" : "min-w-[440px] md:min-w-[560px] flex-1 max-w-[700px]"} bg-[#0c0d14] border-2 border-crimson-500/80 shadow-[0_20px_50px_-10px_rgba(220,38,38,0.38)] ring-1 ring-crimson-500/20`
@@ -807,6 +844,7 @@ export default function Projects() {
                   <button
                     key={idx}
                     onClick={() => setActiveCardIndex(idx)}
+                    onMouseEnter={() => setActiveCardIndex(idx)}
                     aria-label={`Go to project ${idx + 1}`}
                     className={`h-2 rounded-full transition-all cursor-pointer ${
                       activeCardIndex === idx
