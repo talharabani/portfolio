@@ -8,6 +8,7 @@ import {
 import FlyInText from "./FlyInText";
 
 import agentLinkImg from "../assets/agentlink.svg";
+import agentLinkRealImg from "../assets/agentlink.jpg";
 import vayparImg from "../assets/vaypar.svg";
 import vayparRealImg from "../assets/vaypar.jpg";
 import tudostockImg from "../assets/tudostock.svg";
@@ -81,6 +82,7 @@ const allProjects: ProjectData[] = [
       { component: "Push Delivery", tech: "Web Push / VAPID Protocol" }
     ],
     image: agentLinkImg,
+    secondaryImage: agentLinkRealImg,
     tech: ["Python", "PowerShell", "Neon PostgreSQL", "Vercel", "Web Push", "UIAutomation", "JavaScript"],
     github: "https://github.com/talharabani/AgentLink",
     live: "https://agentlink-mu.vercel.app/",
