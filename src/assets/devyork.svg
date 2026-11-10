@@ -1,0 +1,87 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#08090f" />
+  
+  <defs>
+    <radialGradient id="dyGlow" cx="50%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#08090f" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="dyCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121524" />
+      <stop offset="100%" stop-color="#0c0e18" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#dyGlow)" />
+
+  <!-- Outer Dashboard Frame -->
+  <rect x="40" y="35" width="1120" height="680" rx="20" fill="#0e101b" stroke="#22283d" stroke-width="1.5" />
+
+  <!-- Top Brand Navigation Bar -->
+  <rect x="40" y="35" width="1120" height="68" rx="20" fill="#131626" stroke="#232840" stroke-width="1" />
+  
+  <!-- Logo Pill & Name -->
+  <rect x="65" y="51" width="36" height="36" rx="10" fill="#3b82f6" />
+  <path d="M74 62H83C87 62 90 65 90 69C90 73 87 76 83 76H74V62Z" stroke="#08090f" stroke-width="2.5" stroke-linejoin="round" />
+  <text x="112" y="74" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800">DevYork</text>
+  <rect x="235" y="55" width="250" height="28" rx="6" fill="#1e2640" stroke="#3b82f6" stroke-opacity="0.4" />
+  <text x="247" y="73" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">● WEB DESIGN &amp; DIGITAL MARKETING</text>
+
+  <!-- Live Agency Pill -->
+  <rect x="915" y="53" width="220" height="32" rx="8" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-opacity="0.4" />
+  <circle cx="935" cy="69" r="4" fill="#60a5fa" />
+  <text x="948" y="73" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Brand Accelerator • Live Engine</text>
+
+  <!-- Hero Content Strip -->
+  <text x="75" y="152" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="800">Full-Stack Web Design &amp; Digital Marketing Agency</text>
+  <text x="75" y="180" fill="#94a3b8" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14">Design. Develop. Market. Scale. Unified into a 24/7 revenue engine across 30+ industries.</text>
+
+  <!-- 3 Pillars -->
+  <!-- Card 1: Custom Web Design & Next.js -->
+  <rect x="75" y="220" width="345" height="460" rx="16" fill="url(#dyCardGrad)" stroke="#22283d" stroke-width="1.3" />
+  <rect x="95" y="240" width="305" height="200" rx="12" fill="#191c30" stroke="#2a3250" />
+  <circle cx="247" cy="320" r="50" fill="#3b82f6" fill-opacity="0.15" />
+  <text x="233" y="333" font-size="40">💻</text>
+  <text x="95" y="475" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Full-Stack Web Development</text>
+  <text x="95" y="500" fill="#94a3b8" font-family="sans-serif" font-size="12">Custom Next.js &amp; Shopify digital experiences built with sub-second speeds, smooth animations, and high conversion UX.</text>
+  <rect x="95" y="545" width="135" height="24" rx="5" fill="#1e2540" />
+  <text x="105" y="561" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="10">Next.js &amp; React 19</text>
+  <rect x="240" y="545" width="130" height="24" rx="5" fill="#1e2540" />
+  <text x="250" y="561" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="10">Shopify Custom</text>
+  <rect x="95" y="590" width="305" height="42" rx="10" fill="#3b82f6" />
+  <text x="180" y="616" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">Explore Portfolio →</text>
+  <text x="145" y="655" fill="#60a5fa" font-family="'JetBrains Mono', monospace" font-size="11">● 99.9% Google Core Vitals</text>
+
+  <!-- Card 2: Brand Acceleration & Revenue Engine -->
+  <rect x="445" y="220" width="345" height="460" rx="16" fill="url(#dyCardGrad)" stroke="#3b82f6" stroke-width="1.6" />
+  <rect x="465" y="240" width="305" height="200" rx="12" fill="#191c30" stroke="#2a3250" />
+  <circle cx="617" cy="320" r="50" fill="#8b5cf6" fill-opacity="0.2" />
+  <text x="603" y="333" font-size="40">🚀</text>
+  <text x="465" y="475" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">Brand Acceleration Engine</text>
+  <text x="465" y="500" fill="#94a3b8" font-family="sans-serif" font-size="12">Transform your online presence from concept to market dominance with integrated brand strategy, CRO, and paid ad funnels.</text>
+  <rect x="465" y="545" width="135" height="24" rx="5" fill="#242142" />
+  <text x="475" y="561" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="10">Conversion (CRO)</text>
+  <rect x="610" y="545" width="130" height="24" rx="5" fill="#242142" />
+  <text x="620" y="561" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="10">Funnel Strategy</text>
+  <rect x="465" y="590" width="305" height="42" rx="10" fill="#3b82f6" />
+  <text x="535" y="616" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">Brand Acceleration Plan →</text>
+  <text x="515" y="655" fill="#60a5fa" font-family="'JetBrains Mono', monospace" font-size="11">● 24/7 Revenue Growth</text>
+
+  <!-- Card 3: Advanced SEO & Digital Marketing -->
+  <rect x="815" y="220" width="310" height="460" rx="16" fill="url(#dyCardGrad)" stroke="#22283d" stroke-width="1.3" />
+  <rect x="835" y="240" width="270" height="110" rx="12" fill="#191c30" stroke="#2a3250" />
+  <circle cx="970" cy="285" r="30" fill="#10b981" fill-opacity="0.2" />
+  <text x="960" y="295" font-size="28">📈</text>
+  <text x="835" y="375" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700">SEO &amp; Paid Acquisition</text>
+  <text x="835" y="398" fill="#94a3b8" font-family="sans-serif" font-size="12">Rank on Google Page 1 with technical SEO audits, keyword clusters, and targeted ROI-focused PPC management.</text>
+  <rect x="835" y="435" width="270" height="40" rx="8" fill="#141829" stroke="#242b45" />
+  <text x="850" y="460" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="11">🔍 Technical SEO &amp; Audits</text>
+  <rect x="835" y="485" width="270" height="40" rx="8" fill="#141829" stroke="#242b45" />
+  <text x="850" y="510" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="11">🎯 PPC &amp; Performance Ads</text>
+  <rect x="835" y="535" width="270" height="40" rx="8" fill="#141829" stroke="#242b45" />
+  <text x="850" y="560" fill="#93c5fd" font-family="'JetBrains Mono', monospace" font-size="11">📊 Data-Driven Analytics</text>
+  <rect x="835" y="595" width="270" height="42" rx="10" fill="#3b82f6" />
+  <text x="895" y="621" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">Start Growing →</text>
+
+</svg>

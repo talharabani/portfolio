@@ -36,6 +36,7 @@ import deliciousBitesImg from "../assets/DeliciousBites.jpg";
 import alimrannurseryImg from "../assets/alimrannursery.svg";
 import gymproImg from "../assets/gympro.svg";
 import buildestimateproImg from "../assets/buildestimatepro.svg";
+import devyorkImg from "../assets/devyork.svg";
 
 export interface ProjectData {
   num: string;
@@ -200,6 +201,38 @@ const allProjects: ProjectData[] = [
   },
   {
     num: "05",
+    title: "DEVYORK",
+    tagline: "Full-Stack Web Design & Digital Marketing Growth Engine",
+    category: "Websites & Commercial",
+    badge: "Agency & Growth",
+    year: "2026",
+    status: "Live Application",
+    desc: "A full-stack web design, e-commerce engineering, and performance marketing platform built for DevYork. Combines high-conversion UI/UX, custom Next.js/Shopify development, technical SEO, and paid acquisition funnels into a 24/7 revenue engine for businesses across 30+ industries.",
+    fullSummary: [
+      "Overview: DevYork is a full-service web design, software development, and digital marketing agency dedicated to turning online brands into predictable revenue growth engines.",
+      "Delivered Solution: Engineered a high-impact, modern agency platform showcasing full-stack web development (Next.js, React, Tailwind CSS), Shopify e-commerce transformations, organic search SEO positioning, brand acceleration strategies, and live conversion consultation."
+    ],
+    features: [
+      "Custom Next.js & Web Architecture: High-converting, mobile-first responsive web apps built for sub-second speeds and 99.9% Google Core Web Vitals.",
+      "Shopify & E-Commerce Engineering: Tailored storefronts optimized with custom checkout flows, high AOV upsells, and payment gateways.",
+      "Brand Acceleration Engine: End-to-end digital transformation combining visual identity, UX positioning, and marketing funnels.",
+      "Technical SEO & Search Dominance: Full-funnel search engine optimization designed to rank competitively on Google Page 1.",
+      "Performance Marketing & Paid Ads: Data-driven conversion funnels, PPC campaign management, and ROI tracking dashboards."
+    ],
+    architecture: [
+      { component: "Frontend Framework", tech: "Next.js 15 / React 19 & TypeScript" },
+      { component: "Styling & Motion", tech: "Tailwind CSS & Framer Motion" },
+      { component: "E-Commerce Integrations", tech: "Shopify Storefront API & Custom Liquid" },
+      { component: "Cloud Deployment", tech: "Vercel Edge Global Network (Live)" }
+    ],
+    image: devyorkImg,
+    secondaryImage: devyorkImg,
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Shopify API", "SEO & Marketing", "Vercel"],
+    github: "#",
+    live: "https://www.devyork.com/",
+  },
+  {
+    num: "06",
     title: "DEVELOPWORK",
     tagline: "Autonomous Company Operations & Skill-Based Task Allocation ERP",
     category: "AI & Automation",
@@ -231,7 +264,7 @@ const allProjects: ProjectData[] = [
     live: "https://www.thedevelopwork.com/",
   },
   {
-    num: "06",
+    num: "07",
     title: "NEW ALI LAJPAL RENT A CAR",
     tagline: "Online Fleet Booking & Inter-City Car Rental Platform",
     category: "Websites & Commercial",
@@ -263,7 +296,7 @@ const allProjects: ProjectData[] = [
     live: "https://newalilajpal.com/",
   },
   {
-    num: "07",
+    num: "08",
     title: "LUXE SALOON",
     tagline: "Saloon Management & Smart POS Billing System",
     category: "POS & ERP",
@@ -295,7 +328,7 @@ const allProjects: ProjectData[] = [
     live: "https://saloon-portfolio.vercel.app/",
   },
   {
-    num: "08",
+    num: "09",
     title: "THE RHA BUILDERS",
     tagline: "Commercial Construction & Real Estate Development",
     category: "Websites & Commercial",
@@ -326,7 +359,7 @@ const allProjects: ProjectData[] = [
     live: "https://www.therhabuilders.com/",
   },
   {
-    num: "09",
+    num: "10",
     title: "VELOCE",
     tagline: "3D Interactive Car Experience & WebGL Configurator",
     category: "3D & Interactive",
@@ -360,7 +393,7 @@ const allProjects: ProjectData[] = [
     live: "https://veloce-lime-five.vercel.app/",
   },
   {
-    num: "10",
+    num: "11",
     title: "MERIDIA",
     tagline: "3D Luxury Architectural Property & Walkthrough",
     category: "3D & Interactive",
@@ -394,7 +427,7 @@ const allProjects: ProjectData[] = [
     live: "https://3d-property-website.vercel.app/",
   },
   {
-    num: "11",
+    num: "12",
     title: "FOOD GUY",
     tagline: "Modern Fast-Food Ordering & Delivery Platform",
     category: "Websites & Commercial",
@@ -428,7 +461,7 @@ const allProjects: ProjectData[] = [
     live: "https://food-guy.vercel.app/",
   },
   {
-    num: "12",
+    num: "13",
     title: "3D NAMAZ VIEWER LEARNING PLATFORM",
     tagline: "Interactive Islamic Prayer Learning Platform",
     category: "3D & Interactive",
@@ -460,7 +493,7 @@ const allProjects: ProjectData[] = [
     live: "https://namaz-p10k.onrender.com/",
   },
   {
-    num: "13",
+    num: "14",
     title: "DELICIOUSBITES RESTAURANT PLATFORM",
     tagline: "Modern Food Ordering & Table Reservation",
     category: "Websites & Commercial",
@@ -490,7 +523,7 @@ const allProjects: ProjectData[] = [
     live: "https://thunderous-bonbon-a4564a.netlify.app/",
   },
   {
-    num: "14",
+    num: "15",
     title: "AL IMRAN NURSERY & LANDSCAPE",
     tagline: "E-Commerce Plant Nursery & Landscape Architecture Platform",
     category: "Websites & Commercial",
@@ -522,7 +555,7 @@ const allProjects: ProjectData[] = [
     live: "https://alimrannursery.store/",
   },
   {
-    num: "15",
+    num: "16",
     title: "GYMPRO FITNESS",
     tagline: "Elite Gym, Personal Training & Wellness Platform",
     category: "Websites & Commercial",
@@ -554,7 +587,7 @@ const allProjects: ProjectData[] = [
     live: "https://gympro-kappa-one.vercel.app/",
   },
   {
-    num: "16",
+    num: "17",
     title: "BUILDESTIMATE PRO",
     tagline: "Commercial Construction Material Takeoff & Cost Estimating",
     category: "Websites & Commercial",
@@ -586,7 +619,7 @@ const allProjects: ProjectData[] = [
     live: "https://buildestimatepro.pages.dev/",
   },
   {
-    num: "17",
+    num: "18",
     title: "ATTACK DETECTION SYSTEM FOR CPS",
     tagline: "Intrusion Detection & Prevention (IDS/IPS)",
     category: "Cybersecurity",
