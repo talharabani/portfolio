@@ -138,40 +138,108 @@ export default function About() {
 
           {/* Column 2: WORK PROCESS (4 Cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.14,
+                  delayChildren: 0.15,
+                },
+              },
+            }}
             className="lg:col-span-4"
           >
-            <h2 className="text-base sm:text-lg font-black uppercase tracking-wider text-white mb-6">
-              WORK PROCESS
-            </h2>
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-crimson-500 animate-pulse" />
+              <h2 className="text-base sm:text-lg font-black uppercase tracking-wider text-white">
+                WORK PROCESS
+              </h2>
+            </div>
 
-            <div className="relative pl-2 space-y-6">
-              {/* Connecting vertical line */}
-              <div className="absolute top-4 bottom-4 left-[27px] w-px bg-zinc-800/80 -z-0" />
+            <div className="relative pl-1 space-y-4">
+              {/* Connecting vertical line (Curtain track drawing down) */}
+              <motion.div
+                variants={{
+                  hidden: { scaleY: 0, opacity: 0 },
+                  visible: {
+                    scaleY: 1,
+                    opacity: 1,
+                    transition: {
+                      duration: 1.1,
+                      ease: [0.22, 1, 0.36, 1],
+                    },
+                  },
+                }}
+                style={{ originY: 0 }}
+                className="absolute top-4 bottom-4 left-[43px] w-[2px] bg-gradient-to-b from-crimson-500 via-crimson-600/60 to-zinc-800 -z-0"
+              />
+
+              {/* Animated Glowing Laser Pulse rolling down the curtain track */}
+              <motion.div
+                animate={{
+                  top: ["0%", "100%"],
+                  opacity: [0, 1, 1, 0],
+                }}
+                transition={{
+                  duration: 2.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatDelay: 0.8,
+                }}
+                className="absolute left-[42px] w-1 h-14 bg-gradient-to-b from-transparent via-crimson-400 to-transparent blur-[1px] pointer-events-none -z-0"
+              />
 
               {workProcessSteps.map((step) => (
-                <div key={step.num} className="relative z-10 flex items-start gap-4">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-crimson-500">
+                <motion.div
+                  key={step.num}
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                      y: -35,
+                      scaleY: 0.88,
+                      filter: "blur(5px)",
+                    },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      scaleY: 1,
+                      filter: "blur(0px)",
+                      transition: {
+                        type: "spring",
+                        damping: 17,
+                        stiffness: 95,
+                        mass: 0.75,
+                      },
+                    },
+                  }}
+                  whileHover={{
+                    x: 6,
+                    transition: { type: "spring", stiffness: 350, damping: 20 },
+                  }}
+                  className="relative z-10 flex items-start gap-3.5 p-2.5 -ml-2.5 rounded-xl transition-all duration-300 hover:bg-zinc-900/50 border border-transparent hover:border-zinc-800/80 group cursor-default"
+                >
+                  <div className="flex items-center gap-2.5 shrink-0 pt-0.5">
+                    <span className="font-mono text-xs font-bold text-crimson-500 group-hover:text-crimson-400 group-hover:scale-105 transition-all w-4 text-center">
                       {step.num}
                     </span>
-                    <div className="w-7 h-7 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-zinc-900/90 border border-zinc-800 group-hover:border-crimson-500 group-hover:bg-crimson-950/70 group-hover:shadow-[0_0_12px_rgba(220,38,38,0.45)] flex items-center justify-center shrink-0 transition-all duration-300">
                       {step.icon}
                     </div>
                   </div>
 
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-crimson-400">
+                  <div className="flex-1">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-crimson-400 group-hover:text-white transition-colors duration-200">
                       {step.title}
                     </h4>
-                    <p className="text-xs text-zinc-400 leading-snug mt-0.5 font-normal">
+                    <p className="text-xs text-zinc-400 group-hover:text-zinc-200 leading-snug mt-0.5 font-normal transition-colors duration-200">
                       {step.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
