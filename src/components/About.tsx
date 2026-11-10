@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaSearch, FaLightbulb, FaPenNib, FaCode, FaPaperPlane, FaQuoteLeft,
   FaExternalLinkAlt, FaNodeJs, FaRobot, FaGithub, FaCheckCircle,
-  FaBolt, FaShieldAlt, FaArrowRight, FaGraduationCap, FaBriefcase, FaLaptopCode
+  FaShieldAlt, FaArrowRight, FaGraduationCap, FaBriefcase, FaLaptopCode
 } from "react-icons/fa";
 import {
   SiReact,
@@ -702,10 +702,7 @@ export default function About() {
                   href="#automation"
                   className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-crimson-950/60 border border-zinc-800 hover:border-crimson-500/70 text-zinc-300 hover:text-white text-[10px] font-bold tracking-wider uppercase transition-all duration-200 group/btn"
                 >
-                  <span className="flex items-center gap-1.5">
-                    <FaBolt className="text-crimson-400 text-xs" />
-                    <span>Explore Autonomous Pipelines</span>
-                  </span>
+                  <span>Explore Autonomous Pipelines</span>
                   <FaArrowRight className="text-[9px] text-zinc-500 group-hover/btn:text-crimson-400 group-hover/btn:translate-x-1 transition-all" />
                 </a>
               </div>
@@ -758,7 +755,7 @@ export default function About() {
                   {/* Pillar 1 */}
                   <div className="p-2.5 rounded-xl bg-black/30 border border-red-500/25 hover:border-red-400/40 transition">
                     <div className="flex items-center gap-2 mb-1">
-                      <FaBolt className="text-amber-400 text-xs shrink-0" />
+                      <span className="font-mono text-[10px] font-bold text-red-300">01</span>
                       <h4 className="text-xs font-bold uppercase tracking-wider text-white">
                         Conversion-First Architecture
                       </h4>
@@ -771,7 +768,7 @@ export default function About() {
                   {/* Pillar 2 */}
                   <div className="p-2.5 rounded-xl bg-black/30 border border-red-500/25 hover:border-red-400/40 transition">
                     <div className="flex items-center gap-2 mb-1">
-                      <FaRobot className="text-cyan-300 text-xs shrink-0" />
+                      <span className="font-mono text-[10px] font-bold text-red-300">02</span>
                       <h4 className="text-xs font-bold uppercase tracking-wider text-white">
                         Autonomous AI Workflows
                       </h4>
@@ -784,7 +781,7 @@ export default function About() {
                   {/* Pillar 3 */}
                   <div className="p-2.5 rounded-xl bg-black/30 border border-red-500/25 hover:border-red-400/40 transition">
                     <div className="flex items-center gap-2 mb-1">
-                      <FaShieldAlt className="text-emerald-300 text-xs shrink-0" />
+                      <span className="font-mono text-[10px] font-bold text-red-300">03</span>
                       <h4 className="text-xs font-bold uppercase tracking-wider text-white">
                         Zero Middlemen &amp; Full Ownership
                       </h4>
