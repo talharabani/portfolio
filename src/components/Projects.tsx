@@ -34,9 +34,13 @@ import namazImg from "../assets/namaz_viewer.svg";
 import namazRealImg from "../assets/namaz_viewer.jpg";
 import deliciousBitesImg from "../assets/DeliciousBites.jpg";
 import alimrannurseryImg from "../assets/alimrannursery.svg";
+import alimrannurseryRealImg from "../assets/alimrannursery.jpg";
 import gymproImg from "../assets/gympro.svg";
+import gymproRealImg from "../assets/gympro.jpg";
 import buildestimateproImg from "../assets/buildestimatepro.svg";
+import buildestimateproRealImg from "../assets/buildestimatepro.jpg";
 import devyorkImg from "../assets/devyork.svg";
+import devyorkRealImg from "../assets/devyork.jpg";
 
 export interface ProjectData {
   num: string;
@@ -226,7 +230,7 @@ const allProjects: ProjectData[] = [
       { component: "Cloud Deployment", tech: "Vercel Edge Global Network (Live)" }
     ],
     image: devyorkImg,
-    secondaryImage: devyorkImg,
+    secondaryImage: devyorkRealImg,
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Shopify API", "SEO & Marketing", "Vercel"],
     github: "#",
     live: "https://www.devyork.com/",
@@ -549,7 +553,7 @@ const allProjects: ProjectData[] = [
       { component: "Cloud Infrastructure", tech: "Production Web Server & Cloudflare CDN" }
     ],
     image: alimrannurseryImg,
-    secondaryImage: alimrannurseryImg,
+    secondaryImage: alimrannurseryRealImg,
     tech: ["WordPress", "WooCommerce", "PHP", "Tailwind CSS", "JavaScript", "E-Commerce", "WhatsApp API"],
     github: "#",
     live: "https://alimrannursery.store/",
@@ -581,7 +585,7 @@ const allProjects: ProjectData[] = [
       { component: "Cloud Deployment", tech: "Vercel Edge Platform (Live)" }
     ],
     image: gymproImg,
-    secondaryImage: gymproImg,
+    secondaryImage: gymproRealImg,
     tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "Framer Motion", "Vercel"],
     github: "#",
     live: "https://gympro-kappa-one.vercel.app/",
@@ -613,7 +617,7 @@ const allProjects: ProjectData[] = [
       { component: "Cloud Hosting", tech: "Cloudflare Pages Global Edge CDN (Live)" }
     ],
     image: buildestimateproImg,
-    secondaryImage: buildestimateproImg,
+    secondaryImage: buildestimateproRealImg,
     tech: ["React", "TypeScript", "Tailwind CSS", "Cloudflare Pages", "Lead Generation", "Construction Tech"],
     github: "#",
     live: "https://buildestimatepro.pages.dev/",
