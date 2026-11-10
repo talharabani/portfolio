@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaGithub, FaExternalLinkAlt, FaTimes, 
@@ -8,6 +8,7 @@ import {
 import FlyInText from "./FlyInText";
 
 import chatwithouttalkImg from "../assets/chatwithouttalk.svg";
+import chatwithouttalkRealImg from "../assets/chatwithouttalk.jpg";
 import agentLinkImg from "../assets/agentlink.svg";
 import agentLinkRealImg from "../assets/agentlink.jpg";
 import vayparImg from "../assets/vaypar.svg";
@@ -83,7 +84,7 @@ const allProjects: ProjectData[] = [
       { component: "Cloud Infrastructure", tech: "Vercel Edge Cloud / Production Server" }
     ],
     image: chatwithouttalkImg,
-    secondaryImage: chatwithouttalkImg,
+    secondaryImage: chatwithouttalkRealImg,
     tech: ["Next.js", "TypeScript", "Meta Cloud API", "WhatsApp AI", "LLM Agents", "Whisper", "RAG", "Tailwind CSS", "Vercel"],
     github: "#",
     live: "https://chatwithouttalk.com/",
@@ -531,6 +532,32 @@ export default function Projects() {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
+  // Hover intent buffer to keep card expansions silky smooth without layout jitter
+  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleCardHover = (idx: number) => {
+    if (activeCardIndex === idx) return;
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    hoverTimeoutRef.current = setTimeout(() => {
+      setActiveCardIndex(idx);
+    }, 70);
+  };
+
+  const handleCardClick = (idx: number) => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    setActiveCardIndex(idx);
+  };
+
+  const handleMouseLeaveTrack = () => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    };
+  }, []);
+
   // Responsive screen listener
   useEffect(() => {
     const checkMobile = () => {
@@ -716,27 +743,21 @@ export default function Projects() {
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
+              onMouseLeave={handleMouseLeaveTrack}
               className="relative w-full overflow-x-auto no-scrollbar py-2 px-1 flex gap-2 sm:gap-3 items-stretch h-[510px] sm:h-[550px] md:h-[580px]"
             >
               {filteredProjects.map((p, idx) => {
                 const isExpanded = activeCardIndex === idx;
 
                 return (
-                  <motion.div
+                  <div
                     key={p.num}
-                    layout
-                    transition={{
-                      type: "spring",
-                      stiffness: 350,
-                      damping: 30,
-                      mass: 0.75
-                    }}
-                    onClick={() => setActiveCardIndex(idx)}
-                    onMouseEnter={() => setActiveCardIndex(idx)}
-                    className={`relative rounded-2xl overflow-hidden cursor-pointer select-none transition-all duration-300 flex flex-col justify-between ${
+                    onClick={() => handleCardClick(idx)}
+                    onMouseEnter={() => handleCardHover(idx)}
+                    className={`relative rounded-2xl overflow-hidden cursor-pointer select-none transition-[flex,width,max-width,min-width,border-color,box-shadow,background-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between ${
                       isExpanded
-                        ? `${isMobile ? "min-w-[290px] w-full" : "min-w-[440px] md:min-w-[560px] flex-1 max-w-[700px]"} bg-[#0c0d14] border-2 border-crimson-500/80 shadow-[0_20px_50px_-10px_rgba(220,38,38,0.38)] ring-1 ring-crimson-500/20`
-                        : `${isMobile ? "w-[52px]" : "w-[68px] md:w-[74px]"} shrink-0 bg-[#0e0f16]/90 hover:bg-[#151722] border border-zinc-800/80 hover:border-zinc-700`
+                        ? `${isMobile ? "min-w-[290px] w-full" : "min-w-[440px] md:min-w-[580px] flex-[10] max-w-[760px]"} bg-[#0c0d14] border-2 border-crimson-500/80 shadow-[0_20px_50px_-10px_rgba(220,38,38,0.38)] ring-1 ring-crimson-500/20 z-10`
+                        : `${isMobile ? "w-[52px]" : "w-[66px] md:w-[72px]"} shrink-0 flex-none bg-[#0e0f16]/90 hover:bg-[#151722] border border-zinc-800/80 hover:border-zinc-700 z-0`
                     }`}
                   >
                     {isExpanded ? (
@@ -809,7 +830,7 @@ export default function Projects() {
                         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-zinc-800/20 via-transparent to-transparent pointer-events-none" />
                       </div>
                     )}
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
@@ -843,8 +864,8 @@ export default function Projects() {
                 {filteredProjects.map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setActiveCardIndex(idx)}
-                    onMouseEnter={() => setActiveCardIndex(idx)}
+                    onClick={() => handleCardClick(idx)}
+                    onMouseEnter={() => handleCardHover(idx)}
                     aria-label={`Go to project ${idx + 1}`}
                     className={`h-2 rounded-full transition-all cursor-pointer ${
                       activeCardIndex === idx
