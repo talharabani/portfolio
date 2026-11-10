@@ -5,6 +5,7 @@ import {
   FaCheckCircle, FaBolt, FaLayerGroup, FaPlay,
   FaChevronLeft, FaChevronRight, FaThLarge, FaClone
 } from "react-icons/fa";
+import FlyInText from "./FlyInText";
 
 import agentLinkImg from "../assets/agentlink.svg";
 import vayparImg from "../assets/vaypar.svg";
@@ -575,12 +576,19 @@ export default function Projects() {
             <span>PORTFOLIO SHOWCASE • CRAFTED WITH PRECISION</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white mb-2 sm:mb-3">
-            DISCOVER FEATURED PROJECTS
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl px-2">
-            Explore 13 production-grade full-stack systems, 3D WebGL experiences, and autonomous n8n workflows.
-          </p>
+          <FlyInText
+            as="h2"
+            text="DISCOVER FEATURED PROJECTS"
+            className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white mb-2 sm:mb-3"
+            stagger={0.06}
+          />
+          <FlyInText
+            as="p"
+            text="Explore 13 production-grade full-stack systems, 3D WebGL experiences, and autonomous n8n workflows."
+            className="text-xs sm:text-sm text-zinc-400 max-w-xl px-2"
+            delay={0.15}
+            stagger={0.03}
+          />
         </div>
 
         {/* Filter Pills & View Switcher Bar (Responsive Horizontal Scroll on Mobile) */}

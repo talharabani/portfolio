@@ -10,6 +10,7 @@ import {
   FaFileAlt,
   FaRobot,
 } from "react-icons/fa";
+import FlyInText from "./FlyInText";
 
 export default function Footer() {
   const [copied, setCopied] = useState(false);
@@ -41,14 +42,21 @@ export default function Footer() {
           <div className="lg:col-span-6 space-y-4">
             <div className="flex items-center gap-2.5">
               <span className="w-2.5 h-2.5 rounded-full bg-crimson-600" />
-              <h3 className="text-base sm:text-lg font-black uppercase tracking-[0.18em] text-white font-sans">
-                TALHA ISHAQ RABANI
-              </h3>
+              <FlyInText
+                as="h3"
+                text="TALHA ISHAQ RABANI"
+                className="text-base sm:text-lg font-black uppercase tracking-[0.18em] text-white font-sans"
+                stagger={0.06}
+              />
             </div>
 
-            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal max-w-lg">
-              Senior Full Stack Developer &amp; AI Automation Specialist. Engineering resilient web applications, high-converting digital products, and autonomous n8n workflows.
-            </p>
+            <FlyInText
+              as="p"
+              text="Senior Full Stack Developer & AI Automation Specialist. Engineering resilient web applications, high-converting digital products, and autonomous n8n workflows."
+              className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal max-w-lg"
+              delay={0.1}
+              stagger={0.02}
+            />
 
             {/* Status & Location Pill */}
             <div className="flex flex-wrap items-center gap-3 text-xs pt-1">

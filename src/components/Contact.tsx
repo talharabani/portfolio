@@ -4,6 +4,7 @@ import {
   FaEnvelope, FaMapMarkerAlt, FaPaperPlane, 
   FaCheckCircle, FaWhatsapp, FaGithub, FaLinkedin 
 } from "react-icons/fa";
+import FlyInText from "./FlyInText";
 
 const SERVICE_ID = "service_5n3rrkx";
 const USER_ID = "y8nscxWO4CHQ7ssL0";
@@ -79,13 +80,20 @@ export default function Contact() {
                 </span>
               </div>
 
-              <h2 className="font-sans font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight text-white uppercase leading-[0.95] mb-4 sm:mb-5">
-                LET'S WORK <br /> TOGETHER
-              </h2>
+              <FlyInText
+                as="h2"
+                text={"LET'S WORK\nTOGETHER"}
+                className="font-sans font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight text-white uppercase leading-[0.95] mb-4 sm:mb-5"
+                stagger={0.08}
+              />
 
-              <p className="text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed max-w-md mb-6 sm:mb-8">
-                I'm currently open for freelance projects, full-time engineering roles, and AI workflow automation consulting. Let's discuss your next project and build something remarkable.
-              </p>
+              <FlyInText
+                as="p"
+                text="I'm currently open for freelance projects, full-time engineering roles, and AI workflow automation consulting. Let's discuss your next project and build something remarkable."
+                className="text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed max-w-md mb-6 sm:mb-8"
+                delay={0.2}
+                stagger={0.03}
+              />
 
               {/* Status Pill */}
               <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-zinc-300 bg-zinc-950 border border-zinc-800 px-3.5 sm:px-4 py-2 rounded-full mb-6 sm:mb-10">

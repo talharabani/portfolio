@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import profileImg from "../assets/talha1.png";
 import { FaGlobeAmericas, FaArrowDown } from "react-icons/fa";
+import FlyInText from "./FlyInText";
 
 export default function Hero() {
   return (
@@ -26,17 +27,29 @@ export default function Hero() {
               Hello, I'm
             </span>
 
-            <h2 className="font-sans font-black text-4xl sm:text-6xl xl:text-7xl tracking-tighter text-white uppercase leading-[0.95] my-2">
-              TALHA <br /> ISHAQ
-            </h2>
+            <FlyInText
+              as="h2"
+              text={"TALHA\nISHAQ"}
+              className="font-sans font-black text-4xl sm:text-6xl xl:text-7xl tracking-tighter text-white uppercase leading-[0.95] my-2"
+              delay={0.15}
+              stagger={0.08}
+            />
 
-            <div className="text-xs sm:text-sm font-extrabold tracking-widest uppercase text-crimson-500 mt-1 sm:mt-2 mb-2 sm:mb-3">
-              FULL STACK DEVELOPER &<br />n8n AUTOMATION EXPERT
-            </div>
+            <FlyInText
+              as="div"
+              text={"FULL STACK DEVELOPER &\nn8n AUTOMATION EXPERT"}
+              className="text-xs sm:text-sm font-extrabold tracking-widest uppercase text-crimson-500 mt-1 sm:mt-2 mb-2 sm:mb-3"
+              delay={0.3}
+              stagger={0.05}
+            />
 
-            <p className="text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed max-w-sm mb-5 sm:mb-6">
-              I design and build stylish, user-focused web experiences that combine creativity with rock-solid engineering. Passionate about clean architectures, smooth interactions, and AI workflows that deliver real business impact.
-            </p>
+            <FlyInText
+              as="p"
+              text="I design and build stylish, user-focused web experiences that combine creativity with rock-solid engineering. Passionate about clean architectures, smooth interactions, and AI workflows that deliver real business impact."
+              className="text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed max-w-sm mb-5 sm:mb-6"
+              delay={0.45}
+              stagger={0.02}
+            />
 
             <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-zinc-300 bg-zinc-900/80 border border-zinc-800 px-3 py-1.5 rounded-full">
               <FaGlobeAmericas className="text-crimson-500 text-xs shrink-0" />

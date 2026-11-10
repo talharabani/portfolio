@@ -7,6 +7,7 @@ import {
   FaVideo, FaMicrophone
 } from "react-icons/fa";
 import React from "react";
+import FlyInText from "./FlyInText";
 import n8nThumbImg from "../assets/n8n_linkedin_automation.jpg";
 import n8nGmapsThumbImg from "../assets/n8n_gmaps_leadgen.jpg";
 import n8nAutoVideoThumbImg from "../assets/n8n_autovideo_gen.jpg";
@@ -109,12 +110,19 @@ export default function N8nAutomation() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 sm:pb-8 border-b border-zinc-900 mb-8 sm:mb-12 gap-4">
           <div>
-            <span className="text-[11px] sm:text-xs font-black uppercase tracking-widest text-crimson-500 block mb-2">
-              AUTONOMOUS ARCHITECTURE &amp; WORKFLOW PIPELINES
-            </span>
-            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-wider text-white">
-              n8n WORKFLOW AUTOMATION
-            </h2>
+            <FlyInText
+              as="span"
+              text="AUTONOMOUS ARCHITECTURE & WORKFLOW PIPELINES"
+              className="text-[11px] sm:text-xs font-black uppercase tracking-widest text-crimson-500 block mb-2"
+              stagger={0.04}
+            />
+            <FlyInText
+              as="h2"
+              text="n8n WORKFLOW AUTOMATION"
+              className="text-xl sm:text-2xl font-black uppercase tracking-wider text-white"
+              delay={0.1}
+              stagger={0.08}
+            />
           </div>
 
           <div className="flex items-center gap-2 text-xs font-bold text-zinc-400 bg-zinc-900 border border-zinc-800 px-3.5 py-1.5 rounded-full w-fit">

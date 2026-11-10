@@ -16,6 +16,7 @@ import {
   SiDocker,
   SiVercel,
 } from "react-icons/si";
+import FlyInText from "./FlyInText";
 
 const educationList = [
   {
@@ -283,9 +284,12 @@ export default function About() {
             <div>
               <div className="flex items-center gap-2 mb-5 sm:mb-6">
                 <span className="w-2 h-2 rounded-full bg-crimson-500 animate-pulse" />
-                <h2 className="text-base sm:text-lg font-black uppercase tracking-wider text-white">
-                  EDUCATION &amp; SKILLS
-                </h2>
+                <FlyInText
+                  as="h2"
+                  text="EDUCATION & SKILLS"
+                  className="text-base sm:text-lg font-black uppercase tracking-wider text-white"
+                  stagger={0.06}
+                />
               </div>
 
               {/* Education Sub-block (Animated Waterfall / Curtain Drop) */}
@@ -499,9 +503,12 @@ export default function About() {
             <div>
               <div className="flex items-center gap-2 mb-6">
                 <span className="w-2 h-2 rounded-full bg-crimson-500 animate-pulse" />
-                <h2 className="text-base sm:text-lg font-black uppercase tracking-wider text-white">
-                  WORK PROCESS
-                </h2>
+                <FlyInText
+                  as="h2"
+                  text="WORK PROCESS"
+                  className="text-base sm:text-lg font-black uppercase tracking-wider text-white"
+                  stagger={0.06}
+                />
               </div>
 
               <div className="relative pl-1 space-y-3.5">
@@ -738,9 +745,12 @@ export default function About() {
                 {/* The Core Philosophy / Signature Quote */}
                 <div>
                   <FaQuoteLeft className="text-2xl text-red-300/40 mb-2.5" />
-                  <blockquote className="text-base sm:text-lg font-bold leading-snug text-white tracking-tight">
-                    "I don't just write code — I build high-converting digital products that scale effortlessly and automate your business."
-                  </blockquote>
+                  <FlyInText
+                    as="blockquote"
+                    text="I don't just write code — I build high-converting digital products that scale effortlessly and automate your business."
+                    className="text-base sm:text-lg font-bold leading-snug text-white tracking-tight"
+                    stagger={0.03}
+                  />
                   <div className="mt-2 font-script text-2xl text-red-200">
                     Talha Ishaq
                   </div>
