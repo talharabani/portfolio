@@ -895,286 +895,453 @@ export default function Projects() {
 
       </div>
 
-      {/* FULL-WINDOW BLOG TYPE CASE STUDY OVERLAY */}
+      {/* EDITORIAL BLOG-STYLE CASE STUDY OVERLAY (Reference Pattern) */}
       <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] bg-[#07080e] overflow-y-auto text-left select-text"
-          >
-            {/* Top Sticky Glass Navigation Bar */}
-            <div className="sticky top-0 z-50 bg-[#0c0d14]/90 backdrop-blur-xl border-b border-zinc-800/80 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xl">
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-crimson-500/50 px-3.5 py-1.5 rounded-xl transition cursor-pointer shadow-sm group"
-                >
-                  <FaChevronLeft className="text-xs text-crimson-400 group-hover:-translate-x-0.5 transition-transform" />
-                  <span>Back to Portfolio</span>
-                </button>
+        {selectedProject && (() => {
+          const currentIndex = filteredProjects.findIndex((p) => p.num === selectedProject.num);
+          const handlePrevProj = () => {
+            const nextIdx = (currentIndex - 1 + filteredProjects.length) % filteredProjects.length;
+            setSelectedProject(filteredProjects[nextIdx]);
+          };
+          const handleNextProj = () => {
+            const nextIdx = (currentIndex + 1) % filteredProjects.length;
+            setSelectedProject(filteredProjects[nextIdx]);
+          };
 
-                <div className="hidden md:flex items-center gap-2 text-xs font-mono text-zinc-500">
-                  <span>/</span>
-                  <span className="text-zinc-400 uppercase font-bold">{selectedProject.title}</span>
-                </div>
-              </div>
-
-              {/* Action Buttons on Right */}
-              <div className="flex items-center gap-2 sm:gap-3">
-                {selectedProject.live && selectedProject.live !== "#" && (
-                  <a
-                    href={selectedProject.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md shadow-crimson-950/60"
+          return (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[9999] bg-[#07080e] overflow-y-auto text-left select-text"
+            >
+              {/* Sticky Editorial Header */}
+              <header className="sticky top-0 z-50 bg-[#0c0d14]/90 backdrop-blur-xl border-b border-zinc-800/80 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xl">
+                {/* Brand / Left title */}
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-crimson-500/50 px-3.5 py-1.5 rounded-xl transition cursor-pointer shadow-sm group"
                   >
-                    <span>{selectedProject.live.includes("drive.google.com") ? "Video Demo" : "Live App"}</span>
-                    {selectedProject.live.includes("drive.google.com") ? (
-                      <FaPlay className="text-[9px]" />
-                    ) : (
-                      <FaExternalLinkAlt className="text-[10px]" />
-                    )}
-                  </a>
-                )}
+                    <FaChevronLeft className="text-xs text-crimson-400 group-hover:-translate-x-0.5 transition-transform" />
+                    <span>Back to Portfolio</span>
+                  </button>
 
-                {selectedProject.github && selectedProject.github !== "#" && (
-                  <a
-                    href={selectedProject.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 font-bold text-xs uppercase tracking-wider rounded-xl transition"
-                  >
-                    <FaGithub className="text-xs" />
-                    <span>GitHub</span>
-                  </a>
-                )}
-
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="w-8 h-8 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition cursor-pointer"
-                  aria-label="Close Case Study"
-                >
-                  <FaTimes className="text-xs" />
-                </button>
-              </div>
-            </div>
-
-            {/* Editorial Case Study Article Container */}
-            <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 pb-20">
-              
-              {/* Category & Status Tags */}
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="font-mono text-xs font-black text-crimson-400 bg-crimson-950/60 border border-crimson-800/40 px-3 py-1 rounded-full">
-                  PROJECT {selectedProject.num} • {selectedProject.badge}
-                </span>
-                <span className="font-mono text-xs text-zinc-400 bg-zinc-900/80 border border-zinc-800 px-3 py-1 rounded-full">
-                  {selectedProject.year}
-                </span>
-                <span className="font-mono text-xs text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-3 py-1 rounded-full flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>{selectedProject.status}</span>
-                </span>
-              </div>
-
-              {/* Article Main Headline & Subtitle */}
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white mb-4 leading-[1.08]">
-                {selectedProject.title}
-              </h1>
-
-              <p className="text-base sm:text-xl text-zinc-300 font-normal leading-relaxed mb-8 max-w-3xl">
-                {selectedProject.tagline}
-              </p>
-
-              {/* Meta Stats Bar */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 sm:p-5 rounded-2xl bg-[#0e0f17] border border-zinc-800 mb-10">
-                <div>
-                  <span className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider block mb-1">
-                    Category
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-white">
-                    {selectedProject.category}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider block mb-1">
-                    Timeline
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-white">
-                    {selectedProject.year} • Production
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider block mb-1">
-                    Status
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-emerald-400">
-                    {selectedProject.status}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider block mb-1">
-                    Author
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-crimson-400">
-                    Talha Ishaq
-                  </span>
-                </div>
-              </div>
-
-              {/* Full-Width High-Resolution Hero Media */}
-              <div className="rounded-2xl overflow-hidden border border-zinc-800/90 bg-[#040508] shadow-[0_20px_60px_rgba(0,0,0,0.8)] mb-12 sm:mb-16">
-                <img
-                  src={selectedProject.secondaryImage || selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-auto object-contain rounded-2xl"
-                />
-              </div>
-
-              {/* Executive Summary & Problem / Solution */}
-              <div className="space-y-6 mb-12 sm:mb-16">
-                <div className="border-b border-zinc-900 pb-3">
-                  <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight text-white flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-crimson-500" />
-                    <span>Project Overview & Challenge</span>
-                  </h2>
-                </div>
-
-                <div className="space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed">
-                  {selectedProject.fullSummary && selectedProject.fullSummary.length > 0 ? (
-                    selectedProject.fullSummary.map((para, i) => (
-                      <p key={i} className="text-zinc-300 leading-relaxed font-normal">
-                        {para}
-                      </p>
-                    ))
-                  ) : (
-                    <p className="text-zinc-300 leading-relaxed font-normal">
-                      {selectedProject.desc}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* Key Features & System Capabilities */}
-              {selectedProject.features && selectedProject.features.length > 0 && (
-                <div className="space-y-6 mb-12 sm:mb-16">
-                  <div className="border-b border-zinc-900 pb-3">
-                    <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight text-white flex items-center gap-2">
-                      <FaBolt className="text-crimson-500 text-sm sm:text-base" />
-                      <span>Key Features & Engineering Highlights</span>
-                    </h2>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                    {selectedProject.features.map((feat, i) => {
-                      const [title, ...rest] = feat.split(":");
-                      return (
-                        <div
-                          key={i}
-                          className="p-4 sm:p-5 rounded-2xl bg-[#0d0e15] border border-zinc-800 hover:border-zinc-700 transition flex items-start gap-3"
-                        >
-                          <div className="w-6 h-6 rounded-lg bg-crimson-950/60 border border-crimson-900/40 text-crimson-400 flex items-center justify-center shrink-0 mt-0.5">
-                            <FaCheckCircle className="text-xs" />
-                          </div>
-                          <div>
-                            {rest.length > 0 ? (
-                              <>
-                                <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wide mb-1">
-                                  {title}
-                                </h3>
-                                <p className="text-xs text-zinc-400 leading-relaxed">
-                                  {rest.join(":")}
-                                </p>
-                              </>
-                            ) : (
-                              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-medium">
-                                {feat}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
+                  <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-zinc-400">
+                    <span className="text-zinc-600">/</span>
+                    <span className="font-bold text-white uppercase tracking-wider">{selectedProject.title}</span>
                   </div>
                 </div>
-              )}
 
-              {/* Technical Architecture Breakdown */}
-              {selectedProject.architecture && selectedProject.architecture.length > 0 && (
-                <div className="space-y-6 mb-12 sm:mb-16">
-                  <div className="border-b border-zinc-900 pb-3">
-                    <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight text-white flex items-center gap-2">
-                      <FaLayerGroup className="text-crimson-500 text-sm sm:text-base" />
-                      <span>Architecture & Technology Stack</span>
-                    </h2>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                    {selectedProject.architecture.map((arch, i) => (
-                      <div
-                        key={i}
-                        className="bg-[#0e0f17] border border-zinc-800 p-4 rounded-xl flex flex-col justify-between"
-                      >
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                          {arch.component}
-                        </span>
-                        <span className="text-xs sm:text-sm font-bold text-white mt-1.5">
-                          {arch.tech}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* All Stack Tags */}
-                  <div className="pt-2 flex flex-wrap gap-2">
-                    {selectedProject.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="text-xs font-mono uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-300 px-3 py-1 rounded-lg"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Bottom Call to Action Banner */}
-              <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-crimson-950/40 via-[#10111a] to-zinc-950 border border-crimson-900/30 flex flex-col sm:flex-row items-center justify-between gap-4 mt-12 shadow-2xl">
-                <div>
-                  <h3 className="text-base sm:text-xl font-black uppercase text-white mb-1">
-                    Interested in {selectedProject.title}?
-                  </h3>
-                  <p className="text-xs sm:text-sm text-zinc-400">
-                    Explore the live production application or inspect the codebase.
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
+                {/* Right Action Buttons */}
+                <div className="flex items-center gap-2 sm:gap-3">
                   {selectedProject.live && selectedProject.live !== "#" && (
                     <a
                       href={selectedProject.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-lg shadow-crimson-950/70"
+                      className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md shadow-crimson-950/60"
                     >
-                      <span>Launch App</span>
-                      <FaExternalLinkAlt className="text-[10px]" />
+                      <span>{selectedProject.live.includes("drive.google.com") ? "Video Demo" : "Live App"}</span>
+                      {selectedProject.live.includes("drive.google.com") ? (
+                        <FaPlay className="text-[9px]" />
+                      ) : (
+                        <FaExternalLinkAlt className="text-[10px]" />
+                      )}
                     </a>
                   )}
+
+                  {selectedProject.github && selectedProject.github !== "#" && (
+                    <a
+                      href={selectedProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hidden sm:flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 font-bold text-xs uppercase tracking-wider rounded-xl transition"
+                    >
+                      <FaGithub className="text-xs" />
+                      <span>GitHub</span>
+                    </a>
+                  )}
+
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="flex-1 sm:flex-initial px-4 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer"
+                    className="w-8 h-8 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition cursor-pointer"
+                    aria-label="Close Case Study"
                   >
-                    Back to Portfolio
+                    <FaTimes className="text-xs" />
                   </button>
                 </div>
-              </div>
+              </header>
 
-            </article>
-          </motion.div>
-        )}
+              {/* Main Editorial Container (Reference Layout) */}
+              <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+                
+                {/* ======================================================== */}
+                {/* ROW 1: ASYMMETRIC HERO GRID (Left Big Card + Right List) */}
+                {/* ======================================================== */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-12 sm:mb-16 items-start">
+                  
+                  {/* Left Column (8 cols): Big Featured Showcase Card */}
+                  <div className="lg:col-span-8 flex flex-col gap-4">
+                    <div className="group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-800/90 bg-[#0d0e15] shadow-2xl">
+                      {/* Big Hero Image */}
+                      <div className="relative aspect-[16/10] sm:aspect-[16/9.5] w-full overflow-hidden bg-black">
+                        <img
+                          src={selectedProject.secondaryImage || selectedProject.image}
+                          alt={selectedProject.title}
+                          className="w-full h-full object-contain sm:object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                        />
+                        {/* Dark Gradient Vignette for Editorial Legibility */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                      </div>
+
+                      {/* Card Overlay Content (Bottom) */}
+                      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 bg-gradient-to-t from-black via-black/90 to-transparent flex flex-col justify-end">
+                        <div className="flex flex-wrap items-center gap-2 mb-2">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-crimson-600 text-white shadow-md">
+                            <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                            {selectedProject.badge}
+                          </span>
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-mono text-zinc-300 bg-black/60 border border-white/10 backdrop-blur-md">
+                            {selectedProject.year} • {selectedProject.status}
+                          </span>
+                        </div>
+
+                        <h1 className="text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white mb-2 leading-tight drop-shadow-md">
+                          {selectedProject.title}: {selectedProject.tagline}
+                        </h1>
+
+                        <p className="text-xs sm:text-sm text-zinc-300 line-clamp-2 max-w-2xl font-normal leading-relaxed">
+                          {selectedProject.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column (4 cols): Highlights & Core Modules List */}
+                  <div className="lg:col-span-4 flex flex-col gap-3">
+                    <div className="flex items-center justify-between pb-2 border-b border-zinc-800/80">
+                      <h2 className="text-base sm:text-lg font-black uppercase tracking-wide text-white">
+                        Project Highlights
+                      </h2>
+                      <span className="text-[10px] font-mono text-crimson-400 bg-crimson-950/60 border border-crimson-900/40 px-2 py-0.5 rounded">
+                        {selectedProject.features.length} Modules
+                      </span>
+                    </div>
+
+                    {/* Vertical Mini Cards List */}
+                    <div className="flex flex-col gap-3">
+                      {selectedProject.features.slice(0, 4).map((feat, i) => {
+                        const [title, ...rest] = feat.split(":");
+                        return (
+                          <div
+                            key={i}
+                            className="p-3.5 rounded-2xl bg-[#0e0f17] border border-zinc-850 hover:border-zinc-700 transition flex items-start gap-3 group"
+                          >
+                            {/* Square Icon/Thumbnail Container */}
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700/80 flex items-center justify-center text-crimson-400 shrink-0 group-hover:scale-105 transition-transform shadow-inner">
+                              {i === 0 && <FaBolt className="text-sm" />}
+                              {i === 1 && <FaCheckCircle className="text-sm" />}
+                              {i === 2 && <FaLayerGroup className="text-sm" />}
+                              {i >= 3 && <FaPlay className="text-xs" />}
+                            </div>
+
+                            {/* Content */}
+                            <div className="flex-1 min-w-0">
+                              <h3 className="text-xs sm:text-[13px] font-bold text-white uppercase tracking-wide truncate mb-0.5 group-hover:text-crimson-400 transition-colors">
+                                {title}
+                              </h3>
+                              <p className="text-[11px] text-zinc-400 line-clamp-2 leading-relaxed">
+                                {rest.join(":") || title}
+                              </p>
+                              <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mt-1 block">
+                                Core Capability • Verified
+                              </span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* ======================================================== */}
+                {/* ROW 2: 3-CARD GRID (Like "Founders corner" in Reference)  */}
+                {/* ======================================================== */}
+                <div className="mb-14 sm:mb-16">
+                  {/* Section Title with Slider Navigation Arrows */}
+                  <div className="flex items-center justify-between pb-4 border-b border-zinc-800/80 mb-6">
+                    <div>
+                      <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white">
+                        Architecture &amp; Core Capabilities
+                      </h2>
+                      <p className="text-xs sm:text-sm text-zinc-400 font-normal">
+                        Key engineering pillars and technical specifications for {selectedProject.title}.
+                      </p>
+                    </div>
+
+                    {/* Arrow controls matching reference */}
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={handlePrevProj}
+                        aria-label="Previous project"
+                        className="w-8 h-8 rounded-full bg-zinc-900 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white flex items-center justify-center transition cursor-pointer shadow-sm"
+                      >
+                        <FaChevronLeft className="text-xs" />
+                      </button>
+                      <button
+                        onClick={handleNextProj}
+                        aria-label="Next project"
+                        className="w-8 h-8 rounded-full bg-zinc-900 hover:bg-crimson-600 border border-zinc-800 hover:border-crimson-500 text-white flex items-center justify-center transition cursor-pointer shadow-sm"
+                      >
+                        <FaChevronRight className="text-xs" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* 3-Column Cards Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    
+                    {/* Card 1: The Problem & Purpose */}
+                    <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0f17] border border-zinc-850 hover:border-zinc-700 transition flex flex-col justify-between group">
+                      <div>
+                        {/* Aspect Image Box */}
+                        <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-black border border-zinc-800 mb-4">
+                          <img
+                            src={selectedProject.secondaryImage || selectedProject.image}
+                            alt=""
+                            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                          <div className="absolute bottom-2.5 left-3 text-[10px] font-mono text-crimson-400 bg-black/70 px-2 py-0.5 rounded border border-white/10 backdrop-blur-md">
+                            Challenge &amp; Context
+                          </div>
+                        </div>
+
+                        {/* Category Badge */}
+                        <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 uppercase tracking-wider mb-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-crimson-500" />
+                          <span>Core Purpose</span>
+                        </div>
+
+                        <h3 className="text-sm sm:text-base font-black uppercase text-white tracking-wide mb-2">
+                          Problem Statement
+                        </h3>
+
+                        <p className="text-xs sm:text-[13px] text-zinc-400 leading-relaxed font-normal">
+                          {selectedProject.fullSummary && selectedProject.fullSummary[0]
+                            ? selectedProject.fullSummary[0]
+                            : selectedProject.desc}
+                        </p>
+                      </div>
+
+                      <div className="pt-4 mt-4 border-t border-zinc-850 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+                        <span>Timeline: {selectedProject.year}</span>
+                        <span className="text-emerald-400">{selectedProject.status}</span>
+                      </div>
+                    </div>
+
+                    {/* Card 2: The Solution & Technical Architecture */}
+                    <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0f17] border border-zinc-850 hover:border-zinc-700 transition flex flex-col justify-between group">
+                      <div>
+                        {/* Aspect Image Box */}
+                        <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-black border border-zinc-800 mb-4">
+                          <img
+                            src={selectedProject.image}
+                            alt=""
+                            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                          <div className="absolute bottom-2.5 left-3 text-[10px] font-mono text-sky-400 bg-black/70 px-2 py-0.5 rounded border border-white/10 backdrop-blur-md">
+                            Engineering Architecture
+                          </div>
+                        </div>
+
+                        {/* Category Badge */}
+                        <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 uppercase tracking-wider mb-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-sky-500" />
+                          <span>The Solution</span>
+                        </div>
+
+                        <h3 className="text-sm sm:text-base font-black uppercase text-white tracking-wide mb-2">
+                          System Build &amp; Tech
+                        </h3>
+
+                        <p className="text-xs sm:text-[13px] text-zinc-400 leading-relaxed font-normal">
+                          {selectedProject.fullSummary && selectedProject.fullSummary[1]
+                            ? selectedProject.fullSummary[1]
+                            : "Engineered with modular, cloud-native frameworks ensuring sub-second response times and seamless UX."}
+                        </p>
+                      </div>
+
+                      <div className="pt-4 mt-4 border-t border-zinc-850 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+                        <span className="truncate max-w-[170px]">Tech: {selectedProject.tech.slice(0, 3).join(", ")}</span>
+                        <span className="text-zinc-400">Production</span>
+                      </div>
+                    </div>
+
+                    {/* Card 3: Business Impact & Deployment */}
+                    <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0f17] border border-zinc-850 hover:border-zinc-700 transition flex flex-col justify-between group">
+                      <div>
+                        {/* Aspect Image Box */}
+                        <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-black border border-zinc-800 mb-4">
+                          <img
+                            src={selectedProject.secondaryImage || selectedProject.image}
+                            alt=""
+                            className="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                          <div className="absolute bottom-2.5 left-3 text-[10px] font-mono text-amber-400 bg-black/70 px-2 py-0.5 rounded border border-white/10 backdrop-blur-md">
+                            Impact &amp; Delivery
+                          </div>
+                        </div>
+
+                        {/* Category Badge */}
+                        <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 uppercase tracking-wider mb-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                          <span>Results &amp; Security</span>
+                        </div>
+
+                        <h3 className="text-sm sm:text-base font-black uppercase text-white tracking-wide mb-2">
+                          Deployment &amp; Metrics
+                        </h3>
+
+                        <p className="text-xs sm:text-[13px] text-zinc-400 leading-relaxed font-normal">
+                          Successfully deployed on cloud edge infrastructure with automated CI/CD pipelines, SSL encryption, and high-uptime availability.
+                        </p>
+                      </div>
+
+                      <div className="pt-4 mt-4 border-t border-zinc-850 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+                        <span>Role: Lead Engineer</span>
+                        <span className="text-crimson-400">Talha Ishaq</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                {/* ======================================================== */}
+                {/* ROW 3: DETAILED ARCHITECTURE SPECS & TECH BADGES         */}
+                {/* ======================================================== */}
+                {selectedProject.architecture && selectedProject.architecture.length > 0 && (
+                  <div className="p-6 sm:p-8 rounded-3xl bg-[#0c0d15] border border-zinc-850 mb-12">
+                    <div className="flex items-center gap-2 mb-4 pb-2 border-b border-zinc-800">
+                      <FaLayerGroup className="text-crimson-500 text-sm" />
+                      <h3 className="text-base sm:text-lg font-black uppercase text-white tracking-wide">
+                        Component Architecture Breakdown
+                      </h3>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+                      {selectedProject.architecture.map((arch, i) => (
+                        <div
+                          key={i}
+                          className="bg-[#12131c] border border-zinc-800 p-3.5 rounded-xl flex flex-col justify-between"
+                        >
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
+                            {arch.component}
+                          </span>
+                          <span className="text-xs sm:text-sm font-bold text-white mt-1">
+                            {arch.tech}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Tech Pills */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {selectedProject.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="text-[11px] font-mono uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-300 px-3 py-1 rounded-lg"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* ======================================================== */}
+                {/* ROW 4: PAGINATION SWITCHER (Like `← 1 2 3 4 5 →` in Ref) */}
+                {/* ======================================================== */}
+                <div className="p-4 sm:p-6 rounded-2xl bg-[#0c0d14] border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  {/* Prev Button */}
+                  <button
+                    onClick={handlePrevProj}
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-300 hover:text-white px-3 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 transition cursor-pointer"
+                  >
+                    <FaChevronLeft className="text-xs text-crimson-400" />
+                    <span>Previous</span>
+                  </button>
+
+                  {/* Numbered Pills (1 2 3 4 ...) */}
+                  <div className="flex items-center gap-1.5 overflow-x-auto max-w-full py-1">
+                    {filteredProjects.map((p, idx) => {
+                      const isActive = p.num === selectedProject.num;
+                      return (
+                        <button
+                          key={p.num}
+                          onClick={() => setSelectedProject(p)}
+                          className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs font-mono font-bold transition cursor-pointer flex items-center justify-center ${
+                            isActive
+                              ? "bg-crimson-600 text-white shadow-md shadow-crimson-950 font-black scale-105"
+                              : "bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800 border border-zinc-800/80"
+                          }`}
+                        >
+                          {idx + 1}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Next Button */}
+                  <button
+                    onClick={handleNextProj}
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-300 hover:text-white px-3 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 transition cursor-pointer"
+                  >
+                    <span>Next</span>
+                    <FaChevronRight className="text-xs text-crimson-400" />
+                  </button>
+                </div>
+
+                {/* Bottom Direct Live Launch Banner */}
+                <div className="mt-8 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-crimson-950/40 via-[#10111a] to-zinc-950 border border-crimson-900/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xl">
+                  <div>
+                    <h3 className="text-base sm:text-xl font-black uppercase text-white mb-1">
+                      Ready to experience {selectedProject.title}?
+                    </h3>
+                    <p className="text-xs sm:text-sm text-zinc-400">
+                      Launch the live application in a new tab or inspect the full code repository.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
+                    {selectedProject.live && selectedProject.live !== "#" && (
+                      <a
+                        href={selectedProject.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-lg shadow-crimson-950/70"
+                      >
+                        <span>Launch Live App</span>
+                        <FaExternalLinkAlt className="text-[10px]" />
+                      </a>
+                    )}
+                    <button
+                      onClick={() => setSelectedProject(null)}
+                      className="flex-1 sm:flex-initial px-4 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer"
+                    >
+                      Back to Portfolio
+                    </button>
+                  </div>
+                </div>
+
+              </main>
+            </motion.div>
+          );
+        })()}
       </AnimatePresence>
 
     </section>
