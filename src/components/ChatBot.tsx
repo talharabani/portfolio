@@ -386,35 +386,96 @@ function VoiceWaveform({
 
 function generateLocalFallbackResponse(query: string): string {
   const q = query.toLowerCase();
+  const testWords = (words: string[]) =>
+    words.some((w) => new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(query));
 
-  if (q.includes("hi") || q.includes("hello") || q.includes("hey") || q.includes("salam") || q.includes("who are you") || q.includes("about")) {
-    return "Hello! I'm Talha AI, Talha Ishaq Rabani's official portfolio assistant. Talha is a Senior Full-Stack Developer & n8n Automation Specialist with 5+ years of experience and 20+ delivered production systems. How can I assist you today?";
+  // 1. Hiring / Contact / Reaching out (Highest priority)
+  if (
+    testWords([
+      "hire",
+      "hiring",
+      "contact",
+      "reach",
+      "email",
+      "mail",
+      "whatsapp",
+      "phone",
+      "number",
+      "call",
+      "freelance",
+      "contract",
+      "collaborate",
+      "meeting",
+      "book",
+      "available",
+      "interview",
+      "talk",
+      "work with",
+    ])
+  ) {
+    return "You can hire or get in touch with Talha directly:\n• WhatsApp: +92 300 9490631 (Fastest response)\n• Email: talhaishaqrabani@gmail.com\n• LinkedIn: linkedin.com/in/talha-ishaq-rabani9490/\n• GitHub: github.com/talharabani\nTalha is available worldwide for remote full-stack engineering, custom web applications, n8n automations, and AI agent development!";
   }
 
-  if (q.includes("contact") || q.includes("hire") || q.includes("email") || q.includes("phone") || q.includes("whatsapp") || q.includes("reach") || q.includes("call")) {
-    return "You can connect with Talha directly:\n• WhatsApp: +92 300 9490631 (Fastest response)\n• Email: talhaishaqrabani@gmail.com\n• LinkedIn: linkedin.com/in/talha-ishaq-rabani9490/\n• GitHub: github.com/talharabani\nHe is available worldwide for remote contracts, freelance projects, and full-time engineering roles.";
+  // 2. Specific Projects
+  if (q.includes("agentlink")) {
+    return "AgentLink is Talha's featured AI platform that allows developers to remotely monitor, approve, and guide their AI coding agents (Antigravity, Cursor, Kiro, VS Code) from their phone or browser. Built with Python, PowerShell, Neon PostgreSQL, Next.js, and VAPID Web Push.";
+  }
+  if (q.includes("vaypar")) {
+    return "Vaypar is a multi-business POS & Retail ERP platform built with React 19, Next.js, and TypeScript. It features real-time sales tracking, thermal slip printing, customer credit (udhaar ledger), low-stock alerts, and integrated Vaypar AI.";
+  }
+  if (q.includes("chatwithouttalk") || q.includes("whatsapp ai")) {
+    return "ChatWithoutTalk is a 24/7 autonomous WhatsApp AI sales & customer support employee built with the official Meta Cloud API. It qualifies inbound leads, transcribes voice notes via Whisper AI, reads PDF menus/catalogs, and synchronizes with CRMs in 100+ languages.";
+  }
+  if (q.includes("devyork")) {
+    return "DevYork (devyork.com) is a full-stack digital growth & e-commerce agency platform built with Next.js 15, React 19, and Tailwind CSS. It features custom storefronts, conversion funnels, and marketing automation.";
+  }
+  if (q.includes("gympro") || testWords(["gym", "fitness"])) {
+    return "GymPro Fitness is an elite wellness web platform featuring interactive workout module breakdowns (Physical Training, Yoga, Bodybuilding, Crossfit), trainer rosters, and tiered membership calculators.";
+  }
+  if (q.includes("buildestimate") || testWords(["estimating", "takeoff", "construction"])) {
+    return "BuildEstimate Pro is a commercial construction takeoff and cost estimating platform designed to boost contractor bid-win ratios by up to 60% with multi-trade CSI breakdowns.";
+  }
+  if (q.includes("tudostock") || q.includes("portugal")) {
+    return "TudoStock Portugal is a B2B wholesale platform & physical in-store POS for electronics distributor in Portugal, supporting Portuguese NIF/VAT tax verification and multi-warehouse inventory.";
+  }
+  if (q.includes("veloce") || testWords(["3d car", "webgl"])) {
+    return "Veloce is a cutting-edge 3D interactive car configurator built with Three.js, WebGL, React 19, and Tailwind CSS, featuring live camera orbit controls and vehicle color configuration.";
+  }
+  if (q.includes("meridia")) {
+    return "Meridia is an ultra-luxury 3D architectural estate showcase with scroll-to-walk-in spatial exploration built with Three.js, WebGL, and GSAP.";
   }
 
-  if (q.includes("experi") || q.includes("year") || q.includes("background") || q.includes("education") || q.includes("pucit") || q.includes("degree")) {
+  // 3. Projects general
+  if (testWords(["project", "projects", "portfolio", "work", "apps", "systems", "case study"])) {
+    return "Talha has built 20+ production-grade systems including:\n1. AgentLink — Remote AI coding agent controller\n2. Vaypar — Multi-business POS & Retail ERP platform\n3. ChatWithoutTalk — 24/7 WhatsApp AI sales employee\n4. DevYork — Agency & marketing growth engine\n5. GymPro & BuildEstimate Pro — Commercial SaaS platforms\n6. TudoStock Portugal — Shopify B2B store & POS\n7. 3D WebGL Configurator (Veloce) & Walkthrough (Meridia)\nExplore the interactive project cards in the Projects section above!";
+  }
+
+  // 4. Experience & Education
+  if (testWords(["experience", "years", "background", "education", "pucit", "degree", "qualification", "bio"])) {
     return "Talha has 5+ years of engineering experience across full-stack web applications, enterprise SaaS, POS/ERP platforms, and autonomous n8n workflows. He graduated in Information Technology from PUCIT (Punjab University) and has delivered solutions for 20+ global clients.";
   }
 
-  if (q.includes("project") || q.includes("work") || q.includes("portfolio") || q.includes("case study") || q.includes("app")) {
-    return "Talha has engineered 20+ production-grade systems including:\n1. AgentLink — Remote AI coding agent controller\n2. Vaypar — Multi-business POS & Retail ERP platform\n3. ChatWithoutTalk — 24/7 WhatsApp AI sales employee\n4. DevYork — Full-stack agency & marketing growth platform\n5. GymPro & BuildEstimate Pro — Commercial SaaS platforms\n6. Tudostock Portugal — Custom Shopify B2B store & POS\n7. 3D WebGL interactive configurators (Veloce, Meridia)\nYou can explore full interactive demos and architecture breakdowns right in the Projects section above!";
+  // 5. Skills & Tech Stack
+  if (testWords(["skill", "skills", "stack", "tech", "technology", "technologies", "languages", "tools"])) {
+    return "Talha's core tech stack includes:\n• Frontend: React 19, Next.js 15, TypeScript, Tailwind CSS, Three.js / WebGL\n• Backend & Cloud: Node.js, Python, PostgreSQL (Neon), Docker, Vercel Edge\n• AI & Workflows: n8n pipelines, Meta Cloud API, WhatsApp AI agents, Whisper, Groq/OpenAI LLMs.";
   }
 
-  if (q.includes("skill") || q.includes("stack") || q.includes("tech") || q.includes("language") || q.includes("framework")) {
-    return "Talha's core technology stack includes:\n• Frontend: React 19, Next.js 15, TypeScript, Tailwind CSS, Three.js / WebGL\n• Backend & Cloud: Node.js, Python, PostgreSQL (Neon), Docker, Vercel Edge\n• AI & Workflows: n8n pipelines, Meta Cloud API, WhatsApp AI agents, Whisper, Groq/OpenAI LLMs.";
+  // 6. n8n & Automations
+  if (testWords(["n8n", "automation", "automate", "pipeline", "workflow", "lead"])) {
+    return "Talha is an n8n Automation Specialist who builds autonomous multi-step pipelines: Google Maps automated lead scraping, automated AI video generation workflows, and automated LinkedIn article synthesis with Groq AI.";
   }
 
-  if (q.includes("n8n") || q.includes("automat") || q.includes("pipeline") || q.includes("bot") || q.includes("lead")) {
-    return "Talha is an n8n Automation Specialist who develops autonomous multi-step pipelines: Google Maps automated lead scraping, automated AI video generation workflows, automated LinkedIn article synthesis with Groq AI, and live CRM synchronization.";
+  // 7. Pricing & Rates
+  if (testWords(["price", "pricing", "rate", "rates", "cost", "charge", "budget", "quote", "fee"])) {
+    return "Talha provides transparent, value-driven pricing tailored to project requirements (fixed-scope deliverables or hourly/milestone contracts). Reach out on WhatsApp (+92 300 9490631) or email (talhaishaqrabani@gmail.com) for a free project estimate!";
   }
 
-  if (q.includes("rate") || q.includes("price") || q.includes("cost") || q.includes("quote") || q.includes("budget")) {
-    return "Talha offers transparent, value-driven pricing tailored to your requirements (fixed project pricing or milestone-based contracts). Connect directly on WhatsApp at +92 300 9490631 or email talhaishaqrabani@gmail.com for a quick consultation and free project estimate.";
+  // 8. Greetings (Only when greeting words are used standalone)
+  if (testWords(["hi", "hello", "hey", "salam", "assalam", "aoa", "greetings", "morning", "evening"])) {
+    return "Hello! I'm Talha AI, Talha Ishaq Rabani's official portfolio assistant. How can I assist you today? You can ask me about his 20+ projects, 5+ years of experience, tech stack, or how to hire him!";
   }
 
+  // Default Fallback
   return "I'm Talha AI. Talha Ishaq Rabani is a Senior Full-Stack Developer & n8n Specialist with 5+ years of experience across 20+ projects (AgentLink, Vaypar, ChatWithoutTalk, DevYork, etc.). Feel free to ask about his projects, skills, or contact him directly on WhatsApp (+92 300 9490631) or email (talhaishaqrabani@gmail.com)!";
 }
 
