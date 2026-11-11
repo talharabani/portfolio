@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaSearch, FaLightbulb, FaPenNib, FaCode, FaPaperPlane, FaQuoteLeft,
   FaExternalLinkAlt, FaNodeJs, FaGithub, FaCheckCircle,
-  FaArrowRight, FaGraduationCap, FaBriefcase, FaLaptopCode
+  FaArrowRight, FaGraduationCap, FaBriefcase, FaLaptopCode,
+  FaBolt, FaShieldAlt, FaRocket
 } from "react-icons/fa";
 import {
   SiReact,
@@ -594,6 +595,115 @@ export default function About() {
                 ))}
               </div>
             </div>
+
+            {/* Smooth Delivery & Engineering Guarantees Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ borderColor: "rgba(220, 38, 38, 0.45)" }}
+              className="mt-5 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-zinc-950 via-[#100c0e] to-zinc-950 border border-zinc-800/80 shadow-2xl relative overflow-hidden group transition-all duration-300"
+            >
+              {/* Soft ambient background glow */}
+              <div className="absolute top-0 right-0 w-36 h-36 bg-crimson-600/10 blur-3xl rounded-full pointer-events-none group-hover:bg-crimson-600/20 transition-all duration-700" />
+              <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-emerald-600/5 blur-2xl rounded-full pointer-events-none" />
+
+              {/* Card Header: Status & Pulse */}
+              <div className="flex items-center justify-between pb-3 border-b border-zinc-900/90 relative z-10">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-200">
+                    ENGINEERING BENCHMARKS
+                  </span>
+                </div>
+
+                <span className="text-[9px] font-mono text-crimson-400 bg-crimson-950/70 border border-crimson-900/60 px-2 py-0.5 rounded font-bold uppercase tracking-wider">
+                  HIGH CONVERSION
+                </span>
+              </div>
+
+              {/* 3 Sleek Interactive Value Rows */}
+              <div className="py-3 space-y-2.5 relative z-10">
+                {/* Benchmark 1: Speed */}
+                <div className="flex items-center justify-between p-2 rounded-xl bg-zinc-900/40 border border-zinc-800/60 hover:border-zinc-700/80 hover:bg-zinc-900/70 transition-all duration-200">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-6 h-6 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-amber-400 text-xs shrink-0">
+                      <FaBolt />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-bold text-zinc-200 block leading-tight">
+                        Ultra-Fast Performance
+                      </span>
+                      <span className="text-[9px] text-zinc-500 block leading-tight">
+                        98+ Lighthouse • Sub-second load
+                      </span>
+                    </div>
+                  </div>
+                  <span className="font-mono text-[10px] font-bold text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded border border-emerald-900/40">
+                    &lt;0.8s TTFB
+                  </span>
+                </div>
+
+                {/* Benchmark 2: Quality & Architecture */}
+                <div className="flex items-center justify-between p-2 rounded-xl bg-zinc-900/40 border border-zinc-800/60 hover:border-zinc-700/80 hover:bg-zinc-900/70 transition-all duration-200">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-6 h-6 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-crimson-400 text-xs shrink-0">
+                      <FaShieldAlt />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-bold text-zinc-200 block leading-tight">
+                        Clean Architecture
+                      </span>
+                      <span className="text-[9px] text-zinc-500 block leading-tight">
+                        TypeScript strict • Zero technical debt
+                      </span>
+                    </div>
+                  </div>
+                  <span className="font-mono text-[10px] font-bold text-zinc-300 bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-700/40">
+                    100% TypeSafe
+                  </span>
+                </div>
+
+                {/* Benchmark 3: Delivery Timeline */}
+                <div className="flex items-center justify-between p-2 rounded-xl bg-zinc-900/40 border border-zinc-800/60 hover:border-zinc-700/80 hover:bg-zinc-900/70 transition-all duration-200">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-6 h-6 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-cyan-400 text-xs shrink-0">
+                      <FaRocket />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-bold text-zinc-200 block leading-tight">
+                        Rapid MVP Sprints
+                      </span>
+                      <span className="text-[9px] text-zinc-500 block leading-tight">
+                        From concept to production launch
+                      </span>
+                    </div>
+                  </div>
+                  <span className="font-mono text-[10px] font-bold text-cyan-400 bg-cyan-950/50 px-2 py-0.5 rounded border border-cyan-900/40">
+                    7–14 Days
+                  </span>
+                </div>
+              </div>
+
+              {/* Bottom Quick Action: Direct Warranty & Link */}
+              <div className="pt-2 border-t border-zinc-900 relative z-10 flex items-center justify-between text-[10px]">
+                <span className="text-zinc-500 font-mono flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-crimson-500" />
+                  <span>30-Day Post-Launch Warranty</span>
+                </span>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-1 font-bold text-crimson-400 hover:text-white uppercase tracking-wider transition-colors duration-200 group/link"
+                >
+                  <span>Start a Sprint</span>
+                  <FaArrowRight className="text-[8px] group-hover/link:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Column 3: CLIENT VALUE & EDITORIAL CARD (4 Cols) */}
@@ -685,7 +795,7 @@ export default function About() {
                 {/* Key Metrics Banner */}
                 <div className="grid grid-cols-3 gap-2 py-2.5 px-3 rounded-xl bg-black/40 border border-red-500/25 text-center">
                   <div>
-                    <span className="text-sm sm:text-base font-black text-white font-mono block">15+</span>
+                    <span className="text-sm sm:text-base font-black text-white font-mono block">20+</span>
                     <span className="text-[8px] uppercase tracking-wider text-red-200">Global Apps</span>
                   </div>
                   <div>
