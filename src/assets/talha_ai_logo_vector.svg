@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117 126" fill="currentColor">
+  <!-- Arc / Headset with rounded caps -->
+  <path d="M 16 90 A 42 42 0 0 1 101 90" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="round" />
+  <!-- Left Eye -->
+  <circle cx="42.5" cy="63.2" r="8.5" fill="currentColor" />
+  <!-- Right Eye -->
+  <circle cx="74.5" cy="63.2" r="8.5" fill="currentColor" />
+  <!-- Speech Bubble Mouth -->
+  <path d="M 38 92 C 26 92 23 99 23 103 C 23 111 34 117 48 117 L 54 125 L 56 117 C 80 117 94 111 94 103 C 94 95 80 92 58 92 Z" fill="currentColor" />
+</svg>

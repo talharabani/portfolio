@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FaRobot,
   FaTimes,
   FaPaperPlane,
   FaTrashAlt,
@@ -14,8 +13,8 @@ import {
   FaStop,
   FaCommentDots,
 } from "react-icons/fa";
-import { SiN8N } from "react-icons/si";
 import profileImg from "../assets/talha1.png";
+import talhaAiLogo from "../assets/talha_ai_logo.png";
 
 interface Message {
   id: string;
@@ -785,7 +784,11 @@ export default function ChatBot() {
             <FaTimes className="text-lg sm:text-xl transition-transform group-hover:rotate-90 duration-300" />
           ) : (
             <>
-              <FaRobot className="text-xl sm:text-2xl transition-transform group-hover:scale-110 duration-200" />
+              <img
+                src={talhaAiLogo}
+                alt="Talha AI"
+                className="w-6 h-6 sm:w-7 sm:h-7 object-contain transition-transform group-hover:scale-110 duration-200 select-none pointer-events-none drop-shadow"
+              />
               {hasUnread && (
                 <span className="absolute -top-1 -right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-emerald-500 border-2 border-black rounded-full animate-pulse" />
               )}
@@ -1013,20 +1016,19 @@ export default function ChatBot() {
                   <div className="flex items-center gap-3">
                     <div className="relative">
                       <div className="w-9 h-9 rounded-full bg-crimson-600/30 border border-crimson-500/50 flex items-center justify-center text-crimson-400">
-                        <FaRobot className="text-base" />
+                        <img
+                          src={talhaAiLogo}
+                          alt="Talha AI"
+                          className="w-5 h-5 object-contain select-none pointer-events-none"
+                        />
                       </div>
                       <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-black ring-1 ring-emerald-500/50" />
                     </div>
 
                     <div>
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-sm font-black uppercase tracking-wider text-white">
-                          TALHA AI
-                        </h3>
-                        <span className="text-[9px] font-mono bg-crimson-950/80 text-crimson-300 border border-crimson-800/60 px-1.5 py-0.2 rounded font-bold uppercase tracking-tight">
-                          Groq Fast
-                        </span>
-                      </div>
+                      <h3 className="text-sm font-black uppercase tracking-wider text-white">
+                        TALHA AI
+                      </h3>
                       <p className="text-[10px] text-zinc-400 font-medium">
                         Portfolio &amp; Project Assistant
                       </p>
@@ -1035,6 +1037,22 @@ export default function ChatBot() {
 
                   {/* Action Buttons */}
                   <div className="flex items-center gap-1.5 text-zinc-400">
+                    {/* Toggle Voice Audio Mute */}
+                    <button
+                      onClick={() => {
+                        if (!isMuted && isSpeaking) stopSpeaking();
+                        setIsMuted(!isMuted);
+                      }}
+                      className="p-1.5 rounded-lg hover:bg-zinc-800 hover:text-zinc-200 transition text-xs cursor-pointer"
+                      title={isMuted ? "Unmute Voice Answers" : "Mute Voice Answers"}
+                    >
+                      {isMuted ? (
+                        <FaVolumeMute className="text-red-400 text-xs" />
+                      ) : (
+                        <FaVolumeUp className="text-emerald-400 text-xs" />
+                      )}
+                    </button>
+
                     {/* Toggle to Full Voice Mode */}
                     <button
                       onClick={() => {
@@ -1051,7 +1069,7 @@ export default function ChatBot() {
                     <button
                       onClick={clearChat}
                       title="Clear chat history"
-                      className="p-1.5 rounded-lg hover:bg-zinc-800 hover:text-zinc-200 transition text-xs"
+                      className="p-1.5 rounded-lg hover:bg-zinc-800 hover:text-zinc-200 transition text-xs cursor-pointer"
                     >
                       <FaTrashAlt />
                     </button>
@@ -1062,40 +1080,11 @@ export default function ChatBot() {
                         setIsOpen(false);
                       }}
                       title="Minimize chat"
-                      className="p-1.5 rounded-lg hover:bg-zinc-800 hover:text-zinc-200 transition text-sm"
+                      className="p-1.5 rounded-lg hover:bg-zinc-800 hover:text-zinc-200 transition text-sm cursor-pointer"
                     >
                       <FaChevronDown />
                     </button>
                   </div>
-                </div>
-
-                {/* Quick Context Bar */}
-                <div className="bg-crimson-950/20 border-b border-crimson-900/30 px-3.5 py-1.5 flex items-center justify-between text-[10px] text-zinc-400 font-mono shrink-0">
-                  <span className="flex items-center gap-1.5 text-zinc-300">
-                    <SiN8N className="text-crimson-500 text-xs" />
-                    <span>13 Live Systems + 3 n8n Pipelines Loaded</span>
-                  </span>
-
-                  <button
-                    onClick={() => {
-                      if (!isMuted && isSpeaking) stopSpeaking();
-                      setIsMuted(!isMuted);
-                    }}
-                    className="flex items-center gap-1 text-[9px] hover:text-white transition"
-                    title={isMuted ? "Unmute Voice Answers" : "Mute Voice Answers"}
-                  >
-                    {isMuted ? (
-                      <>
-                        <FaVolumeMute className="text-red-400 text-xs" />
-                        <span>Muted</span>
-                      </>
-                    ) : (
-                      <>
-                        <FaVolumeUp className="text-emerald-400 text-xs" />
-                        <span>Voice On</span>
-                      </>
-                    )}
-                  </button>
                 </div>
 
                 {/* Messages Container */}
@@ -1120,7 +1109,15 @@ export default function ChatBot() {
                               : "bg-crimson-600/30 text-crimson-400 border border-crimson-500/40"
                           }`}
                         >
-                          {msg.role === "user" ? <FaUser /> : <FaRobot />}
+                          {msg.role === "user" ? (
+                            <FaUser />
+                          ) : (
+                            <img
+                              src={talhaAiLogo}
+                              alt="AI"
+                              className="w-3.5 h-3.5 object-contain select-none pointer-events-none"
+                            />
+                          )}
                         </div>
 
                         {/* Speech Bubble */}
@@ -1156,7 +1153,11 @@ export default function ChatBot() {
                   {loading && (
                     <div className="flex items-center gap-2 text-zinc-400 text-xs">
                       <div className="w-6 h-6 rounded-full bg-crimson-600/20 text-crimson-400 flex items-center justify-center text-[10px] border border-crimson-500/30">
-                        <FaRobot />
+                        <img
+                          src={talhaAiLogo}
+                          alt="AI"
+                          className="w-3.5 h-3.5 object-contain select-none pointer-events-none"
+                        />
                       </div>
                       <div className="bg-zinc-900 border border-zinc-800 px-3.5 py-2 rounded-2xl rounded-bl-xs flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 animate-bounce" />

@@ -8,9 +8,9 @@ import {
   FaCopy,
   FaCheck,
   FaFileAlt,
-  FaRobot,
 } from "react-icons/fa";
 import FlyInText from "./FlyInText";
+import talhaAiLogo from "../assets/talha_ai_logo.png";
 
 export default function Footer() {
   const [copied, setCopied] = useState(false);
@@ -206,7 +206,11 @@ export default function Footer() {
                   onClick={triggerChat}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-crimson-900/40 hover:border-crimson-500/60 text-crimson-300 hover:text-white text-[11px] font-medium transition cursor-pointer"
                 >
-                  <FaRobot className="text-[11px] text-crimson-400" />
+                  <img
+                    src={talhaAiLogo}
+                    alt="AI"
+                    className="w-3.5 h-3.5 object-contain"
+                  />
                   <span>Talk with AI</span>
                 </button>
               </div>

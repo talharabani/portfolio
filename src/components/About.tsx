@@ -2,7 +2,7 @@ import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaSearch, FaLightbulb, FaPenNib, FaCode, FaPaperPlane, FaQuoteLeft,
-  FaExternalLinkAlt, FaNodeJs, FaRobot, FaGithub, FaCheckCircle,
+  FaExternalLinkAlt, FaNodeJs, FaGithub, FaCheckCircle,
   FaArrowRight, FaGraduationCap, FaBriefcase, FaLaptopCode
 } from "react-icons/fa";
 import {
@@ -16,6 +16,7 @@ import {
   SiDocker,
 } from "react-icons/si";
 import FlyInText from "./FlyInText";
+import talhaAiLogo from "../assets/talha_ai_logo.png";
 
 const educationList = [
   {
@@ -167,7 +168,7 @@ const skillsIntelligenceData: SkillIntelligence[] = [
   {
     id: "ai-agents",
     name: "AI & LLM AGENTS",
-    icon: <FaRobot className="text-crimson-400 text-base" />,
+    icon: <img src={talhaAiLogo} alt="AI" className="w-4 h-4 object-contain inline-block" />,
     experience: "2+ Years • RAG & Tool Calling",
     metric: "Sub-1s Voice & Text AI",
     deliverables: "Built autonomous multi-step agents, vector retrieval augmented generation (RAG), and integrated speech-to-speech voice assistants.",
