@@ -114,7 +114,7 @@ export default function Hero() {
             <div className="grid grid-cols-3 lg:grid-cols-1 gap-4 lg:gap-6 border-t lg:border-t-0 lg:border-l border-zinc-800/80 pt-4 lg:pt-2 pl-0 lg:pl-6 text-center lg:text-left">
               <div>
                 <div className="font-sans font-black text-3xl sm:text-4xl xl:text-5xl text-crimson-500 leading-none">
-                  5<span className="text-xl sm:text-2xl font-bold">+</span>
+                  4<span className="text-xl sm:text-2xl font-bold">+</span>
                 </div>
                 <div className="text-[9px] sm:text-[11px] font-bold tracking-wider sm:tracking-widest uppercase text-zinc-400 mt-1">
                   YEARS EXP

@@ -35,7 +35,7 @@ When responding in voice mode, keep answers concise, punchy, and conversational 
 - Location: Lahore, Pakistan (Available worldwide for freelance, remote contracts & full-time roles)
 - Education: Information Technology, Punjab University College of Information Technology (PUCIT, 2022-2026)
 - Experience: Software Engineer at DevelopSuite (Lahore, 2 years) & Freelance Full-Stack Developer at PureLogics
-- Experience & Track Record: 5+ Years in Full Stack Development, Enterprise SaaS, AI Agents & Workflow Automation. 20+ completed featured projects, 20+ satisfied global clients.
+- Experience & Track Record: 4+ Years in Full Stack Development, Enterprise SaaS, AI Agents & Workflow Automation. 20+ completed featured projects, 20+ satisfied global clients.
 - Contact:
   * Email: talhaishaqrabani@gmail.com
   * WhatsApp / Phone: +92 300 9490631 (Direct WhatsApp available)
@@ -452,7 +452,7 @@ function generateLocalFallbackResponse(query: string): string {
 
   // 4. Experience & Education
   if (testWords(["experience", "years", "background", "education", "pucit", "degree", "qualification", "bio"])) {
-    return "Talha has 5+ years of engineering experience across full-stack web applications, enterprise SaaS, POS/ERP platforms, and autonomous n8n workflows. He graduated in Information Technology from PUCIT (Punjab University) and has delivered solutions for 20+ global clients.";
+    return "Talha has 4+ years of engineering experience across full-stack web applications, enterprise SaaS, POS/ERP platforms, and autonomous n8n workflows. He graduated in Information Technology from PUCIT (Punjab University) and has delivered solutions for 20+ global clients.";
   }
 
   // 5. Skills & Tech Stack
@@ -472,11 +472,11 @@ function generateLocalFallbackResponse(query: string): string {
 
   // 8. Greetings (Only when greeting words are used standalone)
   if (testWords(["hi", "hello", "hey", "salam", "assalam", "aoa", "greetings", "morning", "evening"])) {
-    return "Hello! I'm Talha AI, Talha Ishaq Rabani's official portfolio assistant. How can I assist you today? You can ask me about his 20+ projects, 5+ years of experience, tech stack, or how to hire him!";
+    return "Hello! I'm Talha AI, Talha Ishaq Rabani's official portfolio assistant. How can I assist you today? You can ask me about his 20+ projects, 4+ years of experience, tech stack, or how to hire him!";
   }
 
   // Default Fallback
-  return "I'm Talha AI. Talha Ishaq Rabani is a Senior Full-Stack Developer & n8n Specialist with 5+ years of experience across 20+ projects (AgentLink, Vaypar, ChatWithoutTalk, DevYork, etc.). Feel free to ask about his projects, skills, or contact him directly on WhatsApp (+92 300 9490631) or email (talhaishaqrabani@gmail.com)!";
+  return "I'm Talha AI. Talha Ishaq Rabani is a Senior Full-Stack Developer & n8n Specialist with 4+ years of experience across 20+ projects (AgentLink, Vaypar, ChatWithoutTalk, DevYork, etc.). Feel free to ask about his projects, skills, or contact him directly on WhatsApp (+92 300 9490631) or email (talhaishaqrabani@gmail.com)!";
 }
 
 export default function ChatBot() {
