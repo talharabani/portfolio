@@ -45,7 +45,7 @@ export default function Hero() {
 
             <FlyInText
               as="p"
-              text="I design and build stylish, user-focused web experiences that combine creativity with rock-solid engineering. Passionate about clean architectures, smooth interactions, and AI workflows that deliver real business impact."
+              text="I build web apps, business tools and AI-powered automations. From POS systems to WhatsApp assistants and n8n workflows, I turn repetitive work into reliable, automated systems, with clean interfaces and solid engineering behind them."
               className="text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed max-w-sm mb-5 sm:mb-6"
               delay={0.45}
               stagger={0.02}
